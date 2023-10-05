@@ -1,47 +1,20 @@
 //dotnet run --project WebApplication1
 
-Console.WriteLine("> hello, user. please state your name.");
-string uname = Console.ReadLine().ToLower();
-Console.WriteLine("> welcome, " + uname + "\non a scale of \"good\" to \"potatoes\", how are you doing today?");
-string umood = Console.ReadLine().ToLower();
-if (umood == "potatoes"){
-    Console.WriteLine("> sorry to hear that");
+Console.WriteLine("> enter pw:");
+
+
+
+string pw = Console.ReadLine();
+
+
+
+if (pw == "mypassword"){
+    Console.WriteLine("> fine");
 }
-else if (umood == "good"){
-    Console.WriteLine("> good!");
+else{
+    Console.WriteLine("> you suck\n> anyway");
 }
-else {
-    Console.WriteLine("> okay...");
-}
-
-
-string yn;
-
-
-do
-        {
-            Console.WriteLine("> ready to begin?\ny/n");
-            yn = Console.ReadLine();
-
-            if (yn == "n"){
-                Console.WriteLine("> alright...");
-            }
-
-            if ( ( yn != "y" ) && ( yn != "n" )){
-                Console.WriteLine("> invalid input!");
-            }
-            
-
-        } while (yn != "y");
-
-        Console.WriteLine("alright!");
-
-
-
-
-
-
-
-
-
+Console.WriteLine("> what's your name?");
+string uname = Console.ReadLine();
+Console.WriteLine("> splendid, hi " + uname + "!\n> how old are you?");
 
