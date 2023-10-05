@@ -1,6 +1,30 @@
 //dotnet run --project WebApplication1
 
+string[] users = {"joe","john","stacy","karen"};
+string usercurrent;
 
+Console.WriteLine("> hello! enter your username:");
+usercurrent = Console.ReadLine();
+do{
+    Console.WriteLine("> that username is not in the database. please try again.");
+    usercurrent = Console.ReadLine();
+}
+while (!users.Contains(usercurrent));
+Console.WriteLine("> hello, " + usercurrent + "!\n> please enter your password:");
+string userpw = Console.ReadLine();
+
+
+/*
+
+ask for username
+if the username is on the users list (static),
+ask the password
+
+
+*/
+
+
+/* 
 Console.WriteLine("> enter pw:");
 string pw = Console.ReadLine();
 if (pw == "mypassword"){
@@ -33,4 +57,4 @@ do{
     int parsednumber = 0;
     parse = int.TryParse(unumber, out parsednumber);
 }
-while (!parse);
+while (!parse); */
