@@ -1,19 +1,21 @@
 //declarations
 int n1 = 0;
 int n2 = 0;
-string fb = "";
 
 Console.WriteLine("> counting up...");
 
 do
 {
-
-    if (n1 % 3 == 0 || n1 % 5 == 0)
+    if (n1 % 3 == 0 && n1 % 5 == 0)
     {
-
-
-
+        Console.Write("fizzbuzz");
+    }
+    else if (n1 % 3 == 0)
+    {
         Console.Write("fizz");
+    }
+    else if (n1 % 5 == 0)
+    {
         Console.Write("buzz");
     }
     else
@@ -29,3 +31,12 @@ do
 
 } while (n1 <= 50);
 
+
+int sum;
+for (int i = 0; i <= 20; i++)
+{
+
+    sum += i;
+    Console.WriteLine(sum);
+
+}
