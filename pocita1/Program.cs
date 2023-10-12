@@ -31,8 +31,9 @@ do
 
 } while (n1 <= 50);
 
+Console.WriteLine("fizzbussy out");
 
-int sum;
+int sum = 0;
 for (int i = 0; i <= 20; i++)
 {
 
