@@ -1,5 +1,5 @@
 //declarations
-string unum, ad;
+string unum;
 double n1, n2;
 bool ps;
 
@@ -30,16 +30,21 @@ do
 
 
 //choose operation
-Console.WriteLine("> add, subtract or divide? (a/s/m/d):");
-
+Console.WriteLine("> add, subtract, multiply, divide, % or ^? (a/s/m/d/%/^):");
+string ad;
+bool adreal = false;
 do
 {
     ad = Console.ReadLine();
-    if (ad != "a" && ad != "d" && ad != "s" && ad != "m")
+    if (ad == "a" || ad == "d" || ad == "s" || ad == "m" || ad == "%" || ad == "^")
     {
-        Console.WriteLine("> invalid input. \"a\", \"s\", \"m\" or \"d\" expected:");
+        adreal = true;
     }
-} while (ad != "a" && ad != "d" && ad != "s" && ad != "m");
+    if (!adreal)
+    {
+        Console.WriteLine("> invalid input. \"a\", \"s\", \"m\", \"d\", \"%\" or \"^\" expected:");
+    }
+} while (!adreal);
 
 //add
 if (ad == "a")
@@ -82,6 +87,30 @@ else if (ad == "d")
         Console.WriteLine(n1 / n2);
     }
 }
+
+//this %
+else if (ad == "%")
+{
+
+    if (n2 == 0)
+    {
+        Console.WriteLine("> critical error: cannot divide by 0. terminating program...");
+        Environment.Exit(0);
+    }
+    else
+    {
+        Console.Write("> " + n1 + "%" + n2 + " = ");
+        Console.WriteLine(n1 % n2);
+    }
+}
+
+/* //this ^
+if (ad == "%")
+{
+
+        Console.Write("> " + n1 + "^" + n2 + " = ");
+        Console.WriteLine(n1 ^ n2);
+} */
 
 
 Console.WriteLine("> thank you for using our services. goodbye!");
