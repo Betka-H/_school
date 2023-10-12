@@ -1,6 +1,6 @@
 //declarations
 string unum, ad;
-int n1, n2;
+double n1, n2;
 bool ps;
 
 
@@ -9,7 +9,7 @@ Console.WriteLine("> hello. please enter a number:");
 do
 {
     unum = Console.ReadLine();
-    ps = int.TryParse(unum, out n1);
+    ps = double.TryParse(unum, out n1);
     if (!ps)
     {
         Console.WriteLine("> that's not a number. enter a number:");
@@ -21,7 +21,7 @@ Console.WriteLine("> enter a second number:");
 do
 {
     unum = Console.ReadLine();
-    ps = int.TryParse(unum, out n2);
+    ps = double.TryParse(unum, out n2);
     if (!ps)
     {
         Console.WriteLine("> that's not a number. enter a number:");
@@ -75,11 +75,12 @@ else if (ad == "d")
         Console.WriteLine("> critical error: cannot divide by 0. terminating program...");
         Environment.Exit(0);
     }
+    else
+    {
+        Console.Write("> " + n1 + "/" + n2 + "=");
+        Console.WriteLine(n1 / n2);
+    }
 }
-else
-{
-    Console.Write("> " + n1 + "/" + n2 + "=");
-    Console.WriteLine(n1 / n2);
-}
+
 
 Console.WriteLine("> thank you for using our services. goodbye!");
