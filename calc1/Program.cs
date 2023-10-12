@@ -45,7 +45,7 @@ do
 if (ad == "a")
 {
 
-    Console.Write("> " + n1 + "+" + n2 + "=");
+    Console.Write("> " + n1 + "+" + n2 + " = ");
     Console.WriteLine(n1 + n2);
 
 }
@@ -53,7 +53,7 @@ if (ad == "a")
 else if (ad == "s")
 {
 
-    Console.Write("> " + n1 + "-" + n2 + "=");
+    Console.Write("> " + n1 + "-" + n2 + " = ");
     Console.WriteLine(n1 - n2);
 
 }
@@ -62,7 +62,7 @@ else if (ad == "s")
 else if (ad == "s")
 {
 
-    Console.Write("> " + n1 + "*" + n2 + "=");
+    Console.Write("> " + n1 + "*" + n2 + " = ");
     Console.WriteLine(n1 * n2);
 
 }
@@ -70,6 +70,7 @@ else if (ad == "s")
 //divide
 else if (ad == "d")
 {
+
     if (n2 == 0)
     {
         Console.WriteLine("> critical error: cannot divide by 0. terminating program...");
@@ -77,7 +78,7 @@ else if (ad == "d")
     }
     else
     {
-        Console.Write("> " + n1 + "/" + n2 + "=");
+        Console.Write("> " + n1 + "/" + n2 + " = ");
         Console.WriteLine(n1 / n2);
     }
 }
