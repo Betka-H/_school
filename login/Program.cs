@@ -1,6 +1,6 @@
 //declarations
-string[] users = { "joe", "john", "stacy", "karen" };
-string[] pws = { "joesawesomepassword", "imjohn42", "3141592653", "password123" };
+string[] users = { "joe", "john", "stacy", "karen", "may" };
+string[] pws = { "joesawesomepassword", "imjohn42", "3141592653", "password123", "junejuly" };
 string usercurrent;
 string userpw;
 int pwatt = 3;
@@ -21,7 +21,7 @@ while (!users.Contains(usercurrent));
 
 int userindex = Array.IndexOf(users, usercurrent);
 string correctpw = pws[userindex];
-Console.WriteLine(">>> debug pass is: " + correctpw);
+Console.WriteLine("[debug] " + correctpw);
 //asks for pw until ???
 Console.WriteLine("> hello, " + usercurrent + "!\n> please enter your password:");
 
