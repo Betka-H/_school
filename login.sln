@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pocita1", "pocita1\pocita1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calc1", "calc1\calc1.csproj", "{BB628CAF-D583-4195-8577-2CD309C63B87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ivt_ukol1", "ivt_ukol1\ivt_ukol1.csproj", "{D9C58035-AA90-4CE8-9C5A-9FC17785B41E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{BB628CAF-D583-4195-8577-2CD309C63B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB628CAF-D583-4195-8577-2CD309C63B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB628CAF-D583-4195-8577-2CD309C63B87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C58035-AA90-4CE8-9C5A-9FC17785B41E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C58035-AA90-4CE8-9C5A-9FC17785B41E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C58035-AA90-4CE8-9C5A-9FC17785B41E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C58035-AA90-4CE8-9C5A-9FC17785B41E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
