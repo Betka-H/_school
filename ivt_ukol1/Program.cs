@@ -4,7 +4,6 @@ string cont = "r";
 double n1, n2;
 bool ps;
 
-
 Console.WriteLine("> hello. please enter a number:");
 do
 {
@@ -47,7 +46,7 @@ do
         Console.WriteLine("> " + n1 + " equals " + n2);
     }
 
-    Console.WriteLine("> do you want to repeat the program? (\"r\" to repeat, \"e\" to exit)");
+    Console.WriteLine("> do you want to repeat the program? (\"r\" to repeat, \"enter\" to exit)");
     cont = Console.ReadLine();
     if (cont == "r") { Console.WriteLine("> repeating program...\n> please enter a number:"); }
 } while (cont == "r");
