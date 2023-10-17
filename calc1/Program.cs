@@ -3,8 +3,9 @@ string unum;
 double n1, n2;
 bool ps;
 
-
+Console.ForegroundColor = ConsoleColor.DarkMagenta;
 Console.WriteLine("> hello. please enter a number:");
+Console.ForegroundColor = ConsoleColor.Yellow;
 
 do
 {
@@ -104,13 +105,13 @@ else if (ad == "%")
     }
 }
 
-//this ^
+/* //this ^
 if (ad == "%")
 {
 
     Console.Write("> " + n1 + "^" + n2 + " = ");
     Console.WriteLine(n1 ^ n2);
-}
+} */
 
 
 Console.WriteLine("> thank you for using our services. goodbye!");
