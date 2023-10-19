@@ -1,8 +1,10 @@
 //declarations
+using System.Runtime.CompilerServices;
+
 string unum;
 double n1, n2;
 bool ps;
-string repeat = "true";
+string repeat;
 
 do
 {
@@ -112,7 +114,12 @@ do
             break;
         case "p":
             Console.Write("> " + n1 + "^" + n2 + " = ");
-            Console.Write("> idk how to do powers");
+            double pRes = 1;
+            for (int i = 0; i < n2; i++)
+                pRes = n1 * pRes;
+            Console.WriteLine(pRes);
+
+
             break;
     }
 
