@@ -1,67 +1,80 @@
-using System.ComponentModel;
-using Microsoft.Extensions.Logging.Console;
-//dec
+//begin intro
+
+
+
+string userInput;
+
+Console.WriteLine("> welcome! are you a person? (y/n)");
+//yn
+do
+{
+    userInput = Console.ReadLine().ToLower();
+    switch (userInput)
+    {
+        case "y":
+            break;
+        case "n":
+            Console.WriteLine("> err 503: user not a person...\n> terminating program...");
+            Environment.Exit(0);
+            break;
+        default:
+            Console.WriteLine("> invalid input : (y/n) expected.");
+            Console.WriteLine("> are you a person?");
+            break;
+    }
+} while (userInput != "y");
+
+
+
+Console.WriteLine("> splendid! person, are you ready to enter the game?");
+//yn
+do
+{
+    userInput = Console.ReadLine().ToLower();
+    switch (userInput)
+    {
+        case "y":
+            break;
+        case "n":
+            Console.WriteLine("> alright\n> ...\n> ...\n> ...\n> ready now? (y/n)");
+            break;
+        default:
+            Console.WriteLine("> invalid input : (y/n) expected.");
+            Console.WriteLine("> are you ready to enter the game?");
+            break;
+    }
+} while (userInput != "y");
+
+
+
+Console.WriteLine("> got it. let's begin.\n");
+
+
+
+//end intro
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//begin day
+
+
+
 bool alive = true;
-string yn;
+string time;
 
-//intro
-Console.WriteLine("> welcome! are you a person?\n>> (y/n)");
 do
 {
-    yn = Console.ReadLine();
-    if (yn == "y")
-    {
-        Console.WriteLine("> great!");
-    }
-    else if (yn == "n")
-    {
-        Console.WriteLine("> err 503: user not a person...\n> terminating program...");
-        Environment.Exit(0);
-    }
-    else
-    {
-        Console.WriteLine("> invalid input :(\n> are you a person?\n>> (y/n)");
-    }
-}
-while (yn != "y");
+    time = "morning";
 
-Console.WriteLine("> hello person! ready to enter the game?\n>> (y/n)");
-do
-{
-    yn = Console.ReadLine();
-    if (yn == "n")
-    {
-        Console.WriteLine("> alright\n> ...\n> ...\n> ...\n> ready now?\n>> (y/n)");
-    }
-    else if (yn != "y" && yn != "n")
-    {
-        Console.WriteLine("> invalid input :(\n> start the game?\n>> (y/n)");
-    }
-}
-while (yn != "y");
-Console.WriteLine("> got it.\n> let's begin.");
-
-
-
-
-
-//day
-do
-{
-    string time = "morn";
-
+    //morning
     do
     {
-        //morning stuff///////////////////////////////////////////////////////////////////////////////////////
-        Console.WriteLine("morning stuff\n> press enter to continue:");
-        Console.ReadLine();
+        Console.WriteLine("morning stuff");
+
         time = "work";
+    } while (time == "morning");
 
-    } while (time == "morn");
-
+    //work
     do
     {
-        //work stuff///////////////////////////////////////////////////////////////////////////////////////
         //several types of work
         //1 - count up/down to 8-32 numbers
         //2 - sort stuff from categories - animals, clothes, seasons, sports, foods...
@@ -71,62 +84,62 @@ do
         //random number for each work
         //workx - work index
         Random rnd = new Random();
-        int workx  = rnd.Next(4);
-        if (workx==0)
+        int workx = rnd.Next(4);
+        if (workx == 0)
         {
             Console.WriteLine("work 0");
         }
-        else if (workx==1)
+        else if (workx == 1)
         {
             Console.WriteLine("work 1");
         }
-        else if (workx==2)
+        else if (workx == 2)
         {
             Console.WriteLine("work 2");
         }
-        else if (workx==3)
+        else if (workx == 3)
         {
             Console.WriteLine("work 3");
         }
-        else if (workx==4)
+        else if (workx == 4)
         {
             Console.WriteLine("work 4");
         }
-        
 
 
 
-        Console.WriteLine("work stuff\n> press enter to continue:");
-        Console.ReadLine();
 
-        //end of work stuff///////////////////////////////////////////////////////////////////////////////////////
-        time = "eve";
+        Console.WriteLine("work stuff");
+
+        time = "evening";
     } while (time == "work");
 
+    //evening
     do
     {
-        //evening stuff///////////////////////////////////////////////////////////////////////////////////////
-        Console.WriteLine("evening stuff\n> press enter to continue:");
-        Console.ReadLine();
+        Console.WriteLine("evening stuff");
+
         time = "morning";
+    } while (time == "evening");
 
-    } while (time == "eve");
-
-    //exit confirmation///////////////////////////////////////////////////////////////////////////////////////    
-    Console.WriteLine("> do you want to go on? \n>> (y/n)");
+    //exit confirmation///////////////////////////////////////////////////////////////////////////////////////
+    Console.WriteLine("> do you want to go on? (y/n)");
     do
     {
-        yn = Console.ReadLine();
-        if (yn == "n")
+        userInput = Console.ReadLine().ToLower();
+        switch (userInput)
         {
-            Console.WriteLine("> terminating program...\n> goodbye, person.");
-            Environment.Exit(0);
+            case "y":
+                break;
+            case "n":
+                Console.WriteLine("> terminating program...\n> ...\n> ...\n> ...\n\ngoodbye, person.");
+                Environment.Exit(0);
+                break;
+            default:
+                Console.WriteLine("> stop fooling around. (y/n). answer.");
+                Console.WriteLine("do you want to go on?");
+                break;
         }
-        else if (yn != "y" && yn != "n")
-        {
-            Console.WriteLine("> stop fooling around.");
-        }
-    }
-    while (yn != "y");
+    } while (userInput != "y");
 
 } while (alive);

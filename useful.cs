@@ -180,3 +180,22 @@ switch (foo)
         Console.WriteLine("habdkajsbhasbgbdshdbgs");
         break;
 }
+
+//yn module
+do
+{
+    userInput = Console.ReadLine().ToLower();
+    switch (userInput)
+    {
+        case "y":
+            break;
+        case "n":
+            Console.WriteLine("answered no");
+            //Environment.Exit(0);
+            break;
+        default:
+            Console.WriteLine("> invalid input : (y/n) expected.");
+            Console.WriteLine("question repeat");
+            break;
+    }
+} while (userInput != "y");
