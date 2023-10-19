@@ -5,8 +5,8 @@
 
 
 
-Console.Write("h"); //dont write a new line
-Console.WriteLine("elo worl"); //write on a new line
+Console.Write("h"); //dont end with a new line
+Console.WriteLine("elo worl"); //end with a new line
 
 int num1 = 2; //integers
 int num2 = 5;
@@ -89,13 +89,16 @@ Console.WriteLine("> hello, user. please state your name.");
 string uname = Console.ReadLine().ToLower();
 Console.WriteLine("> welcome, " + uname + "\non a scale of \"good\" to \"potatoes\", how are you doing today?");
 string umood = Console.ReadLine().ToLower();
-if (umood == "potatoes"){
+if (umood == "potatoes")
+{
     Console.WriteLine("> sorry to hear that");
 }
-else if (umood == "good"){
+else if (umood == "good")
+{
     Console.WriteLine("> good!");
 }
-else {
+else
+{
     Console.WriteLine("> okay...");
 }
 
@@ -104,22 +107,24 @@ string yn;
 
 
 do
-        {
-            Console.WriteLine("> ready to begin?\ny/n");
-            yn = Console.ReadLine();
+{
+    Console.WriteLine("> ready to begin?\ny/n");
+    yn = Console.ReadLine();
 
-            if (yn == "n"){
-                Console.WriteLine("> alright...");
-            }
+    if (yn == "n")
+    {
+        Console.WriteLine("> alright...");
+    }
 
-            if ( ( yn != "y" ) && ( yn != "n" )){
-                Console.WriteLine("> invalid input!");
-            }
-            
+    if ((yn != "y") && (yn != "n"))
+    {
+        Console.WriteLine("> invalid input!");
+    }
 
-        } while (yn != "y");
 
-        Console.WriteLine("alright!");
+} while (yn != "y");
+
+Console.WriteLine("alright!");
 
 
 
@@ -127,10 +132,12 @@ do
 
 Console.WriteLine("> enter pw:");
 string pw = Console.ReadLine();
-if (pw == "mypassword"){
+if (pw == "mypassword")
+{
     Console.WriteLine("> fine");
 }
-else{
+else
+{
     Console.WriteLine("> you suck\n> anyway");
 }
 Console.WriteLine("> what's your name?");
@@ -144,17 +151,32 @@ string uinputage = Console.ReadLine();
 int uage = 0;
 bool agevalid = int.TryParse(uinputage, out uage);
 
-for (int lowage = 18; uage > lowage; lowage = lowage+1){
+for (int lowage = 18; uage > lowage; lowage = lowage + 1)
+{
     Console.WriteLine(lowage);
 }
 
 //the holy grail vvvvv
 
 bool parse;
-do{
+do
+{
     Console.WriteLine("> give me a number");
     string unumber = Console.ReadLine();
     int parsednumber = 0;
     parse = int.TryParse(unumber, out parsednumber);
 }
 while (!parse);
+
+bool isseven = x == 7; //is true depending on whether x == 7 or not
+
+
+switch (foo)
+{
+    case "value1":
+        Console.WriteLine("bjdkashfjlaksfhalksjhf");
+        break;
+    case "value2":
+        Console.WriteLine("habdkajsbhasbgbdshdbgs");
+        break;
+}
