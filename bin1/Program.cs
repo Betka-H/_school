@@ -1,8 +1,5 @@
 //declarations
-string unum;
 string repeatprogram = "r";
-double n1, n2;
-bool ps;
 string[] alphabet = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
 
 Console.WriteLine("> hello. this is a binary translator. input plain text or binary to start.");
