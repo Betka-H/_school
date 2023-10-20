@@ -14,7 +14,7 @@ do
         case "y":
             break;
         case "n":
-            Console.WriteLine("> err 503: user not a person...\n> terminating program...");
+            Console.WriteLine("> err 401: user is not a person\n> terminating program...");
             Environment.Exit(0);
             break;
         default:
@@ -23,8 +23,6 @@ do
             break;
     }
 } while (userInput != "y");
-
-
 
 Console.WriteLine("> splendid! person, are you ready to enter the game?");
 //yn
@@ -36,7 +34,8 @@ do
         case "y":
             break;
         case "n":
-            Console.WriteLine("> alright\n> ...\n> ...\n> ...\n> ready now? (y/n)");
+            Console.WriteLine("> err 204: user backed out...\n> terminating program...");
+            Environment.Exit(0);
             break;
         default:
             Console.WriteLine("> invalid input : (y/n) expected.");
@@ -45,9 +44,7 @@ do
     }
 } while (userInput != "y");
 
-
-
-Console.WriteLine("> got it. let's begin.\n");
+Console.WriteLine("> got it. let's begin.\n\n> loading resources...\n> booting up...\n> done! 42 resources loaded. time taken: 152ms\n");
 
 
 
@@ -57,17 +54,21 @@ Console.WriteLine("> got it. let's begin.\n");
 
 
 
+Random rnd = new Random();
 bool alive = true;
 string time;
+int dayCount = 0;
 
+//day loop
 do
 {
+    dayCount += 1;
     time = "morning";
 
     //morning
     do
     {
-        Console.WriteLine("morning stuff");
+        Console.WriteLine("> day " + dayCount);
 
         time = "work";
     } while (time == "morning");
@@ -83,33 +84,91 @@ do
         //5 -
         //random number for each work
         //workx - work index
-        Random rnd = new Random();
-        int workx = rnd.Next(4);
-        if (workx == 0)
+        Console.WriteLine("> module \"work\" loaded\n> press enter to begin working phase");
+        Console.ReadLine();
+        //global variables
+        bool intParse;
+        int workNumber = rnd.Next(1);//how many works to choose from
+
+        int w12CountMin = 5;
+        int w12CountMax = 32;
+        //w1 variables
+        int w1Goal, w1UserInt;
+        string w1UserString;
+        w1Goal = rnd.Next(w12CountMin, w12CountMax);
+        int w1Track = 0;
+        //w2 variables
+        int w2Goal, w2UserInt;
+        string w2UserString;
+        w2Goal = rnd.Next(w12CountMin, w12CountMax);
+        int w2Track = w2Goal + 1;
+
+        switch (workNumber)
         {
-            Console.WriteLine("work 0");
-        }
-        else if (workx == 1)
-        {
-            Console.WriteLine("work 1");
-        }
-        else if (workx == 2)
-        {
-            Console.WriteLine("work 2");
-        }
-        else if (workx == 3)
-        {
-            Console.WriteLine("work 3");
-        }
-        else if (workx == 4)
-        {
-            Console.WriteLine("work 4");
+            //counting up///////////////////////////////////////////////////////////////////////////////////
+            case 0:
+                Console.WriteLine("> count up to " + w1Goal + ":");
+                //counting up
+                do
+                {
+                    w1Track++;
+                    w1UserString = Console.ReadLine();
+                    intParse = int.TryParse(w1UserString, out w1UserInt);
+                    if (!intParse)
+                    {
+                        Console.WriteLine("> that's not a number. enter a number:");
+
+                    }
+                    else if (w1UserInt != w1Track)
+                    {
+                        Console.WriteLine("> that's the wrong number.\n> tip : start with \"1\"");
+                        w1Track = 0;
+                    }
+                } while (w1UserInt != w1Goal);
+                Console.WriteLine("> press enter to exit");
+                Console.ReadLine();
+                break;
+            //counting down///////////////////////////////////////////////////////////////////////////////////
+            case 1:
+                Console.WriteLine("> count down from " + w2Goal + ":");
+                //counting down
+                do
+                {
+                    w2Track--;
+                    w2UserString = Console.ReadLine();
+                    intParse = int.TryParse(w2UserString, out w2UserInt);
+                    if (!intParse)
+                    {
+                        Console.WriteLine("> that's not a number. enter a number:");
+
+                    }
+                    else if (w2UserInt != w2Track)
+                    {
+                        Console.WriteLine("> that's the wrong number.\n> tip : start with " + w2Goal);
+                        w2Track = w2Goal + 1;
+                    }
+                } while (w2UserInt != 1);
+                Console.WriteLine("> press enter to exit");
+                Console.ReadLine();
+                break;
+            //a///////////////////////////////////////////////////////////////////////////////////
+            case 2:
+                Console.WriteLine("]] work 3 [[");
+                break;
+            //a///////////////////////////////////////////////////////////////////////////////////
+            case 3:
+                Console.WriteLine("]] work 4 [[");
+                break;
+            //a///////////////////////////////////////////////////////////////////////////////////
+            case 4:
+                Console.WriteLine("]] work 5 [[");
+                break;
         }
 
 
 
 
-        Console.WriteLine("work stuff");
+
 
         time = "evening";
     } while (time == "work");
@@ -118,8 +177,7 @@ do
     do
     {
         Console.WriteLine("evening stuff");
-
-        time = "morning";
+        time = "to die";
     } while (time == "evening");
 
     //exit confirmation///////////////////////////////////////////////////////////////////////////////////////
@@ -132,12 +190,12 @@ do
             case "y":
                 break;
             case "n":
-                Console.WriteLine("> terminating program...\n> ...\n> ...\n> ...\n\ngoodbye, person.");
+                Console.WriteLine("> terminating program...\n\ngoodbye, person.");
                 Environment.Exit(0);
                 break;
             default:
                 Console.WriteLine("> stop fooling around. (y/n). answer.");
-                Console.WriteLine("do you want to go on?");
+                Console.WriteLine("> do you want to go on?");
                 break;
         }
     } while (userInput != "y");
