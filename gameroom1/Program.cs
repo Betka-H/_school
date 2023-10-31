@@ -82,7 +82,7 @@ do
         //1 - count up/down to 8-32 numbers
         //2 - sort stuff from categories - animals, clothes, seasons, sports, foods...
         //3 - write a letter - same mechanics as numbers ig??
-        //4 - 
+        //4 - kostky??
         //5 -
         //random number for each work
         //workx - work index
@@ -90,10 +90,11 @@ do
         Console.ReadLine();
         //global variables
         bool intParse;
-        int workNumber = rnd.Next(1);//how many works to choose from
+        int workNumber = rnd.Next(1,1);//how many works to choose from
 
         int w12CountMin = 5;
         int w12CountMax = 32;
+        int w12RndMsgChance = 52; // 0-64, the higher, the more messages
         //w1 variables
         int w1Goal, w1UserInt;
         string w1UserString;
@@ -132,7 +133,7 @@ do
                     }
                     w1Remaining = w1Goal - w1Track;
                     w1MsgChance = rnd.Next(64);
-                    if (w1MsgChance > 52 && w1Track > 5 && w1Track != w1Goal)
+                    if (w1MsgChance > w12RndMsgChance && w1Track > 5 && w1Track != w1Goal)
                     {
                         Console.WriteLine("you're doing great! only " + w1Remaining + " more until " + w1Goal + "!");
                     }
