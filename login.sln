@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bin1", "bin1\bin1.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upto100", "upto100\upto100.csproj", "{F7C717D3-5654-4C27-B2FA-02B8A713A0D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ivt_ukol2", "ivt_ukol2\ivt_ukol2.csproj", "{F06811AE-A38E-45BA-AEE5-A18015E3492E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{F7C717D3-5654-4C27-B2FA-02B8A713A0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7C717D3-5654-4C27-B2FA-02B8A713A0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7C717D3-5654-4C27-B2FA-02B8A713A0D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F06811AE-A38E-45BA-AEE5-A18015E3492E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F06811AE-A38E-45BA-AEE5-A18015E3492E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F06811AE-A38E-45BA-AEE5-A18015E3492E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F06811AE-A38E-45BA-AEE5-A18015E3492E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
