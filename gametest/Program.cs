@@ -80,6 +80,7 @@ if (w3ItemAmount <= 0)
 ///////////xxxxxxxxxxxxxxxxxxxxxxxxx
 Console.ForegroundColor = ConsoleColor.Cyan;
 Console.WriteLine(">>>>> | start | <<<<<");
+Console.WriteLine(DateTime.Now);
 Console.ForegroundColor = ConsoleColor.Gray;
 // for the requested amount of categories
 for (int i = 1; i <= w3CatAmount; i++)
@@ -93,36 +94,12 @@ for (int i = 1; i <= w3CatAmount; i++)
     {
         Array.Resize(ref w3CategoriesChosen, i); // resizes chosen category array  to i
         w3CategoriesChosen[i - 1] = w3AllCategories[w3CatRandom]; // writes the category name into the chosen categories array
-
-        // generate items!!!
-
-        for (int j = 1; j <= w3ItemAmount; j++)
-        {
-
-            w3ItemRandom = rnd.Next(w3AllItems[w3CatRandom].Count()); // chooses a random index from all the existing items in the category
-            Console.Write(w3ItemRandom);
-
-            if (!w3ItemsChosen.Contains(w3AllItems[w3CatRandom][w3ItemRandom])) // only runs if the category isnt already in the list
-            {
-                Console.WriteLine("yes");
-                Array.Resize(ref w3ItemsChosen, j);
-                w3ItemsChosen[j - 1] = w3AllItems[w3CatRandom][w3ItemRandom];
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("the item is in the array already. skipping");  // debug
-                Console.ForegroundColor = ConsoleColor.Gray;
-                j--;
-            }
-        }
-
     }
     else // skip
     {
-        /* Console.ForegroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("the category is in the array already. skipping");  // debug
-        Console.ForegroundColor = ConsoleColor.Gray; */
+        Console.ForegroundColor = ConsoleColor.Gray;
         i--;
     }
 
@@ -132,6 +109,35 @@ for (int i = 1; i <= w3CatAmount; i++)
 }
 
 
+for (int i = 1; i <= w3ItemAmount; i++)
+{
+
+    w3ItemRandom = rnd.Next(w3AllItems[
+        Array.IndexOf(w3CategoriesChosen[i - 1], w3AllCategories)
+
+
+    ].Count()); // chooses a random index from all the existing items in the category
+    Console.Write(w3ItemRandom);
+    Console.Write(": ");
+    Console.Write(w3AllItems[i - 1][w3ItemRandom]);
+
+    if (!w3ItemsChosen.Contains(w3AllItems[i - 1][w3ItemRandom])) // only runs if the category isnt already in the list
+    {
+        Console.WriteLine();
+        Array.Resize(ref w3ItemsChosen, i);
+        w3ItemsChosen[i - 1] = w3AllItems[i - 1][w3ItemRandom];
+    }
+    else // skip
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(" > the item is in the array already. skipping");  // debug
+        Console.ForegroundColor = ConsoleColor.Gray;
+        i--;
+    }
+
+
+
+}
 
 
 ///////////xxxxxxxxxxxxxxxxxxxxxxxxx
