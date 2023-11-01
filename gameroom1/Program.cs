@@ -1,4 +1,5 @@
 //begin intro
+Console.ForegroundColor = ConsoleColor.Gray;
 
 Random rnd = new Random();
 

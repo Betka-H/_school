@@ -1,18 +1,16 @@
 Random rnd = new Random();
 
+Console.ForegroundColor = ConsoleColor.Gray;
 
-int w3CategoryAmount = 5; // how many categories to use
-int w3ItemAmount = 3; // how many items to use from each category
-string[] w3Categories = {
-        "animals", "foods", "drinks", "plants", "countries", "weather", "body parts", "clothes", "colors", "names", "games"
-        };
+int w3CatAmount = 3; // how many categories to use
+int w3ItemAmount = 5; // how many items to use from each category
+string[] w3AllCategories = { "animals", "foods", "drinks", "plants", "countries", "weather", "body parts", "clothes", "colors", "names", "games" };
 int w3CatRandom; // random number that gets generated repeatedly to determine which categories to sort into
 int w3ItemRandom; // random number that gets generated repeatedly to determine which items to sort
-int[] w3CategoriesChosenIndex = { }; // array of randomly generated category indexes
-int[] w3ItemsChosenIndex = { };
 string[] w3CategoriesChosen = { }; // array of randomly generated categories
-                                   //all the items
+string[] w3ItemsChosen = { }; // array of randomly generated items from these categories
 
+int w3RandomCatLoopCheck = 1; // purely for debug
 
 
 
@@ -53,60 +51,115 @@ string[][] w3AllItems = new string[][]
         }
 };
 
-//sort stuff///////////////////////////////////////////////////////////////////////////////////
 
-if (w3CategoryAmount > w3Categories.Count()) // terminate the program if w3CategoryAmount > elements in w3Categories
+
+
+
+//// terminate the program...
+// if the requested category amount exceeds the existing amount
+if (w3CatAmount > w3AllCategories.Count())
 {
-    Console.WriteLine("> error: w3CategoryAmount exceeds the amount of elements in w3Categories\n> terminating program...");
+    Console.WriteLine("> error: w3CatAmount exceeds the amount of elements in w3AllCategories\n> terminating program...");
     Environment.Exit(0);
 }
-if (w3CategoryAmount <= 0) // terminate the program if w3CategoryAmount is 0 or less
+// if the requested amount of categories is 1 or less
+if (w3CatAmount <= 1)
 {
-    Console.WriteLine("> error: requested category draw amount is less than 1\n> terminating program...");
+    Console.WriteLine("> error: requested category draw amount is less than 2\n> terminating program...");
+    Environment.Exit(0);
+}
+// if the requested amount of items is 0 or less
+if (w3ItemAmount <= 0)
+{
+    Console.WriteLine("> error: requested item draw amount is less than 0\n> terminating program...");
     Environment.Exit(0);
 }
 
-Console.WriteLine("> sort the words into their correct categories:");
+/* Console.WriteLine("> sort the words into their correct categories:"); */
 
-for (int i = 1; i <= w3CategoryAmount; i++)
+///////////xxxxxxxxxxxxxxxxxxxxxxxxx
+Console.ForegroundColor = ConsoleColor.Cyan;
+Console.WriteLine(">>>>> | start | <<<<<");
+Console.ForegroundColor = ConsoleColor.Gray;
+// for the requested amount of categories
+for (int i = 1; i <= w3CatAmount; i++)
 {
-    w3CatRandom = rnd.Next(w3Categories.Count()); // generates a random number
-    if (!w3CategoriesChosenIndex.Contains(w3CatRandom)) // // only run if the random number isnt already in the array
+    Console.WriteLine("loop " + w3RandomCatLoopCheck + " (category " + i + "/" + w3CatAmount + ")");
+    w3CatRandom = rnd.Next(w3AllCategories.Count()); // chooses a random index from all the existing categories
+
+    Console.WriteLine("the category name is: " + w3AllCategories[w3CatRandom]);
+
+    if (!w3CategoriesChosen.Contains(w3AllCategories[w3CatRandom])) // only runs if the category isnt already in the list
     {
-        // number part
-        Array.Resize(ref w3CategoriesChosenIndex, i); // resizes repeat check array +1
-        w3CategoriesChosenIndex[i - 1] = w3CatRandom; // writes the random number into the freed up space
-        Console.Write("> category " + i + ": "); // prints category number
-        // category part
-        Array.Resize(ref w3CategoriesChosen, i); // resizes chosen category list array +1
-        w3CategoriesChosen[i - 1] = w3Categories[w3CatRandom]; // writes the randomly chosen category into the freed up space
-        Console.WriteLine(w3Categories[w3CatRandom]); // prints category name
-                                                      // item part
+        Array.Resize(ref w3CategoriesChosen, i); // resizes chosen category array  to i
+        w3CategoriesChosen[i - 1] = w3AllCategories[w3CatRandom]; // writes the category name into the chosen categories array
+
+        // generate items!!!
+
         for (int j = 1; j <= w3ItemAmount; j++)
         {
-            w3ItemRandom = rnd.Next(w3AllItems[w3CatRandom].Count()); // generates random item number
-            Array.Resize(ref w3ItemsChosenIndex, j); // resizes repeat check array +1
-            w3CategoriesChosenIndex[i - 1] = w3CatRandom; // writes the random number into the freed up space
-            Console.WriteLine("debug>> item index: " + w3ItemRandom); // prints item index
-            //Console.WriteLine(w3AllItems[2][4]);
-            if (!w3CategoriesChosenIndex.Contains(w3ItemRandom))
-            {
 
+            w3ItemRandom = rnd.Next(w3AllItems[w3CatRandom].Count()); // chooses a random index from all the existing items in the category
+            Console.Write(w3ItemRandom);
+
+            if (!w3ItemsChosen.Contains(w3AllItems[w3CatRandom][w3ItemRandom])) // only runs if the category isnt already in the list
+            {
+                Console.WriteLine("yes");
+                Array.Resize(ref w3ItemsChosen, j);
+                w3ItemsChosen[j - 1] = w3AllItems[w3CatRandom][w3ItemRandom];
             }
             else
             {
-
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("the item is in the array already. skipping");  // debug
+                Console.ForegroundColor = ConsoleColor.Gray;
+                j--;
             }
         }
+
     }
-    else // if the random number already is in the array
+    else // skip
     {
-        Console.WriteLine("debug>> number " + "(" + w3CatRandom + ")" + " already in list. skipping."); // debug
-        i--; // so that the loop can run again correctly
+        /* Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("the category is in the array already. skipping");  // debug
+        Console.ForegroundColor = ConsoleColor.Gray; */
+        i--;
+    }
+
+
+    w3RandomCatLoopCheck++;
+    Console.WriteLine();
+}
+
+
+
+
+///////////xxxxxxxxxxxxxxxxxxxxxxxxx
+Console.ForegroundColor = ConsoleColor.Green;
+Console.Write("the selected categories are: "); // list categories
+for (int i = 1; i <= w3CatAmount; i++)
+{
+    Console.Write(w3CategoriesChosen[i - 1] + " " + (i - 1));
+    if (i < w3CatAmount)
+    {
+        Console.Write(", ");
+    }
+}
+Console.WriteLine();
+
+Console.Write("the selected items are: "); // list items
+for (int i = 1; i <= w3ItemAmount; i++)
+{
+    Console.Write(w3ItemsChosen[i - 1] + " " + (i - 1));
+    if (i < w3ItemAmount)
+    {
+        Console.Write(", ");
     }
 }
 
-Console.Write("> items: ");
+Console.ForegroundColor = ConsoleColor.Gray;
+
+Console.WriteLine();
 
 
 
@@ -115,9 +168,7 @@ Console.Write("> items: ");
 
 
 
-
-
-
-
+/* 
 Console.WriteLine("> press anything to exit");
 Console.ReadKey();
+ */

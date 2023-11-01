@@ -1,5 +1,6 @@
-//TO RUN: > dotnet run --project [project name (WebApplication1)] < in the terminal
-//ctrl+shit+p for cmd palete -> .NET -> new project -> core web api idk
+// TO RUN: > dotnet run --project [project name (WebApplication1)] < in the terminal
+// ctrl+shit+p for cmd palete -> .NET -> new project -> core web api idk
+// ctrl + c to cancel program in terminal
 
 
 
@@ -199,3 +200,58 @@ do
             break;
     }
 } while (userInput != "y");
+
+Console.WriteLine(DateTime.Now);
+
+Console.ForegroundColor = ConsoleColor.Gray;
+
+
+
+
+
+
+
+
+
+for (int i = 1; i <= w3CategoryAmount; i++)
+{
+    w3CatRandom = rnd.Next(w3Categories.Count()); // generates a random number
+    if (!w3CategoriesChosenIndex.Contains(w3CatRandom)) // // only run if the random number isnt already in the array
+    {
+        // number part
+        Array.Resize(ref w3CategoriesChosenIndex, i); // resizes repeat check array +1
+        w3CategoriesChosenIndex[i - 1] = w3CatRandom; // writes the random number into the freed up space
+        Console.Write(">>>>> category " + i + ": "); // prints category number
+        // category part
+        Array.Resize(ref w3CategoriesChosen, i); // resizes chosen category list array +1
+        w3CategoriesChosen[i - 1] = w3Categories[w3CatRandom]; // writes the randomly chosen category into the freed up space
+        Console.WriteLine(w3Categories[w3CatRandom] + " (" + w3CatRandom + ")"); // prints category name
+        // item part
+        for (int j = 1; j <= w3ItemAmount; j++)
+        {
+            w3ItemRandom = rnd.Next(w3AllItems[w3CatRandom].Count()); // generates random item number
+            Array.Resize(ref w3ItemsChosenIndex, j); // resizes repeat check array +1
+            w3ItemsChosenIndex[j - 1] = w3ItemRandom; // writes the random number into the freed up space
+            Console.WriteLine(">> item index: " + w3ItemRandom); // prints item index
+            //Console.WriteLine(w3AllItems[2][4]);
+            if (!w3CategoriesChosenIndex.Contains(w3ItemRandom))
+            {
+                Array.Resize(ref w3ItemsChosenIndex, j); // resizes repeat check array +1
+                w3ItemsChosenIndex[j - 1] = w3ItemRandom; // writes the random number into the freed up space
+                Console.WriteLine("> item: " + w3AllItems[w3CatRandom][w3ItemRandom]); // prints item number
+                Array.Resize(ref w3ItemsChosen, i); // resizes chosen item list array +1
+                w3ItemsChosen[j - 1] = w3AllItems[w3CatRandom][w3ItemRandom]; // writes the randomly chosen item into the freed up space
+            }
+            else
+            {
+                Console.WriteLine("debug>> item number " + "(" + w3ItemRandom + ")" + " already in list. skipping."); // debug
+                j--; // so that the loop can run again correctly
+            }
+        }
+    }
+    else // if the random number already is in the array
+    {
+        Console.WriteLine("debug>> category number " + "(" + w3CatRandom + ")" + " already in list. skipping."); // debug
+        i--; // so that the loop can run again correctly
+    }
+}
