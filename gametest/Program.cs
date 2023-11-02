@@ -112,11 +112,7 @@ for (int i = 1; i <= w3CatAmount; i++)
 for (int i = 1; i <= w3ItemAmount; i++)
 {
 
-    w3ItemRandom = rnd.Next(w3AllItems[
-        Array.IndexOf(w3CategoriesChosen[i - 1], w3AllCategories)
-
-
-    ].Count()); // chooses a random index from all the existing items in the category
+    w3ItemRandom = rnd.Next(w3AllItems[Array.IndexOf(w3AllCategories, w3CategoriesChosen[69])].Count()); // chooses a random index from all the existing items in the category
     Console.Write(w3ItemRandom);
     Console.Write(": ");
     Console.Write(w3AllItems[i - 1][w3ItemRandom]);

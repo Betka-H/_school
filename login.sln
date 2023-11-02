@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upto100", "upto100\upto100.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ivt_ukol2", "ivt_ukol2\ivt_ukol2.csproj", "{F06811AE-A38E-45BA-AEE5-A18015E3492E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maximum1", "maximum1\maximum1.csproj", "{05D2FE98-067F-47B4-96E2-9032503BEA31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,9 @@ Global
 		{F06811AE-A38E-45BA-AEE5-A18015E3492E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F06811AE-A38E-45BA-AEE5-A18015E3492E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F06811AE-A38E-45BA-AEE5-A18015E3492E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05D2FE98-067F-47B4-96E2-9032503BEA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D2FE98-067F-47B4-96E2-9032503BEA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D2FE98-067F-47B4-96E2-9032503BEA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D2FE98-067F-47B4-96E2-9032503BEA31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
