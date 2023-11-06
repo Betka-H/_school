@@ -40,6 +40,7 @@ void terminate()
 //// main
 start:
 Console.WriteLine("enter parameters for ax^2 + bx + c = 0. input \"exit\" at any time to terminate the program");
+
 // inputs
 Console.Write("enter parameter a: ");
 a:
@@ -58,6 +59,7 @@ if (b == 0 && c == 0)
     Console.WriteLine("there is an infinite amount of answers for \"x\"");
     goto exit;
 }
+
 // =0 calculations
 D = MathF.Pow(b, 2) - 4 * a * c;
 switch (D)
@@ -75,6 +77,7 @@ switch (D)
         Console.WriteLine("x2 = " + Math.Round(x = (-b - MathF.Sqrt(D)) / (2 * a), 2));
         break;
 }
+
 // x evaluation
 do
 {
