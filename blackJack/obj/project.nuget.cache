@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A/leutnvWOM1BneGEahUXkmU3voKHKB5H6tC2eLnP1dwp62N0FCJCkmQ4jpP87W3H5+NWD3hAOwsJCQUAUb5Bg==",
+  "dgSpecHash": "NrJ/k9G2u9q9zmZ/S/+A+wIR7E20Uv2iBDcZPEAuA2s4Ppgc/ilDBMYqhwNiI7iukLyBM1xK5/9kUPNQ2XWRGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\eliza\\.vscode\\_school\\blackJack\\blackJack.csproj",
+  "projectFilePath": "C:\\Users\\eliza\\.vscode\\_school\\blackjack\\blackJack.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eliza\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
     "C:\\Users\\eliza\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eliza\\.vscode\\_school\\blackJack\\blackJack.csproj": {}
+    "C:\\Users\\eliza\\.vscode\\_school\\blackjack\\blackJack.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eliza\\.vscode\\_school\\blackJack\\blackJack.csproj": {
+    "C:\\Users\\eliza\\.vscode\\_school\\blackjack\\blackJack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eliza\\.vscode\\_school\\blackJack\\blackJack.csproj",
+        "projectUniqueName": "C:\\Users\\eliza\\.vscode\\_school\\blackjack\\blackJack.csproj",
         "projectName": "blackJack",
-        "projectPath": "C:\\Users\\eliza\\.vscode\\_school\\blackJack\\blackJack.csproj",
+        "projectPath": "C:\\Users\\eliza\\.vscode\\_school\\blackjack\\blackJack.csproj",
         "packagesPath": "C:\\Users\\eliza\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eliza\\.vscode\\_school\\blackJack\\obj\\",
+        "outputPath": "C:\\Users\\eliza\\.vscode\\_school\\blackjack\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\eliza\\AppData\\Roaming\\NuGet\\NuGet.Config"

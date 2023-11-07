@@ -58,45 +58,81 @@ other: points, blackjack
 
 int deckAmount = 1, playerAmount = 1;
 string userString;
-bool success;
 string[] playerName = { };
 
-Console.WriteLine($"> welcome to blackjack.\n> the current settings are: {deckAmount} deck/s, {playerAmount} player/s.\n> if you wish to keep these settings for this round, press enter. otherwise, type \"change\".");
-userString = Console.ReadLine().ToLower();
-if (userString == "change")
+Console.WriteLine("> welcome to blackjack.");
+start:
+Console.WriteLine($"> the current game settings are: {deckAmount} deck/s, {playerAmount} player/s.\n> if you wish to change these settings for this round, type \"change\". otherwise, type \"done\".");
+switch (userString = Console.ReadLine().ToLower())
 {
-    Console.WriteLine("> please select which parameter you want to change (type \"deck\" or \"player\"). if you no longer wish to edit these values, type \"done\".");
-    userString = Console.ReadLine().ToLower();
-    switch (userString)
-    {
-        case "deck":
-            Console.WriteLine("please enter the new value for the amount of decks in the game (min 1, max 8):");
-            success = int.TryParse(Console.ReadLine().ToLower(), out deckAmount);
-
-
-
-            do
-            {
-
-            } while (!success);
-
-
-            if (deckAmount < 1 && deckAmount > 8)
-            {
-                Console.WriteLine("invalid number. please enter a whole value between 1 and 8:");
-            }
-
-
-
-
-            break;
-        case "player":
-            break;
-        case "done":
-            break;
-        default:
-            Console.WriteLine("invalid input! \"deck\", \"player\" or \"done\" expected.");
-            break;
-    }
-    Console.WriteLine($"> the current settings are: {deckAmount} deck/s, {playerAmount} player/s. if you wish to edit these values again, type \"\"");
+    case "change":
+    settings:
+        Console.WriteLine("> please select which parameter you want to change; type \"deck\" or \"player\". if you no longer wish to edit these values, type \"done\".");
+        switch (userString = Console.ReadLine().ToLower())
+        {
+            case "deck":
+                Console.WriteLine("> please enter the new value for the amount of decks used in the game (min 1, max 8):");
+            getDeckAmount:
+                if (!int.TryParse(Console.ReadLine().ToLower(), out deckAmount))
+                {
+                    Console.WriteLine("> invalid input. please input a whole number between 1 and 8:");
+                    goto getDeckAmount;
+                }
+                if (deckAmount < 1 || deckAmount > 8)
+                {
+                    Console.Write("> that number is too ");
+                    switch (deckAmount)
+                    {
+                        case < 1:
+                            Console.Write("small");
+                            break;
+                        case > 8:
+                            Console.Write("large");
+                            break;
+                    }
+                    Console.WriteLine(". please enter a whole value between 1 and 8:");
+                    goto getDeckAmount;
+                }
+                Console.WriteLine($"> there will now be {deckAmount} deck/s and {playerAmount} player/s in the game");
+                break;
+            case "player":
+                Console.WriteLine("> please enter the new value for the amount of players who will be playing the game (min 1, max 6) (excluding the dealer):");
+            getPlayerAmount:
+                if (!int.TryParse(Console.ReadLine().ToLower(), out playerAmount))
+                {
+                    Console.WriteLine("> invalid input. please input a whole number between 1 and 6:");
+                    goto getPlayerAmount;
+                }
+                if (playerAmount < 1 || playerAmount > 6)
+                {
+                    Console.Write("> that number is too ");
+                    switch (playerAmount)
+                    {
+                        case < 1:
+                            Console.Write("small");
+                            break;
+                        case > 6:
+                            Console.Write("large");
+                            break;
+                    }
+                    Console.WriteLine(". please enter a whole value between 1 and 6:");
+                    goto getPlayerAmount;
+                }
+                Console.WriteLine($"> there will now be {playerAmount} player/s and {deckAmount} deck/s in the game");
+                break;
+            case "done":
+                goto game;
+            default:
+                Console.WriteLine("> invalid input!");
+                goto settings;
+        }
+        goto settings;
+    case "done":
+        break;
+    default:
+        Console.WriteLine("> invalid input!");
+        goto start;
 }
+
+game:
+Console.WriteLine("\\\\next");
