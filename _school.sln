@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "login", "login\login.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ukol1", "ukol1\ukol1.csproj", "{FE3A9C91-F16D-4345-B241-050E125627D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blackJack", "blackJack\blackJack.csproj", "{4575055D-0E71-458C-AD61-E11D371A0498}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FE3A9C91-F16D-4345-B241-050E125627D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE3A9C91-F16D-4345-B241-050E125627D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE3A9C91-F16D-4345-B241-050E125627D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4575055D-0E71-458C-AD61-E11D371A0498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4575055D-0E71-458C-AD61-E11D371A0498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4575055D-0E71-458C-AD61-E11D371A0498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4575055D-0E71-458C-AD61-E11D371A0498}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

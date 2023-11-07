@@ -91,7 +91,7 @@ do
         Console.ReadLine();
         //global variables
         bool intParse;
-        int workNumber = rnd.Next(1,1);//how many works to choose from
+        int workNumber = rnd.Next(1, 1);//how many works to choose from
 
         int w12CountMin = 5;
         int w12CountMax = 32;
