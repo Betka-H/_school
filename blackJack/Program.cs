@@ -60,7 +60,18 @@ int deckAmount = 1, playerAmount = 1;
 string userString;
 string[] playerName = { };
 
-Console.WriteLine("> welcome to blackjack.");
+void colorDefault()
+{
+    Console.ForegroundColor = ConsoleColor.Gray;
+}
+void colorWrong()
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+}
+
+Console.ForegroundColor = ConsoleColor.Green; // default initial color
+Console.WriteLine("-----=====-----=====-----=====-----\n> welcome to blackjack.");
+colorDefault();
 start:
 Console.WriteLine($"> the current game settings are: {deckAmount} deck/s, {playerAmount} player/s.\n> if you wish to change these settings for this round, type \"change\". otherwise, type \"done\".");
 switch (userString = Console.ReadLine().ToLower())
@@ -73,13 +84,17 @@ switch (userString = Console.ReadLine().ToLower())
             case "deck":
                 Console.WriteLine("> please enter the new value for the amount of decks used in the game (min 1, max 8):");
             getDeckAmount:
-                if (!int.TryParse(Console.ReadLine().ToLower(), out deckAmount))
+                if (!int.TryParse(Console.ReadLine().ToLower(), out deckAmount)) // if user entered nonsense
                 {
-                    Console.WriteLine("> invalid input. please input a whole number between 1 and 8:");
+                    colorWrong();
+                    Console.Write("> invalid input. ");
+                    colorDefault();
+                    Console.WriteLine("please input a whole number between 1 and 8:");
                     goto getDeckAmount;
                 }
-                if (deckAmount < 1 || deckAmount > 8)
+                if (deckAmount < 1 || deckAmount > 8) // if the requested value is out of legal bounds
                 {
+                    colorWrong();
                     Console.Write("> that number is too ");
                     switch (deckAmount)
                     {
@@ -90,6 +105,7 @@ switch (userString = Console.ReadLine().ToLower())
                             Console.Write("large");
                             break;
                     }
+                    colorDefault();
                     Console.WriteLine(". please enter a whole value between 1 and 8:");
                     goto getDeckAmount;
                 }
@@ -98,13 +114,17 @@ switch (userString = Console.ReadLine().ToLower())
             case "player":
                 Console.WriteLine("> please enter the new value for the amount of players who will be playing the game (min 1, max 6) (excluding the dealer):");
             getPlayerAmount:
-                if (!int.TryParse(Console.ReadLine().ToLower(), out playerAmount))
+                if (!int.TryParse(Console.ReadLine().ToLower(), out playerAmount)) // if user entered nonsense
                 {
-                    Console.WriteLine("> invalid input. please input a whole number between 1 and 6:");
+                    colorWrong();
+                    Console.Write("> invalid input. ");
+                    colorDefault();
+                    Console.WriteLine("please input a whole number between 1 and 6:");
                     goto getPlayerAmount;
                 }
-                if (playerAmount < 1 || playerAmount > 6)
+                if (playerAmount < 1 || playerAmount > 6) // if the requested value is out of legal bounds
                 {
+                    colorWrong();
                     Console.Write("> that number is too ");
                     switch (playerAmount)
                     {
@@ -115,6 +135,7 @@ switch (userString = Console.ReadLine().ToLower())
                             Console.Write("large");
                             break;
                     }
+                    colorDefault();
                     Console.WriteLine(". please enter a whole value between 1 and 6:");
                     goto getPlayerAmount;
                 }
@@ -123,14 +144,18 @@ switch (userString = Console.ReadLine().ToLower())
             case "done":
                 goto game;
             default:
+                colorWrong();
                 Console.WriteLine("> invalid input!");
+                colorDefault();
                 goto settings;
         }
         goto settings;
     case "done":
         break;
     default:
+        colorWrong();
         Console.WriteLine("> invalid input!");
+        colorDefault();
         goto start;
 }
 
