@@ -198,7 +198,7 @@ colorDefault();
 // DEALER TAKES a CARD FACE-UP
 // all PLAYERs TAKE a CARD FACE-UP
 // DEALER TAKES a CARD FACE-DOWN
-Console.WriteLine("all players will now get a card face-up. it will be shown to all other players.");
+Console.WriteLine("all players will now get a card face-up: it will be shown to all other players.");
 
 for (int i = 1; i <= playerAmount; i++)
 {
@@ -207,4 +207,4 @@ for (int i = 1; i <= playerAmount; i++)
 
 
 // TO DO:
-// add random loading message generator > at game start
+// add random loading message generator
