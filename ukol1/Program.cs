@@ -69,7 +69,7 @@ switch (D)
         goto exit;
     case 0:
         Console.WriteLine("there is one answer for x: ");
-        Console.WriteLine("x = " + Math.Round(x = (-b + MathF.Sqrt(D))/ (2 * a), 2));
+        Console.WriteLine("x = " + Math.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2));
         break;
     case > 0:
         Console.WriteLine("there are two answers for x: ");

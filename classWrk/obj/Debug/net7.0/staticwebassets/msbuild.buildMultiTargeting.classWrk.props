@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\classWrk.props" />
+</Project>

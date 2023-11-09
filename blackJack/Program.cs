@@ -30,10 +30,12 @@ states: lose, win, ultrawin (with blackjack), faceup, facedown
 other: points, blackjack
 */
 
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
+Random rnd = new Random();
 int deckAmount = 1, playerAmount = 3; // default: 1/1. min/max decks 1/8, min/max players 1/6
 string userString;
-string[] playerName = { "player 1", "player 2", "player 3" };
-Random rnd = new Random();
+string[] player = { "player 1", "player 2", "player 3" };
 
 void colorDefault()
 {
@@ -54,90 +56,90 @@ void inputInvalid()
     colorDefault();
 }
 
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-/* 
 colorTitle();
 Console.WriteLine("-----=====-----=====-----\n- welcome to blackjack -\n-----=====-----=====-----");
 colorDefault();
 
-start:
+/* start:
 Console.WriteLine($"> the current game settings are: {deckAmount} deck/s, {playerAmount} player/s.\n> if you wish to change these settings for this round, type \"change\". otherwise, type \"done\".");
 switch (userString = Console.ReadLine().ToLower())
 {
-case "change":
-settings:
-Console.WriteLine("> please select which parameter you want to change; type \"deck\" or \"player\". if you no longer wish to edit these values, type \"done\".");
-switch (userString = Console.ReadLine().ToLower())
-{
-case "deck":
-Console.WriteLine("> please enter the new value for the amount of decks used in the game (min 1, max 8):");
-getDeckAmount:
-if (!int.TryParse(Console.ReadLine().ToLower(), out deckAmount)) // if user entered nonsense
-{
-inputInvalid();
-Console.WriteLine("please input a whole number between 1 and 8:");
-goto getDeckAmount;
-}
-if (deckAmount < 1 || deckAmount > 8) // if the requested value is out of legal bounds
-{
-colorWrong();
-Console.Write("> that number is too ");
-switch (deckAmount)
-{
-case < 1:
-Console.Write("small");
-break;
-case > 8:
-Console.Write("large");
-break;
-}
-Console.Write(". ");
-colorDefault();
-Console.WriteLine("please enter a whole value between 1 and 8:");
-goto getDeckAmount;
-}
-Console.WriteLine($"> there will now be {deckAmount} deck/s and {playerAmount} player/s in the game");
-break;
-case "player":
-Console.WriteLine("> please enter the new value for the amount of players who will be playing the game (min 1, max 6) (excluding the dealer):");
-getPlayerAmount:
-if (!int.TryParse(Console.ReadLine().ToLower(), out playerAmount)) // if user entered nonsense
-{
-inputInvalid();
-Console.WriteLine("please input a whole number between 1 and 6:");
-goto getPlayerAmount;
-}
-if (playerAmount < 1 || playerAmount > 6) // if the requested value is out of legal bounds
-{
-colorWrong();
-Console.Write("> that number is too ");
-switch (playerAmount)
-{
-case < 1:
-Console.Write("small");
-break;
-case > 6:
-Console.Write("large");
-break;
-}
-colorDefault();
-Console.WriteLine(". please enter a whole value between 1 and 6:");
-goto getPlayerAmount;
-}
-Console.WriteLine($"> there will now be {playerAmount} player/s and {deckAmount} deck/s in the game");
-break;
-case "done":
-goto namePlayers;
-default:
-inputInvalid();
-goto settings;
-}
-goto settings;
-case "done":
-break;
-default:
-inputInvalid();
-goto start;
+    case "change":
+    settings:
+        Console.WriteLine("> please select which parameter you want to change; type \"deck\" or \"player\". if you no longer wish to edit these values, type \"done\".");
+        switch (userString = Console.ReadLine().ToLower())
+        {
+            case "deck":
+                Console.WriteLine("> please enter the new value for the amount of decks used in the game (min 1, max 8):");
+            getDeckAmount:
+                if (!int.TryParse(Console.ReadLine().ToLower(), out deckAmount)) // if user entered nonsense
+                {
+                    inputInvalid();
+                    Console.WriteLine("please input a whole number between 1 and 8:");
+                    goto getDeckAmount;
+                }
+                if (deckAmount < 1 || deckAmount > 8) // if the requested value is out of legal bounds
+                {
+                    colorWrong();
+                    Console.Write("> that number is too ");
+                    switch (deckAmount)
+                    {
+                        case < 1:
+                            Console.Write("small");
+                            break;
+                        case > 8:
+                            Console.Write("large");
+                            break;
+                    }
+                    Console.Write(". ");
+                    colorDefault();
+                    Console.WriteLine("please enter a whole value between 1 and 8:");
+                    goto getDeckAmount;
+                }
+                Console.WriteLine($"> there will now be {deckAmount} deck/s and {playerAmount} player/s in the game");
+                break;
+            case "player":
+                Console.WriteLine("> please enter the new value for the amount of players who will be playing the game (min 1, max 6) (excluding the dealer):");
+            getPlayerAmount:
+                if (!int.TryParse(Console.ReadLine().ToLower(), out playerAmount)) // if user entered nonsense
+                {
+                    inputInvalid();
+                    Console.WriteLine("please input a whole number between 1 and 6:");
+                    goto getPlayerAmount;
+                }
+                if (playerAmount < 1 || playerAmount > 6) // if the requested value is out of legal bounds
+                {
+                    colorWrong();
+                    Console.Write("> that number is too ");
+                    switch (playerAmount)
+                    {
+                        case < 1:
+                            Console.Write("small");
+                            break;
+                        case > 6:
+                            Console.Write("large");
+                            break;
+                    }
+                    colorDefault();
+                    Console.WriteLine(". please enter a whole value between 1 and 6:");
+                    goto getPlayerAmount;
+                }
+                Console.WriteLine($"> there will now be {playerAmount} player/s and {deckAmount} deck/s in the game");
+                break;
+            case "done":
+                goto namePlayers;
+            default:
+                inputInvalid();
+                goto settings;
+        }
+        goto settings;
+    case "done":
+        break;
+    default:
+        inputInvalid();
+        goto start;
 }
 
 namePlayers:
@@ -149,7 +151,7 @@ for (int i = 1; i <= playerAmount; i++)
 {
 namePlayer:
     Console.WriteLine($"please enter the name for player {i}/{playerAmount}:");
-    Array.Resize(ref playerName, i);
+    Array.Resize(ref player, i);
     userString = Console.ReadLine();
     if (string.IsNullOrWhiteSpace(userString)) // name cannot be empty
     {
@@ -157,27 +159,29 @@ namePlayer:
         Console.WriteLine("player name cannot be empty!");
         goto namePlayer;
     }
-    else if (playerName.Contains(userString)) // duplicate name
+    else if (player.Contains(userString)) // duplicate name
     {
         inputInvalid();
         Console.WriteLine($"another player is already named \"{userString}\"!");
         goto namePlayer;
     }
-    playerName[i - 1] = userString;
-}
-*/
+    player[i - 1] = userString;
+} */
 
-Console.WriteLine("debug");
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
-string randomLoadMsg = "someihtng went worng (defalut mesasge)";
-void randomDelayLong()
-{
-    Thread.Sleep(rnd.Next(1000, 5000));
-}
 void randomDelayMedium()
 {
-    Thread.Sleep(rnd.Next(500, 2500));
+    Thread.Sleep(rnd.Next(50, 250));
 }
+void randomDelayLong()
+{
+    Thread.Sleep(rnd.Next(100, 500));
+}
+string[] randomVerbs = { "meeting", "being interested in", "sneezing at", "marrying", "debugging", "laughing at", "painting", "fighting", "kissing", "frying" };
+string[] randomNouns = { "squirerls", "women", "men", "demons", "moles", "slugs", "shoes", "humans", "water bottles", "cheeseburgers" };
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 randomDelayMedium();
 Console.WriteLine("counting players...");
@@ -186,7 +190,7 @@ Console.WriteLine("counting decks...");
 randomDelayMedium();
 Console.WriteLine("shuffling cards...");
 randomDelayMedium();
-Console.WriteLine($"{randomLoadMsg}...");
+Console.WriteLine($"{randomVerbs[rnd.Next(randomVerbs.Count())]} {randomNouns[rnd.Next(randomNouns.Count())]}...");
 randomDelayMedium();
 Console.WriteLine("calculating values...");
 randomDelayLong();
@@ -194,17 +198,26 @@ colorTitle();
 Console.WriteLine("done. let's begin!");
 colorDefault();
 
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
+// clubs, diamonds, hearts, spades
+// 1,2,3,4,5,6,7,8,9,10,jack,queen,king,ace
+string[] cards = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace" },
+suits = { "clubs", "diamonds", "hearts", "spades" },
+drawn = { };
+int[] cardValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 0 };
+
+void draw()
+{
+    int i = 1; // temp
+    Console.WriteLine($"{player[i - 1]} draws a card: {cards[rnd.Next(cards.Length)]} of {suits[rnd.Next(suits.Length)]} (value {cardValues[i]})");
+}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 // all PLAYERs TAKE a CARD FACE-UP
 // DEALER TAKES a CARD FACE-UP
 // all PLAYERs TAKE a CARD FACE-UP
 // DEALER TAKES a CARD FACE-DOWN
-Console.WriteLine("all players will now get a card face-up: it will be shown to all other players.");
+Console.WriteLine("all players will now be dealt a card face-up: it will be shown to all other players.");
 
-for (int i = 1; i <= playerAmount; i++)
-{
-
-}
-
-
-// TO DO:
-// add random loading message generator
+draw();
