@@ -1,123 +1,115 @@
-// kvadraticka rovnice
-// ax^2 + bx + c = 0
-// x1,2 = +-Vb^2-4ac / 2a
-// b^2-4ac >= 0
-// uzivatel zada a, b, c
-// pouzit funkci!
-// na odmocninu V knihovna Math.Sqrt(69); MathF for floats
-// poslat odkaz na github
-
+float a, b, c, D, x, userNumber;
 string userString;
-bool success;
-float a, b, c, x, D;
+bool suces;
 
-// gets user input, specifically a number
-float userNumber()
+// terminates the program
+void detectAndTerminate()
 {
-    float userNumber;
+    if (userString == "exit")
+    {
+        Console.WriteLine("terminating program...");
+        Environment.Exit(0);
+    }
+}
+float getNumber()
+{
     do
     {
         userString = Console.ReadLine().ToLower();
-        if (userString == "exit")
+        detectAndTerminate();
+        if (float.TryParse(userString, out userNumber))
         {
-            terminate();
+            suces = true;
         }
-        success = float.TryParse(userString, out userNumber);
-        if (!success)
+        else
         {
+            suces = false;
             Console.Write("that's not a number. please input a number: ");
         }
-    } while (!success);
+    } while (!suces);
     return userNumber;
 }
-// terminates the program
-void terminate()
-{
-    Console.WriteLine("terminating program...");
-    Environment.Exit(0);
-}
 
-//// main
-start:
-Console.WriteLine("enter parameters for ax^2 + bx + c = 0. input \"exit\" at any time to terminate the program");
-
-// inputs
-Console.Write("enter parameter a: ");
-a:
-a = userNumber();
-if (a == 0)
-{
-    Console.Write("\"a\" cannot equal zero! please input a different number: ");
-    goto a;
-}
-Console.Write("enter parameter b: ");
-b = userNumber();
-Console.Write("enter parameter c: ");
-c = userNumber();
-if (b == 0 && c == 0)
-{
-    Console.WriteLine("there is an infinite amount of answers for \"x\"");
-    goto exit;
-}
-
-// =0 calculations
-D = MathF.Pow(b, 2) - 4 * a * c;
-switch (D)
-{
-    case < 0:
-        Console.WriteLine("there is no answer for x");
-        goto exit;
-    case 0:
-        Console.WriteLine("there is one answer for x: ");
-        Console.WriteLine("x = " + Math.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2));
-        break;
-    case > 0:
-        Console.WriteLine("there are two answers for x: ");
-        Console.WriteLine("x1 = " + Math.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2));
-        Console.WriteLine("x2 = " + Math.Round(x = (-b - MathF.Sqrt(D)) / (2 * a), 2));
-        break;
-}
-
-// x evaluation
 do
 {
-    Console.Write("enter parameter x for evaluation (enter \"stop\" to stop): ");
-enterX:
-    userString = Console.ReadLine().ToLower();
-    if (userString == "stop")
+    Console.WriteLine("this program will solve ax^2 + bx + c = 0. input \"exit\" at any time to terminate the program");
+    Console.Write("enter number a: ");
+    do
     {
-        goto exit;
-    }
-    if (userString == "exit")
+        a = getNumber();
+        if (a == 0)
+        {
+            Console.Write("\"a\" cannot equal zero! please input a different number: ");
+        }
+    } while (a == 0);
+    Console.Write("enter number b: ");
+    b = getNumber();
+    Console.Write("enter number c: ");
+    c = getNumber();
+
+    if (b == 0 && c == 0)
     {
-        terminate();
+        Console.WriteLine("there is an infinite amount of answers for \"x\"");
     }
-    success = float.TryParse(userString, out x);
-    if (!success)
+    else
     {
-        Console.Write("that's not a number. please input a number: ");
-        goto enterX;
+        D = MathF.Pow(b, 2) - 4 * a * c;
+        switch (D)
+        {
+            case < 0:
+                Console.WriteLine($"there is no answer for x in {a}x^2 + {b}x + {c} = 0");
+                break;
+            case 0:
+                Console.WriteLine("there is one answer for x: ");
+                Console.WriteLine("x = " + Math.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2));
+                break;
+            case > 0:
+                Console.WriteLine("there are two answers for x: ");
+                Console.WriteLine("x1 = " + Math.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2));
+                Console.WriteLine("x2 = " + Math.Round(x = (-b - MathF.Sqrt(D)) / (2 * a), 2));
+                break;
+        }
+        do
+        {
+            Console.Write("enter parameter x for evaluation (enter \"stop\" to stop): ");
+            do
+            {
+                userString = Console.ReadLine().ToLower();
+                detectAndTerminate(); // detects "exit" keyword
+                if (float.TryParse(userString, out x) || userString == "stop")
+                {
+                    suces = true;
+                }
+                else
+                {
+                    suces = false;
+                    Console.Write("that's not a number. please input a number (or enter \"stop\" to stop): ");
+                }
+            } while (!suces);
+            if (userString == "stop")
+            {
+                break;
+            }
+            Console.WriteLine($"the equation is {a}*{x}^2 + {b}*{x} + {c} = {Math.Round(a * MathF.Pow(x, 2) + b * x + c, 2)}");
+        } while (true);
     }
-    Console.WriteLine($"the equation is {a}*{x}^2 + {b}*{x} + {c} = {Math.Round(a * MathF.Pow(x, 2) + b * x + c, 2)}");
+
+    // end
+    Console.Write("do you want to repeat the program? y/n: ");
+    do
+    {
+        detectAndTerminate();
+        switch (userString = Console.ReadLine().ToLower())
+        {
+            case "y":
+                break;
+            case "n":
+                userString = "exit";
+                detectAndTerminate();
+                break;
+            default:
+                Console.WriteLine("invalid input: y/n expected");
+                break;
+        }
+    } while (userString != "y");
 } while (true);
-
-// exit
-exit:
-Console.Write("do you want to repeat the program? y/n: ");
-exitQ:
-userString = Console.ReadLine().ToLower();
-if (userString == "exit" || userString == "n")
-{
-    terminate();
-}
-else if (userString == "y")
-{
-    goto start;
-}
-else
-{
-    Console.WriteLine("invalid input : (y/n) expected.");
-    goto exitQ;
-}
-
-// finished
