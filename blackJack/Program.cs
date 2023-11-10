@@ -20,8 +20,7 @@ if both the DEALER and a PLAYER have BLACKJACKs -> its a DRAW for the PLAYER
 
 on their TURN, a PLAYER can
 STAND (do not TAKE)
-HIT (TAKE)
-go BUST (have over 21 POINTS) -> PLAYER LOSEs
+HIT (TAKE) >> go BUST (have over 21 POINTS) -> PLAYER LOSEs
 
 cards (per deck): 1x4, 2x4, 3x4, 4x4, 5x4, 6x4, 7x4, 8x4, 9x4, face 10x5, ace 1 or 11x4
 actors: player, dealer
@@ -219,5 +218,6 @@ void draw()
 // all PLAYERs TAKE a CARD FACE-UP
 // DEALER TAKES a CARD FACE-DOWN
 Console.WriteLine("all players will now be dealt a card face-up: it will be shown to all other players.");
+
 
 draw();

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blackJack", "blackJack\blac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "classWrk", "classWrk\classWrk.csproj", "{4D09D6FF-1DAC-4632-9E6C-DA46B501A63A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kvadratickaR", "kvadratickaR\kvadratickaR.csproj", "{3F9685DF-0B8F-4E83-B613-501FB1423BD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4D09D6FF-1DAC-4632-9E6C-DA46B501A63A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D09D6FF-1DAC-4632-9E6C-DA46B501A63A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D09D6FF-1DAC-4632-9E6C-DA46B501A63A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F9685DF-0B8F-4E83-B613-501FB1423BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9685DF-0B8F-4E83-B613-501FB1423BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9685DF-0B8F-4E83-B613-501FB1423BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9685DF-0B8F-4E83-B613-501FB1423BD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
