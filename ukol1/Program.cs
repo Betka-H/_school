@@ -17,13 +17,9 @@ float getNumber()
     {
         userString = Console.ReadLine().ToLower();
         detectAndTerminate();
-        if (float.TryParse(userString, out userNumber))
+        suces = float.TryParse(userString, out userNumber);
+        if (!suces)
         {
-            suces = true;
-        }
-        else
-        {
-            suces = false;
             Console.Write("that's not a number. please input a number: ");
         }
     } while (!suces);
@@ -69,6 +65,7 @@ do
                 Console.WriteLine("x2 = " + Math.Round(x = (-b - MathF.Sqrt(D)) / (2 * a), 2));
                 break;
         }
+
         do
         {
             Console.Write("enter parameter x for evaluation (enter \"stop\" to stop): ");

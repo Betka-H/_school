@@ -171,13 +171,13 @@ namePlayer:
 
 void randomDelayMedium()
 {
-    Thread.Sleep(rnd.Next(50, 250));
+    Thread.Sleep(rnd.Next(0, 0));//5,250
 }
 void randomDelayLong()
 {
-    Thread.Sleep(rnd.Next(100, 500));
+    Thread.Sleep(rnd.Next(0, 0));//100,500
 }
-string[] randomVerbs = { "meeting", "being interested in", "sneezing at", "marrying", "debugging", "laughing at", "painting", "fighting", "kissing", "frying" };
+string[] randomVerbs = { "meeting", "being interested in", "sneezing at", "marrying", "debugging", "laughing at", "painting", "fighting", "kissing", "shouting at" };
 string[] randomNouns = { "squirerls", "women", "men", "demons", "moles", "slugs", "shoes", "humans", "water bottles", "cheeseburgers" };
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -201,15 +201,17 @@ colorDefault();
 
 // clubs, diamonds, hearts, spades
 // 1,2,3,4,5,6,7,8,9,10,jack,queen,king,ace
-string[] cards = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace" },
-suits = { "clubs", "diamonds", "hearts", "spades" },
+string[] cards = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack (value 10)", "queen (value 10)", "king (value 10)", "ace (value 1 or 11)" },
 drawn = { };
+int drawNr = 0;
 int[] cardValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 0 };
 
 void draw()
 {
-    int i = 1; // temp
-    Console.WriteLine($"{player[i - 1]} draws a card: {cards[rnd.Next(cards.Length)]} of {suits[rnd.Next(suits.Length)]} (value {cardValues[i]})");
+    Array.Resize(ref drawn, drawNr + 1); // resize drawn cards array
+    drawn[drawNr] = cards[rnd.Next(cards.Length)]; // draw a random card
+    Console.WriteLine($"{player[drawNr % playerAmount]} draws a card: {drawn[drawNr]}");
+    drawNr++;
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -220,4 +222,8 @@ void draw()
 Console.WriteLine("all players will now be dealt a card face-up: it will be shown to all other players.");
 
 
+draw();
+draw();
+draw();
+draw();
 draw();
