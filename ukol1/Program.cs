@@ -1,5 +1,5 @@
 // variables
-float a, b, c, D, x, userNumber;
+float a, b, c, D, userNumber;
 string userString;
 
 // functions
@@ -26,11 +26,11 @@ float getNumber()
 }
 float x1()
 {
-    return MathF.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2);
+    return MathF.Round((-b + MathF.Sqrt(D)) / (2 * a), 2);
 }
 float x2()
 {
-    return MathF.Round(x = (-b - MathF.Sqrt(D)) / (2 * a), 2);
+    return MathF.Round((-b - MathF.Sqrt(D)) / (2 * a), 2);
 }
 
 // main
@@ -49,7 +49,7 @@ while (true)
     // results
     if (a == 0 && b == 0 && c == 0)
     {
-        Console.WriteLine($"there is an infinite amount of x values for {a}x^2 + {b}x + {c} = 0");
+        Console.WriteLine($"there is an infinite amount of x values for {a} * x^2 + {b} * x + {c} = 0");
     }
     else
     {
@@ -63,7 +63,7 @@ while (true)
         switch (D)
         {
             case < 0:
-                Console.WriteLine($"there is no answer for x in {a}x^2 + {b}x + {c} = 0");
+                Console.WriteLine($"there is no answer for x in {a} * x^2 + {b} * x + {c} = 0");
                 break;
             case 0:
                 Console.WriteLine("there is one answer for x: ");
@@ -85,9 +85,9 @@ while (true)
             {
                 break;
             }
-            if (float.TryParse(userString, out x))
+            if (float.TryParse(userString, out userNumber))
             {
-                Console.WriteLine($"the equation is {a}*({x})^2 + {b}*({x}) + {c} = {MathF.Round(a * MathF.Pow(x, 2) + b * x + c, 2)}");
+                Console.WriteLine($"the equation is {a} * {userNumber}^2 + {b} * {userNumber} + {c} = {MathF.Round(a * MathF.Pow(userNumber, 2) + b * userNumber + c, 2)}");
             }
             else
             {
