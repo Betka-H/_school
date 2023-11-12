@@ -43,59 +43,52 @@ do
     Console.Write("enter number c: ");
     c = getNumber();
 
-    if (b == 0 && c == 0)
+    D = MathF.Pow(b, 2) - 4 * a * c;
+    switch (D)
     {
-        Console.WriteLine("there is an infinite amount of answers for \"x\"");
+        case < 0:
+            Console.WriteLine($"there is no answer for x in {a}x^2 + {b}x + {c} = 0");
+            break;
+        case 0:
+            Console.WriteLine("there is one answer for x: ");
+            Console.WriteLine("x = " + Math.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2));
+            break;
+        case > 0:
+            Console.WriteLine("there are two answers for x: ");
+            Console.WriteLine("x1 = " + Math.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2));
+            Console.WriteLine("x2 = " + Math.Round(x = (-b - MathF.Sqrt(D)) / (2 * a), 2));
+            break;
     }
-    else
-    {
-        D = MathF.Pow(b, 2) - 4 * a * c;
-        switch (D)
-        {
-            case < 0:
-                Console.WriteLine($"there is no answer for x in {a}x^2 + {b}x + {c} = 0");
-                break;
-            case 0:
-                Console.WriteLine("there is one answer for x: ");
-                Console.WriteLine("x = " + Math.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2));
-                break;
-            case > 0:
-                Console.WriteLine("there are two answers for x: ");
-                Console.WriteLine("x1 = " + Math.Round(x = (-b + MathF.Sqrt(D)) / (2 * a), 2));
-                Console.WriteLine("x2 = " + Math.Round(x = (-b - MathF.Sqrt(D)) / (2 * a), 2));
-                break;
-        }
 
-        do
+    do
+    {
+        Console.Write("enter parameter x for evaluation (enter \"stop\" to stop): ");
+        userString = Console.ReadLine().ToLower();
+        detectAndTerminate(); // detects "exit" keyword
+        if (userString == "stop")
         {
-            Console.Write("enter parameter x for evaluation (enter \"stop\" to stop): ");
-            userString = Console.ReadLine().ToLower();
-            detectAndTerminate(); // detects "exit" keyword
-            if (userString == "stop")
-            {
-                break;
-            }
-            suces = float.TryParse(userString, out x);
-            if (suces)
-            {
-                Console.WriteLine($"the equation is {a}*{x}^2 + {b}*{x} + {c} = {Math.Round(a * MathF.Pow(x, 2) + b * x + c, 2)}");
-            }
-            else
-            {
-                Console.Write("that's not a number. please ");
-            }
-        } while (true);
-    }
+            break;
+        }
+        suces = float.TryParse(userString, out x);
+        if (suces)
+        {
+            Console.WriteLine($"the equation is {a}*{x}^2 + {b}*{x} + {c} = {Math.Round(a * MathF.Pow(x, 2) + b * x + c, 2)}");
+        }
+        else
+        {
+            Console.Write("that's not a number. please ");
+        }
+    } while (true);
 
     // end
-    Console.Write("do you want to repeat the program? \"repeat\" to repeat, \"exit\" to exit: ");
+    Console.Write("do you want to repeat the program? \"r\" to repeat, \"exit\" to exit: ");
     do
     {
         userString = Console.ReadLine().ToLower();
         detectAndTerminate();
-        if (userString != "repeat")
+        if (userString != "r")
         {
             Console.Write("invalid input; repeat/exit expected: ");
         }
-    } while (userString != "repeat");
+    } while (userString != "r");
 } while (true);
