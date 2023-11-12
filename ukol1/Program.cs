@@ -95,7 +95,7 @@ do
         detectAndTerminate();
         if (userString != "repeat")
         {
-            Console.Write("invalid input: repeat/exit expected: ");
+            Console.Write("invalid input; repeat/exit expected: ");
         }
     } while (userString != "repeat");
 } while (true);
