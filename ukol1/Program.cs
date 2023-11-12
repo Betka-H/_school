@@ -1,6 +1,8 @@
+// variables
 float a, b, c, D, x, userNumber;
 string userString;
 
+// functions
 void detectAndTerminate()
 {
     if (userString == "e")
@@ -31,8 +33,10 @@ float x2()
     return MathF.Round(x = (-b - MathF.Sqrt(D)) / (2 * a), 2);
 }
 
+// main
 while (true)
 {
+    // number input
     Console.WriteLine("this program will solve ax^2 + bx + c = 0. input \"e\" at any time to exit");
     Console.Write("enter number a: ");
     a = getNumber();
@@ -40,9 +44,9 @@ while (true)
     b = getNumber();
     Console.Write("enter number c: ");
     c = getNumber();
-
     Console.WriteLine($"a = {a}, b = {b}, c = {c}");
 
+    // results
     if (a == 0 && b == 0 && c == 0)
     {
         Console.WriteLine($"there is an infinite amount of x values for {a}x^2 + {b}x + {c} = 0");
@@ -72,7 +76,7 @@ while (true)
                 break;
         }
 
-        // evaluate x
+        // x evaluation
         while (true)
         {
             Console.Write("enter parameter x for evaluation (or enter \"s\" to stop evaluating): ");
@@ -92,6 +96,7 @@ while (true)
             }
         }
     }
+
     // end
     while (true)
     {
