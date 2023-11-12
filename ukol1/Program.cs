@@ -1,8 +1,6 @@
 float a, b, c, D, x, userNumber;
 string userString;
-bool suces;
 
-// terminates the program
 void detectAndTerminate()
 {
     if (userString == "e")
@@ -17,12 +15,12 @@ float getNumber()
     {
         userString = Console.ReadLine().ToLower();
         detectAndTerminate();
-        suces = float.TryParse(userString, out userNumber);
-        if (!suces)
+        if (float.TryParse(userString, out userNumber))
         {
-            Console.Write("that's not a number. please input a number: ");
+            break;
         }
-    } while (!suces);
+        Console.Write("that's not a number. please input a number: ");
+    } while (true);
     return userNumber;
 }
 
@@ -75,10 +73,9 @@ do
             {
                 break;
             }
-            suces = float.TryParse(userString, out x);
-            if (suces)
+            if (float.TryParse(userString, out x))
             {
-                Console.WriteLine($"the equation is {a}*{x}^2 + {b}*{x} + {c} = {Math.Round(a * MathF.Pow(x, 2) + b * x + c, 2)}");
+                Console.WriteLine($"the equation is {a}*({x})^2 + {b}*({x}) + {c} = {Math.Round(a * MathF.Pow(x, 2) + b * x + c, 2)}");
             }
             else
             {
