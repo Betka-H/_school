@@ -13,7 +13,7 @@ void detectAndTerminate()
 }
 float getNumber()
 {
-    while (true)
+    for(;;)
     {
         userString = Console.ReadLine().ToLower();
         detectAndTerminate();
@@ -34,7 +34,7 @@ float x2()
 }
 
 // main
-while (true)
+for(;;)
 {
     // number input
     Console.WriteLine("this program will solve ax^2 + bx + c = 0. input \"e\" at any time to exit");
@@ -76,7 +76,7 @@ while (true)
         }
 
         // x evaluation
-        while (true)
+        for(;;)
         {
             Console.Write("enter parameter x for evaluation (or enter \"s\" to stop evaluating): ");
             userString = Console.ReadLine().ToLower();
@@ -97,7 +97,7 @@ while (true)
     }
 
     // end
-    while (true)
+    for(;;)
     {
         Console.Write("do you want to repeat the program? \"r\" to repeat, \"e\" to exit: ");
         userString = Console.ReadLine().ToLower();
