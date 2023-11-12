@@ -84,26 +84,18 @@ do
             {
                 Console.Write("that's not a number. please ");
             }
-
         } while (true);
     }
 
     // end
-    Console.Write("do you want to repeat the program? y/n: ");
+    Console.Write("do you want to repeat the program? \"repeat\" to repeat, \"exit\" to exit: ");
     do
     {
+        userString = Console.ReadLine().ToLower();
         detectAndTerminate();
-        switch (userString = Console.ReadLine().ToLower())
+        if (userString != "repeat")
         {
-            case "y":
-                break;
-            case "n":
-                userString = "exit";
-                detectAndTerminate();
-                break;
-            default:
-                Console.WriteLine("invalid input: y/n expected");
-                break;
+            Console.Write("invalid input: repeat/exit expected: ");
         }
-    } while (userString != "y");
+    } while (userString != "repeat");
 } while (true);
