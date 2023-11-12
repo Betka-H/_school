@@ -67,12 +67,11 @@ while (true)
                 break;
             case 0:
                 Console.WriteLine("there is one answer for x: ");
-                Console.Write($"x = {x1()}");
+                Console.WriteLine($"x = {x1()}");
                 break;
             case > 0:
                 Console.WriteLine("there are two answers for x: ");
-                Console.WriteLine($"x1 = {x1()}");
-                Console.WriteLine($"x2 = {x2()}");
+                Console.WriteLine($"x1 = {x1()}, x2 = {x2()}");
                 break;
         }
 
