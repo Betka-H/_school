@@ -5,7 +5,7 @@ bool suces;
 // terminates the program
 void detectAndTerminate()
 {
-    if (userString == "exit")
+    if (userString == "e")
     {
         Console.WriteLine("terminating program...");
         Environment.Exit(0);
@@ -28,7 +28,7 @@ float getNumber()
 
 do
 {
-    Console.WriteLine("this program will solve ax^2 + bx + c = 0. input \"exit\" at any time to terminate the program");
+    Console.WriteLine("this program will solve ax^2 + bx + c = 0. input \"e\" at any time to exit");
     Console.Write("enter number a: ");
     a = getNumber();
     Console.Write("enter number b: ");
@@ -88,15 +88,15 @@ do
     }
 
     // end
-    Console.Write("do you want to repeat the program? \"r\" to repeat, \"exit\" to exit: ");
     do
     {
+        Console.Write("do you want to repeat the program? \"r\" to repeat, \"e\" to exit: ");
         userString = Console.ReadLine().ToLower();
         detectAndTerminate();
         if (userString == "r")
         {
             break;
         }
-        Console.Write("invalid input; repeat/exit expected: ");
+        Console.Write("invalid input; ");
     } while (true);
 } while (true);
