@@ -69,25 +69,22 @@ do
         do
         {
             Console.Write("enter parameter x for evaluation (enter \"stop\" to stop): ");
-            do
-            {
-                userString = Console.ReadLine().ToLower();
-                detectAndTerminate(); // detects "exit" keyword
-                if (float.TryParse(userString, out x) || userString == "stop")
-                {
-                    suces = true;
-                }
-                else
-                {
-                    suces = false;
-                    Console.Write("that's not a number. please input a number (or enter \"stop\" to stop): ");
-                }
-            } while (!suces);
+            userString = Console.ReadLine().ToLower();
+            detectAndTerminate(); // detects "exit" keyword
             if (userString == "stop")
             {
                 break;
             }
-            Console.WriteLine($"the equation is {a}*{x}^2 + {b}*{x} + {c} = {Math.Round(a * MathF.Pow(x, 2) + b * x + c, 2)}");
+            suces = float.TryParse(userString, out x);
+            if (suces)
+            {
+                Console.WriteLine($"the equation is {a}*{x}^2 + {b}*{x} + {c} = {Math.Round(a * MathF.Pow(x, 2) + b * x + c, 2)}");
+            }
+            else
+            {
+                Console.Write("that's not a number. please ");
+            }
+
         } while (true);
     }
 
