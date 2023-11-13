@@ -66,11 +66,11 @@ for (; ; ) // more readable than while(true)??
                 Console.WriteLine($"there is no answer for x in {a} * x^2 + {b} * x + {c} = 0");
                 break;
             case 0:
-                Console.WriteLine("there is one answer for x: ");
+                Console.WriteLine($"there is one answer for x in {a} * x^2 + {b} * x + {c} = 0: ");
                 Console.WriteLine($"x = {x1()}");
                 break;
             case > 0:
-                Console.WriteLine("there are two answers for x: ");
+                Console.WriteLine($"there are two answers for x in {a} * x^2 + {b} * x + {c} = 0: ");
                 Console.WriteLine($"x1 = {x1()}, x2 = {x2()}");
                 break;
         }
