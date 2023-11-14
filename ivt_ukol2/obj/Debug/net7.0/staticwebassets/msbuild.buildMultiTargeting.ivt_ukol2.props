@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\ivt_ukol2.props" />
-</Project>

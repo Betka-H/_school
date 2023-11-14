@@ -80,7 +80,7 @@ for (; ; ) // more readable than while(true)??
         {
             Console.Write("enter parameter x for evaluation (or enter \"s\" to stop evaluating): ");
             userString = Console.ReadLine().ToLower();
-            detectAndTerminate(); // detects "exit" keyword
+            detectAndTerminate(); // detects "e" keyword
             if (userString == "s")
             {
                 break;
