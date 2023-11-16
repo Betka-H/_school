@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gametest", "gametest\gamete
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ukol1", "ukol1\ukol1.csproj", "{89519E2C-AC52-44B9-B468-DCA31BD665E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mathq", "mathq\mathq.csproj", "{E34AB0CB-71C5-4A1F-89A9-B445DC42EEE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{89519E2C-AC52-44B9-B468-DCA31BD665E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89519E2C-AC52-44B9-B468-DCA31BD665E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89519E2C-AC52-44B9-B468-DCA31BD665E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E34AB0CB-71C5-4A1F-89A9-B445DC42EEE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E34AB0CB-71C5-4A1F-89A9-B445DC42EEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E34AB0CB-71C5-4A1F-89A9-B445DC42EEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E34AB0CB-71C5-4A1F-89A9-B445DC42EEE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
