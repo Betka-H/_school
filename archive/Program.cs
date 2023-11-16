@@ -163,6 +163,8 @@ Environment.Exit(0);
 Console.WriteLine(DateTime.Now); // time
 Console.ForegroundColor = ConsoleColor.Gray; // color
 Console.Title = "the what now"; // external terminal (ET) window title
+Console.WindowHeight = 42;
+Console.WindowWidth = 64;
 
 // real shit
 /* print array elements in order
