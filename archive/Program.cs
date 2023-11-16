@@ -1,6 +1,7 @@
-// TO RUN: > dotnet run --project [project name (WebApplication1)] < in the terminal
+// TO RUN: > dotnet run --project [project name] < in the terminal
 // ctrl+shit+p for cmd palete -> .NET -> new project -> core web api idk
 // ctrl + c to cancel program in terminal
+// right-click program folder -> open in external terminal for... external terminal
 
 /* OLD
 Console.WriteLine(">>> tell me the name of god you fungal piece fo shit");
@@ -161,6 +162,7 @@ Environment.Exit(0);
 // useful
 Console.WriteLine(DateTime.Now); // time
 Console.ForegroundColor = ConsoleColor.Gray; // color
+Console.Title = "the what now"; // external terminal (ET) window title
 
 // real shit
 /* print array elements in order
