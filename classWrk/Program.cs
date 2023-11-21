@@ -1,4 +1,5 @@
 float a, b, c, r, pi = 22 / 7;
+string unit = "cm";
 
 void colWrong()
 {
@@ -26,45 +27,50 @@ float getPosFloat()
     }
 }
 
+void writeGet(string s)
+{
+    Console.Write($"prosim zadej delku {s} (v {unit}): ");
+}
+
 void kruh()
 {
-    Console.Write("prosim zadej delku polomeru r (v cm): ");
+    writeGet("polomeru r");
     r = getPosFloat();
-    Console.WriteLine($"obvod kruhu je: {MathF.Round(2 * pi * r, 2)}cm\nobsah kruhu je: {MathF.Round(pi * MathF.Pow(r, 2), 2)}cm");
+    Console.WriteLine($"obvod kruhu je: {MathF.Round(2 * pi * r, 2)}{unit}\nobsah kruhu je: {MathF.Round(pi * MathF.Pow(r, 2), 2)}{unit}");
 }
 void trojuhelnik()
 {
-    Console.Write("prosim zadej delku strany a (v cm): ");
+    writeGet("strany a");
     a = getPosFloat();
-    Console.Write("prosim zadej delku strany b (v cm): ");
+    writeGet("strany b");
     b = getPosFloat();
-    Console.Write("prosim zadej delku strany c (v cm): ");
+    writeGet("strany c");
     c = getPosFloat();
     if (a < (b + c) && b < (a + c) && c < (a + b))
     {
         float s = (a + b + c) / 2;
-        Console.WriteLine($"obvod trojuhelniku je: {MathF.Round(a + b + c, 2)}cm\nobsah trojuhelniku je: {MathF.Round(MathF.Sqrt(s * (s - a) * (s - b) * (s - c)), 2)}cm");
+        Console.WriteLine($"obvod trojuhelniku je: {MathF.Round(a + b + c, 2)}{unit}\nobsah trojuhelniku je: {MathF.Round(MathF.Sqrt(s * (s - a) * (s - b) * (s - c)), 2)}{unit}");
     }
     else
     {
         colWrong();
-        Console.WriteLine("neplati trojuhelnikova nerovnost! (soucet delek kazdych dvou stran ma byt vetsi nez delka strany treti)");
+        Console.WriteLine("neplati trojuhelnikova nerovnost (soucet delek kazdych dvou stran ma byt vetsi nez delka strany treti)!");
         colNormal();
     }
 }
 void ctverec()
 {
-    Console.Write("prosim zadej delku strany a (v cm): ");
+    writeGet("strany a");
     a = getPosFloat();
-    Console.WriteLine($"obvod ctverce je: {MathF.Round(4 * a, 2)}cm\nobsah ctverce je: {MathF.Round(a * a, 2)}cm");
+    Console.WriteLine($"obvod ctverce je: {MathF.Round(4 * a, 2)}{unit}\nobsah ctverce je: {MathF.Round(a * a, 2)}{unit}");
 }
 void obdelnik()
 {
-    Console.Write("prosim zadej delku strany a (v cm): ");
+    writeGet("strany a");
     a = getPosFloat();
-    Console.Write("prosim zadej delku strany b (v cm): ");
+    writeGet("strany b");
     b = getPosFloat();
-    Console.WriteLine($"obvod obdelniku je: {MathF.Round(2 * a + 2 * b, 2)}cm\nobsah obdelniku je: {MathF.Round(a * b, 2)}cm");
+    Console.WriteLine($"obvod obdelniku je: {MathF.Round(2 * a + 2 * b, 2)}{unit}\nobsah obdelniku je: {MathF.Round(a * b, 2)}{unit}");
 }
 
 for (; ; )
