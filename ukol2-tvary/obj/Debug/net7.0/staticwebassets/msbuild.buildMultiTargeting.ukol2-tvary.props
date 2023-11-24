@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ukol2-tvary.props" />
+</Project>
