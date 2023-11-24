@@ -794,11 +794,11 @@ draw();
 draw(); */
 
 // useful
+// static function does not acess any outisde variable. global x local. static is recommended
 Console.WriteLine(DateTime.Now); // time
 Console.ForegroundColor = ConsoleColor.Gray; // color
 Console.Title = "the what now"; // external terminal (ET) window title
-Console.WindowHeight = 42;
-Console.WindowWidth = 64;
+Console.WindowHeight = 42; Console.WindowWidth = 64;
 int getInt()
 {
     for (; ; )
@@ -907,3 +907,302 @@ for (; ; )
     }
     Console.ForegroundColor = ConsoleColor.Gray;
 } */
+/* calculate basic shape outline lengths and areas
+Console.Title = "pocita tvary :))";
+
+float a, b, c, r, pi = 22 / 7;
+string unit = "cm";
+
+void colWrong() // wrong color
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+}
+void colNormal() // normal color
+{
+    Console.ForegroundColor = ConsoleColor.Gray;
+}
+
+float getPosFloat() // outputs a positive float, from user
+{
+    for (; ; )
+    {
+        if (float.TryParse(Console.ReadLine(), out float x))
+        {
+            if (x > 0)
+            {
+                return x;
+            }
+        }
+        colWrong();
+        Console.Write("prosim zadej cislo vetsi nez 0: ");
+        colNormal();
+    }
+}
+
+void writeGet(string s) // prosim zadej delku {s} (v {unit}):
+{
+    Console.Write($"prosim zadej delku {s} (v {unit}): ");
+}
+
+void kruh()
+{
+    writeGet("polomeru r");
+    r = getPosFloat();
+    Console.WriteLine($"obvod kruhu je: {MathF.Round(2 * pi * r, 2)}{unit}\nobsah kruhu je: {MathF.Round(pi * MathF.Pow(r, 2), 2)}{unit}");
+}
+void trojuhelnik()
+{
+    writeGet("strany a");
+    a = getPosFloat();
+    writeGet("strany b");
+    b = getPosFloat();
+    writeGet("strany c");
+    c = getPosFloat();
+    if (a < (b + c) && b < (a + c) && c < (a + b))
+    {
+        float s = (a + b + c) / 2;
+        Console.WriteLine($"obvod trojuhelniku je: {MathF.Round(a + b + c, 2)}{unit}\nobsah trojuhelniku je: {MathF.Round(MathF.Sqrt(s * (s - a) * (s - b) * (s - c)), 2)}{unit}");
+    }
+    else
+    {
+        colWrong();
+        Console.WriteLine("neplati trojuhelnikova nerovnost (soucet delek kazdych dvou stran ma byt vetsi nez delka strany treti)!");
+        colNormal();
+    }
+}
+void ctverec()
+{
+    writeGet("strany a");
+    a = getPosFloat();
+    Console.WriteLine($"obvod ctverce je: {MathF.Round(4 * a, 2)}{unit}\nobsah ctverce je: {MathF.Round(a * a, 2)}{unit}");
+}
+void obdelnik()
+{
+    writeGet("strany a");
+    a = getPosFloat();
+    writeGet("strany b");
+    b = getPosFloat();
+    Console.WriteLine($"obvod obdelniku je: {MathF.Round(2 * a + 2 * b, 2)}{unit}\nobsah obdelniku je: {MathF.Round(a * b, 2)}{unit}");
+}
+
+for (; ; )
+{
+    Console.Write("vyber utvar, ktery chces vypocitat: [k]ruh, [t]rojuhelnik, [c]tverec, [o]bdelnik nebo [s]top k ukonceni programu: ");
+    switch (Console.ReadLine().ToLower())
+    {
+        case "k":
+            kruh();
+            break;
+        case "t":
+            trojuhelnik();
+            break;
+        case "c":
+            ctverec();
+            break;
+        case "o":
+            obdelnik();
+            break;
+        case "s":
+            Environment.Exit(0);
+            break;
+        default:
+            colWrong();
+            Console.WriteLine("neplatny vyber!");
+            colNormal();
+            break;
+    }
+} */
+/* find max (brocken :(( )
+int[] array1 = { 432, 5, 3, 46, 43, 6, 4474, 743, 5322, 34, 5322, 4325, 532, 3, 2, 2, 5322 };
+
+int findMax(int[] ar)
+{
+    int max = 0;
+    if (ar.Length == 0)
+    {
+        Console.WriteLine("array has 0 elements");
+        return 0;
+    }
+    else
+    {
+        foreach (int x in array1)
+        {
+            if (x > max)
+            {
+                max = x;
+            }
+        }
+    }
+    return max;
+}
+
+void findMaxIndex(int[] ar)
+{
+    if (ar.Length == 0)
+    {
+        Console.WriteLine("array has 0 elements");
+    }
+    else
+    {
+        Console.Write("the highest number index/es in the array is/are: ");
+        for (int i = 0; i > ar.Length; i++)
+        {
+            if (ar[i] == findMax(ar))
+            {
+                Console.Write($"{i},");
+            }
+        }
+    }
+}
+
+void col1()
+{
+    Console.ForegroundColor = ConsoleColor.Magenta;
+}
+void col2()
+{
+    Console.ForegroundColor = ConsoleColor.Gray;
+}
+
+
+col1();
+Console.WriteLine($"the highest number in the array is: {findMax(array1)}");
+col2();
+
+col1();
+findMaxIndex(array1);
+col2(); */
+
+
+
+
+
+
+// repeats, user chooses shape, program lists obsah and obvod, maybe objem, 
+// arrayify the shape selection
+
+float a, b, c, r, pi = 22 / 7;
+string unit = "cm";
+string[] shapes = { "circle", "triangle", "square", "rectangle", "pentagon", "hexagon", "cube", "block", "sphere" };
+void colWrong() // wrong color
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+}
+void colNormal() // normal color
+{
+    Console.ForegroundColor = ConsoleColor.Gray;
+}
+
+float getPosFloat() // outputs a positive float, from user
+{
+    for (; ; )
+    {
+        if (float.TryParse(Console.ReadLine(), out float x))
+        {
+            if (x > 0)
+            {
+                return x;
+            }
+        }
+        colWrong();
+        Console.Write("please enter a number (bigger than 0): ");
+        colNormal();
+    }
+}
+
+for (; ; )
+{
+    { // print shape options
+        Console.WriteLine("choose a shape:");
+        foreach (string s in shapes)
+        {
+            Console.Write($"[{s[0]}]{s.Remove(0, 1)}");
+        }
+        Console.WriteLine($"type {shapes.Length + 1} to exit");
+    }
+
+    break;
+}
+
+
+
+
+
+
+
+
+
+void writeGet(string s) // prosim zadej delku {s} (v {unit}):
+{
+    Console.Write($"prosim zadej delku {s} (v {unit}): ");
+}
+
+void kruh()
+{
+    writeGet("polomeru r");
+    r = getPosFloat();
+    Console.WriteLine($"obvod kruhu je: {MathF.Round(2 * pi * r, 2)}{unit}\nobsah kruhu je: {MathF.Round(pi * MathF.Pow(r, 2), 2)}{unit}");
+}
+void trojuhelnik()
+{
+    writeGet("strany a");
+    a = getPosFloat();
+    writeGet("strany b");
+    b = getPosFloat();
+    writeGet("strany c");
+    c = getPosFloat();
+    if (a < (b + c) && b < (a + c) && c < (a + b))
+    {
+        float s = (a + b + c) / 2;
+        Console.WriteLine($"obvod trojuhelniku je: {MathF.Round(a + b + c, 2)}{unit}\nobsah trojuhelniku je: {MathF.Round(MathF.Sqrt(s * (s - a) * (s - b) * (s - c)), 2)}{unit}");
+    }
+    else
+    {
+        colWrong();
+        Console.WriteLine("neplati trojuhelnikova nerovnost (soucet delek kazdych dvou stran ma byt vetsi nez delka strany treti)!");
+        colNormal();
+    }
+}
+void ctverec()
+{
+    writeGet("strany a");
+    a = getPosFloat();
+    Console.WriteLine($"obvod ctverce je: {MathF.Round(4 * a, 2)}{unit}\nobsah ctverce je: {MathF.Round(a * a, 2)}{unit}");
+}
+void obdelnik()
+{
+    writeGet("strany a");
+    a = getPosFloat();
+    writeGet("strany b");
+    b = getPosFloat();
+    Console.WriteLine($"obvod obdelniku je: {MathF.Round(2 * a + 2 * b, 2)}{unit}\nobsah obdelniku je: {MathF.Round(a * b, 2)}{unit}");
+}
+
+for (; ; )
+{
+    Console.Write("vyber utvar, ktery chces vypocitat: [k]ruh, [t]rojuhelnik, [c]tverec, [o]bdelnik nebo [s]top k ukonceni programu: ");
+    switch (Console.ReadLine().ToLower())
+    {
+        case "k":
+            kruh();
+            break;
+        case "t":
+            trojuhelnik();
+            break;
+        case "c":
+            ctverec();
+            break;
+        case "o":
+            obdelnik();
+            break;
+        case "s":
+            Environment.Exit(0);
+            break;
+        default:
+            colWrong();
+            Console.WriteLine("neplatny vyber!");
+            colNormal();
+            break;
+    }
+}
+// do utery 5.12. vecer
