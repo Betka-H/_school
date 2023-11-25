@@ -29,7 +29,7 @@ else
 Console.WriteLine("> what's your name?");
 string uname = Console.ReadLine();
 Console.WriteLine("> splendid, hi " + uname + "!\n> how old are you?"); */
-/*  login
+/* login
 //declarations
 string[] users = { "joe", "john", "stacy", "karen", "may" };
 string[] pws = { "joesawesomepassword", "imjohn42", "3141592653", "password123", "junejuly" };
@@ -84,7 +84,7 @@ if (pwatt == 0 && userpw != correctpw)
 }
 else
     Console.WriteLine("> login successful!"); */
-/*  x in Ax+B=0
+/* x in Ax+B=0
 // declarations
 string unum;
 string cont = "r";
@@ -1072,137 +1072,3 @@ col2();
 col1();
 findMaxIndex(array1);
 col2(); */
-
-
-
-
-
-
-// repeats, user chooses shape, program lists obsah and obvod, maybe objem, 
-// arrayify the shape selection
-
-float a, b, c, r, pi = 22 / 7;
-string unit = "cm";
-string[] shapes = { "circle", "triangle", "square", "rectangle", "pentagon", "hexagon", "cube", "block", "sphere" };
-void colWrong() // wrong color
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-}
-void colNormal() // normal color
-{
-    Console.ForegroundColor = ConsoleColor.Gray;
-}
-
-float getPosFloat() // outputs a positive float, from user
-{
-    for (; ; )
-    {
-        if (float.TryParse(Console.ReadLine(), out float x))
-        {
-            if (x > 0)
-            {
-                return x;
-            }
-        }
-        colWrong();
-        Console.Write("please enter a number (bigger than 0): ");
-        colNormal();
-    }
-}
-
-for (; ; )
-{
-    { // print shape options
-        Console.WriteLine("choose a shape:");
-        foreach (string s in shapes)
-        {
-            Console.Write($"[{s[0]}]{s.Remove(0, 1)}");
-        }
-        Console.WriteLine($"type {shapes.Length + 1} to exit");
-    }
-
-    break;
-}
-
-
-
-
-
-
-
-
-
-void writeGet(string s) // prosim zadej delku {s} (v {unit}):
-{
-    Console.Write($"prosim zadej delku {s} (v {unit}): ");
-}
-
-void kruh()
-{
-    writeGet("polomeru r");
-    r = getPosFloat();
-    Console.WriteLine($"obvod kruhu je: {MathF.Round(2 * pi * r, 2)}{unit}\nobsah kruhu je: {MathF.Round(pi * MathF.Pow(r, 2), 2)}{unit}");
-}
-void trojuhelnik()
-{
-    writeGet("strany a");
-    a = getPosFloat();
-    writeGet("strany b");
-    b = getPosFloat();
-    writeGet("strany c");
-    c = getPosFloat();
-    if (a < (b + c) && b < (a + c) && c < (a + b))
-    {
-        float s = (a + b + c) / 2;
-        Console.WriteLine($"obvod trojuhelniku je: {MathF.Round(a + b + c, 2)}{unit}\nobsah trojuhelniku je: {MathF.Round(MathF.Sqrt(s * (s - a) * (s - b) * (s - c)), 2)}{unit}");
-    }
-    else
-    {
-        colWrong();
-        Console.WriteLine("neplati trojuhelnikova nerovnost (soucet delek kazdych dvou stran ma byt vetsi nez delka strany treti)!");
-        colNormal();
-    }
-}
-void ctverec()
-{
-    writeGet("strany a");
-    a = getPosFloat();
-    Console.WriteLine($"obvod ctverce je: {MathF.Round(4 * a, 2)}{unit}\nobsah ctverce je: {MathF.Round(a * a, 2)}{unit}");
-}
-void obdelnik()
-{
-    writeGet("strany a");
-    a = getPosFloat();
-    writeGet("strany b");
-    b = getPosFloat();
-    Console.WriteLine($"obvod obdelniku je: {MathF.Round(2 * a + 2 * b, 2)}{unit}\nobsah obdelniku je: {MathF.Round(a * b, 2)}{unit}");
-}
-
-for (; ; )
-{
-    Console.Write("vyber utvar, ktery chces vypocitat: [k]ruh, [t]rojuhelnik, [c]tverec, [o]bdelnik nebo [s]top k ukonceni programu: ");
-    switch (Console.ReadLine().ToLower())
-    {
-        case "k":
-            kruh();
-            break;
-        case "t":
-            trojuhelnik();
-            break;
-        case "c":
-            ctverec();
-            break;
-        case "o":
-            obdelnik();
-            break;
-        case "s":
-            Environment.Exit(0);
-            break;
-        default:
-            colWrong();
-            Console.WriteLine("neplatny vyber!");
-            colNormal();
-            break;
-    }
-}
-// do utery 5.12. vecer

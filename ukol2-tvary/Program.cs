@@ -1,45 +1,36 @@
-float a, b, c, r;
-const float pi = 22 / 7;
+const float pi = 22f / 7f;
+float a, b, c, r, h;
 string unit = "cm";
-string[] shapes = { "circle", "triangle", "square", "rectangle", "pentagon", "hexagon", "cube", "rectangular box", "sphere" };
-void colWrong() // wrong color
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-}
-void colNormal() // normal color
+
+// visage
+Console.Title = "shape calculator :)";
+static void colNormal() // normal color
 {
     Console.ForegroundColor = ConsoleColor.Gray;
 }
-
-void printShapeSelection() // prints the selection of available shapes
+static void colHighlight() // highlight color
 {
-    Console.Write("choose a shape: ");
-    foreach (string s in shapes)
-    {
-        if (s == "cube")
-        {
-            Console.Write("c[u]be");
-        }
-        else if (s == "square")
-        {
-            Console.Write("s[q]uare");
-        }
-        else if (s == "rectangular box")
-        {
-            Console.Write("rectangular [b]ox");
-        }
-        else
-        {
-            Console.Write($"[{s[0]}]{s.Remove(0, 1)}");
-        }
-        if (Array.IndexOf(shapes, s) < shapes.Length - 1)
-        {
-            Console.Write(", ");
-        }
-    }
-    Console.Write("; or e[x]it: ");
+    Console.ForegroundColor = ConsoleColor.Green;
 }
-float getPosFloat() // outputs a positive float, from user
+static void colMath()
+{
+    Console.ForegroundColor = ConsoleColor.Magenta;
+}
+static void colWrong() // wrong color
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+}
+
+// user input for calculating shape dimensions
+void numberInputPrompt(string s) // input prompt
+{
+    Console.Write("please input ");
+    colMath();
+    Console.Write(s);
+    colNormal();
+    Console.Write($" (in {unit}): ");
+}
+float getPosFloat() // positive float from user
 {
     for (; ; )
     {
@@ -51,145 +42,232 @@ float getPosFloat() // outputs a positive float, from user
             }
         }
         colWrong();
-        Console.Write("please enter a number (bigger than 0): ");
+        Console.Write("please enter a number (> 0): ");
         colNormal();
     }
 }
-void numberInputPrompt(string s) // reusable user number input prompt
-{
-    Console.Write($"please input {s} (in {unit}): ");
-}
-void printPerimeterAndArea(string s, float per, float ar) // calculates perimeter and area
-{
-    Console.Write($"{s}: perimeter = {MathF.Round(per, 2)}, area = {MathF.Round(ar, 2)}");
-}
-void printVolume(float vol) // calculates volume
-{
-    Console.Write($", volume = {MathF.Round(vol, 2)}");
-}
+
 // shape calculations
+void printResult(string dimension, float value)
+{
+    colMath();
+    Console.WriteLine($"{dimension} = {MathF.Round(value, 2)}{unit}");
+    colNormal();
+}
 void circle()
 {
-    numberInputPrompt("radius");
+    numberInputPrompt("circle radius");
     r = getPosFloat();
-    printPerimeterAndArea("circle", 2 * pi * r, pi * MathF.Pow(r, 2));
+    printResult("perimeter", 2 * pi * r);
+    printResult("area", pi * r * r);
 }
 void triangle()
 {
-    numberInputPrompt("side a");
+    numberInputPrompt("triangle side a");
     a = getPosFloat();
-    numberInputPrompt("side b");
+    numberInputPrompt("triangle side b");
     b = getPosFloat();
-    numberInputPrompt("side c");
+    numberInputPrompt("triangle side c");
     c = getPosFloat();
     if (a < (b + c) && b < (a + c) && c < (a + b))
     {
         float s = (a + b + c) / 2;
-        printPerimeterAndArea("triangle", a + b + c, MathF.Sqrt(s * (s - a) * (s - b) * (s - c)));
+        printResult("perimeter", a + b + c);
+        printResult("area", MathF.Sqrt(s * (s - a) * (s - b) * (s - c)));
     }
     else
     {
         colWrong();
-        Console.Write("the triangle inequality (the sum of any two sides of a triangle must be greater than or equal to the third side) does not hold!");
+        Console.WriteLine("the triangle inequality (the sum of any two sides of a triangle must be greater than or equal to the third side) does not hold!");
         colNormal();
     }
 }
 void square()
 {
-    numberInputPrompt("side a");
+    numberInputPrompt("square side a");
     a = getPosFloat();
-    printPerimeterAndArea("square", 4 * a, a * a);
+    printResult("perimeter", 4 * a);
+    printResult("area", a * a);
 }
 void rectangle()
 {
-    numberInputPrompt("side a");
+    numberInputPrompt("rectangle side a");
     a = getPosFloat();
-    numberInputPrompt("side b");
+    numberInputPrompt("rectangle side b");
     b = getPosFloat();
-    printPerimeterAndArea("square", 2 * a * b, a * b);
+    printResult("perimeter", 2 * a * b);
+    printResult("area", a * b);
 }
 void pentagon()
 {
-    numberInputPrompt("side a");
+    numberInputPrompt("pentagon side a");
     a = getPosFloat();
-    printPerimeterAndArea("pentagon", 5 * a, MathF.Sqrt(5 * (5 + 2 * MathF.Sqrt(5))) * a * a / 4);
+    printResult("perimeter", 5 * a);
+    printResult("area", MathF.Sqrt(5 * (5 + 2 * MathF.Sqrt(5))) * a * a / 4);
 }
 void hexagon()
 {
-    numberInputPrompt("side a");
+    numberInputPrompt("hexagon side a");
     a = getPosFloat();
-    printPerimeterAndArea("square", 5 * a, 3 * MathF.Sqrt(3) / 2 * a * a);
+    printResult("perimeter", 6 * a);
+    printResult("area", 3 * MathF.Sqrt(3) / 2 * a * a);
 }
 void cube()
 {
-    numberInputPrompt("side a");
+    numberInputPrompt("cube side a");
     a = getPosFloat();
-    printPerimeterAndArea("cube", 12 * a, 6 * a * a);
-    printVolume(a * a * a);
+    printResult("perimeter", 12 * a);
+    printResult("area", 6 * a * a);
+    printResult("volume", a * a * a);
 }
 void rBox()
 {
-    numberInputPrompt("side a");
+    numberInputPrompt("rectangular box side a");
     a = getPosFloat();
-    numberInputPrompt("side b");
+    numberInputPrompt("rectangular box side b");
     b = getPosFloat();
-    numberInputPrompt("side c");
+    numberInputPrompt("rectangular box side c");
     c = getPosFloat();
-    printPerimeterAndArea("rectangular box", 4 * a * b * c, 2 * (a * b + a * c + b * c));
-    printVolume(a * b * c);
+    printResult("perimeter", 4 * a + 4 * b + 4 * c);
+    printResult("area", 2 * (a * b + a * c + b * c));
+    printResult("volume", a * b * c);
+}
+void cylinder()
+{
+    numberInputPrompt("cylinder radius r");
+    r = getPosFloat();
+    numberInputPrompt("cylinder height h");
+    h = getPosFloat();
+    printResult("area", 2 * (pi * r * r) + h * (2 * pi * r));
+    printResult("volume", pi * r * r * h);
 }
 void sphere()
 {
-    numberInputPrompt("radius r");
+    numberInputPrompt("sphere radius r");
     r = getPosFloat();
-    printPerimeterAndArea("sphere", 2 * pi * r, 4 * pi * r * r);
-    printVolume(pi * r * r * r * (4 / 3));
+    printResult("area", 4 * pi * r * r);
+    printResult("volume", pi * r * r * r * (4 / 3));
+}
+void cone()
+{
+    numberInputPrompt("cone radius r");
+    r = getPosFloat();
+    numberInputPrompt("cone height h");
+    h = getPosFloat();
+    printResult("area", pi * r * (r + MathF.Sqrt(h * h + r * r)));
+    printResult("volume", pi * r * r * (h / 3));
 }
 
 // main
-for (; ; )
+void printShapeSelection() // prints the selection of available shapes
 {
+    Console.Write("choose a shape or e");
+    colHighlight();
+    Console.Write("[x]");
     colNormal();
-    printShapeSelection();
-    ConsoleKey userChar = Console.ReadKey().Key;
-    Console.WriteLine();
-    switch (userChar) // shape choices
+    Console.WriteLine("it:");
+
+    string[] shapes = { "circle", "triangle", "square", "rectangle", "pentagon", "hexagon", "cube", "rectangular box", "cylinder", "sphere", "cone" };
+    foreach (string s in shapes)
     {
+        if (s == "cube" || s == "square" || s == "cone" || s == "cylinder") // [highlight] the 2nd letter
+        {
+            Console.Write(s[0]);
+            colHighlight();
+            Console.Write($"[{s[1]}]");
+            colNormal();
+            Console.Write(s.Remove(0, 2));
+        }
+        else if (s == "rectangular box")  // [highlight] the box letter
+        {
+            Console.Write("rectangular ");
+            colHighlight();
+            Console.Write("[b]");
+            colNormal();
+            Console.Write("ox");
+        }
+        else // (default) [highlight] the 1st letter
+        {
+            colHighlight();
+            Console.Write($"[{s[0]}]");
+            colNormal();
+            Console.Write(s.Remove(0, 1));
+        }
+
+        if (Array.IndexOf(shapes, s) < shapes.Length - 1) // write "," after every item, but not at the end
+        {
+            Console.Write(", ");
+        }
+    }
+    Console.Write(": ");
+}
+void shapeSwitch(ConsoleKey k) // main switch
+{
+    if (k != ConsoleKey.X) // since readkey doesnt make a new line, but only unless exiting (for some reason only displays in ET but not IT)
+    {
+        Console.WriteLine();
+    }
+    switch (k)
+    {
+        // circle
         case ConsoleKey.C:
             circle();
             break;
+        // triangle
         case ConsoleKey.T:
             triangle();
             break;
+        // square
         case ConsoleKey.Q:
             square();
             break;
+        // rectangle
         case ConsoleKey.R:
             rectangle();
             break;
+        // pentagon
         case ConsoleKey.P:
             pentagon();
             break;
+        // hexagon
         case ConsoleKey.H:
             hexagon();
             break;
+        // cube
         case ConsoleKey.U:
             cube();
             break;
+        // rectangular box
         case ConsoleKey.B:
             rBox();
             break;
+        // cylinder
+        case ConsoleKey.Y:
+            cylinder();
+            break;
+        // sphere
         case ConsoleKey.S:
             sphere();
             break;
+        // cone
+        case ConsoleKey.O:
+            cone();
+            break;
+        // exit
         case ConsoleKey.X:
             Environment.Exit(0);
             break;
         default:
             colWrong();
-            Console.Write("invalid input!");
+            Console.WriteLine("invalid input!");
             colNormal();
             break;
     }
-    Console.WriteLine();
+}
+
+for (; ; )
+{
+    colNormal();
+    printShapeSelection();
+    shapeSwitch(Console.ReadKey().Key);
 }
