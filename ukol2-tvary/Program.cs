@@ -21,7 +21,7 @@ static void colWrong() // wrong color
     Console.ForegroundColor = ConsoleColor.Red;
 }
 
-// user input for calculating shape dimensions
+// user input
 void numberInputPrompt(string s) // input prompt
 {
     Console.Write("please input ");
