@@ -2,6 +2,7 @@
 // ctrl+shit+p for cmd palete -> .NET -> new project -> core web api idk
 // ctrl + c to cancel program in terminal
 // right-click program folder -> open in external terminal for... external terminal
+// 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 idgaf
 
 // OLD
 /* mushrooms

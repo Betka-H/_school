@@ -12,7 +12,7 @@ static void colHighlight() // highlight color
 {
     Console.ForegroundColor = ConsoleColor.Green;
 }
-static void colMath()
+static void colMath() // for asking and printing math
 {
     Console.ForegroundColor = ConsoleColor.Magenta;
 }
@@ -54,6 +54,7 @@ void printResult(string dimension, float value)
     Console.WriteLine($"{dimension} = {MathF.Round(value, 2)}{unit}");
     colNormal();
 }
+
 void circle()
 {
     numberInputPrompt("circle radius");
@@ -267,7 +268,7 @@ void shapeSwitch(ConsoleKey k) // main switch
 
 for (; ; )
 {
-    colNormal();
+    colNormal(); // just to make sure... or if previous run was cancelled with a color
     printShapeSelection();
     shapeSwitch(Console.ReadKey().Key);
 }
