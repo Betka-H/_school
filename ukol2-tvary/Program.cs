@@ -30,7 +30,7 @@ void numberInputPrompt(string s) // input prompt
     colNormal();
     Console.Write($" (in {unit}): ");
 }
-float getPosFloat() // positive float from user
+static float getPosFloat() // positive float from user
 {
     for (; ; )
     {
