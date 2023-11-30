@@ -1,37 +1,39 @@
 const float pi = 22f / 7f;
-float a, b, c, r, h;
-string unit = "cm";
+const string unit = "cm";
+// a,b,c should be short lived
 
 // visage
 Console.Title = "shape calculator :)";
-static void colNormal() // normal color
+static void setColor(string a, string color)
 {
-    Console.ForegroundColor = ConsoleColor.Gray;
-}
-static void colHighlight() // highlight color
-{
-    Console.ForegroundColor = ConsoleColor.Green;
-}
-static void colMath() // for asking and printing math
-{
-    Console.ForegroundColor = ConsoleColor.Magenta;
-}
-static void colWrong() // wrong color
-{
-    Console.ForegroundColor = ConsoleColor.Red;
+    switch (color)
+    {
+        case "highlight":
+            Console.ForegroundColor = ConsoleColor.Green; // highlight color
+            break;
+        case "math":
+            Console.ForegroundColor = ConsoleColor.Magenta; // math color
+            break;
+        case "wrong":
+            Console.ForegroundColor = ConsoleColor.Red; // wrong color
+            break;
+        case "default":
+            Console.ForegroundColor = ConsoleColor.Gray; // default color
+            break;
+        default:
+            Console.WriteLine("error.. invalid color requested");
+            Environment.Exit(0);
+            break;
+    }
+    Console.Write(a);
+    Console.ForegroundColor = ConsoleColor.Gray; // default color
 }
 
-// user input
-void numberInputPrompt(string s) // input prompt
+static float getPosFloat(string s) // input prompt + positive float from user
 {
     Console.Write("please input ");
-    colMath();
-    Console.Write(s);
-    colNormal();
+    setColor(s, "math");
     Console.Write($" (in {unit}): ");
-}
-static float getPosFloat() // positive float from user
-{
     for (; ; )
     {
         if (float.TryParse(Console.ReadLine(), out float x))
@@ -41,35 +43,39 @@ static float getPosFloat() // positive float from user
                 return x;
             }
         }
-        colWrong();
-        Console.Write("please enter a number (> 0): ");
-        colNormal();
+        setColor("please enter a number (> 0): ", "wrong");
     }
 }
 
-// shape calculations
-void printResult(string dimension, float value)
+void printResult(string dimension, float value) // print result
 {
-    colMath();
-    Console.WriteLine($"{dimension} = {MathF.Round(value, 2)}{unit}");
-    colNormal();
+    string s = "";
+    switch (dimension)
+    {
+        case "perimeter":
+            break;
+        case "area":
+            s = "²";
+            break;
+        case "volume":
+            s = "³";
+            break;
+    }
+    setColor($"{dimension} = {MathF.Round(value, 2)}{unit}{s}", "math");
+    Console.WriteLine();
 }
 
 void circle()
 {
-    numberInputPrompt("circle radius");
-    r = getPosFloat();
+    float r = getPosFloat("circle radius");
     printResult("perimeter", 2 * pi * r);
     printResult("area", pi * r * r);
 }
 void triangle()
 {
-    numberInputPrompt("triangle side a");
-    a = getPosFloat();
-    numberInputPrompt("triangle side b");
-    b = getPosFloat();
-    numberInputPrompt("triangle side c");
-    c = getPosFloat();
+    float a = getPosFloat("triangle side a");
+    float b = getPosFloat("triangle side b");
+    float c = getPosFloat("triangle side c");
     if (a < (b + c) && b < (a + c) && c < (a + b))
     {
         float s = (a + b + c) / 2;
@@ -78,83 +84,68 @@ void triangle()
     }
     else
     {
-        colWrong();
-        Console.WriteLine("the triangle inequality (the sum of any two sides of a triangle must be greater than or equal to the third side) does not hold!");
-        colNormal();
+        setColor("the triangle inequality (the sum of any two sides of a triangle must be greater than or equal to the third side) does not hold!", "wrong");
+        Console.WriteLine();
     }
 }
 void square()
 {
-    numberInputPrompt("square side a");
-    a = getPosFloat();
+    float a = getPosFloat("square side a");
     printResult("perimeter", 4 * a);
     printResult("area", a * a);
 }
 void rectangle()
 {
-    numberInputPrompt("rectangle side a");
-    a = getPosFloat();
-    numberInputPrompt("rectangle side b");
-    b = getPosFloat();
+    float a = getPosFloat("rectangle side a");
+    float b = getPosFloat("rectangle side b");
     printResult("perimeter", 2 * a * b);
     printResult("area", a * b);
 }
 void pentagon()
 {
-    numberInputPrompt("pentagon side a");
-    a = getPosFloat();
+    float a = getPosFloat("pentagon side a");
     printResult("perimeter", 5 * a);
     printResult("area", MathF.Sqrt(5 * (5 + 2 * MathF.Sqrt(5))) * a * a / 4);
 }
 void hexagon()
 {
-    numberInputPrompt("hexagon side a");
-    a = getPosFloat();
+    float a = getPosFloat("hexagon side a");
     printResult("perimeter", 6 * a);
     printResult("area", 3 * MathF.Sqrt(3) / 2 * a * a);
 }
 void cube()
 {
-    numberInputPrompt("cube side a");
-    a = getPosFloat();
+    float a = getPosFloat("cube side a");
     printResult("perimeter", 12 * a);
     printResult("area", 6 * a * a);
     printResult("volume", a * a * a);
 }
 void rBox()
 {
-    numberInputPrompt("rectangular box side a");
-    a = getPosFloat();
-    numberInputPrompt("rectangular box side b");
-    b = getPosFloat();
-    numberInputPrompt("rectangular box side c");
-    c = getPosFloat();
+    float a = getPosFloat("rectangular box side a");
+    float b = getPosFloat("rectangular box side b");
+    float c = getPosFloat("rectangular box side c");
     printResult("perimeter", 4 * a + 4 * b + 4 * c);
     printResult("area", 2 * (a * b + a * c + b * c));
     printResult("volume", a * b * c);
 }
 void cylinder()
 {
-    numberInputPrompt("cylinder radius r");
-    r = getPosFloat();
-    numberInputPrompt("cylinder height h");
-    h = getPosFloat();
+    float r = getPosFloat("cylinder radius r");
+    float h = getPosFloat("cylinder height h");
     printResult("area", 2 * (pi * r * r) + h * (2 * pi * r));
     printResult("volume", pi * r * r * h);
 }
 void sphere()
 {
-    numberInputPrompt("sphere radius r");
-    r = getPosFloat();
+    float r = getPosFloat("sphere radius r");
     printResult("area", 4 * pi * r * r);
     printResult("volume", pi * r * r * r * (4 / 3));
 }
 void cone()
 {
-    numberInputPrompt("cone radius r");
-    r = getPosFloat();
-    numberInputPrompt("cone height h");
-    h = getPosFloat();
+    float r = getPosFloat("cone radius r");
+    float h = getPosFloat("cone height h");
     printResult("area", pi * r * (r + MathF.Sqrt(h * h + r * r)));
     printResult("volume", pi * r * r * (h / 3));
 }
@@ -163,39 +154,31 @@ void cone()
 void printShapeSelection() // prints the selection of available shapes
 {
     Console.Write("choose a shape or e");
-    colHighlight();
-    Console.Write("[x]");
-    colNormal();
-    Console.WriteLine("it:");
-
+    setColor("[x]", "highlight");
+    Console.Write("it:");
+    Console.WriteLine();
     string[] shapes = { "circle", "triangle", "square", "rectangle", "pentagon", "hexagon", "cube", "rectangular box", "cylinder", "sphere", "cone" };
     foreach (string s in shapes)
     {
-        if (s == "cube" || s == "square" || s == "cone" || s == "cylinder") // [highlight] the 2nd letter
+        if (s == "cube" || s == "square" || s == "cone" || s == "cylinder") // 2nd letter
         {
             Console.Write(s[0]);
-            colHighlight();
-            Console.Write($"[{s[1]}]");
-            colNormal();
+            setColor($"[{s[1]}]", "highlight");
             Console.Write(s.Remove(0, 2));
         }
-        else if (s == "rectangular box")  // [highlight] the box letter
+        else if (s == "rectangular box")  // box letter
         {
-            Console.Write("rectangular ");
-            colHighlight();
-            Console.Write("[b]");
-            colNormal();
+            Console.Write("rectangular");
+            setColor("[b]", "highlight");
             Console.Write("ox");
         }
-        else // (default) [highlight] the 1st letter
+        else // (default) 1st letter
         {
-            colHighlight();
-            Console.Write($"[{s[0]}]");
-            colNormal();
+            setColor($"[{s[0]}]", "highlight");
             Console.Write(s.Remove(0, 1));
         }
 
-        if (Array.IndexOf(shapes, s) < shapes.Length - 1) // write "," after every item, but not at the end
+        if (Array.IndexOf(shapes, s) < shapes.Length - 1) // write ", " after every item, but not at the end
         {
             Console.Write(", ");
         }
@@ -259,16 +242,15 @@ void shapeSwitch(ConsoleKey k) // main switch
             Environment.Exit(0);
             break;
         default:
-            colWrong();
-            Console.WriteLine("invalid input!");
-            colNormal();
+            setColor("invalid input!", "wrong");
+            Console.WriteLine();
             break;
     }
 }
 
 for (; ; )
 {
-    colNormal(); // just to make sure... or if previous run was cancelled with a color
+    setColor("", "default"); // just to make sure... or if previous run was cancelled with a color
     printShapeSelection();
     shapeSwitch(Console.ReadKey().Key);
 }

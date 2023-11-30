@@ -2,7 +2,7 @@
 // ctrl+shit+p for cmd palete -> .NET -> new project -> core web api idk
 // ctrl + c to cancel program in terminal
 // right-click program folder -> open in external terminal for... external terminal
-// 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 idgaf
+// ctrl shift [ ]
 
 // OLD
 /* mushrooms
@@ -796,10 +796,13 @@ draw(); */
 
 // useful
 // static function does not acess any outisde variable. global x local. static is recommended
+// a,b,c should be short lived
 Console.WriteLine(DateTime.Now); // time
 Console.ForegroundColor = ConsoleColor.Gray; // color
 Console.Title = "the what now"; // external terminal (ET) window title
 Console.WindowHeight = 42; Console.WindowWidth = 64;
+string string1 = "noo please dont replace me im just a string :((";
+string string2 = string1.Replace('e', '*'); // replace letters
 int getInt()
 {
     for (; ; )
@@ -813,7 +816,7 @@ int getInt()
 }
 
 // real shit
-/* print array elements in order
+/* // print array elements in order
 int[] numberArray2 = { };
 
 void printArray(int[] y)
@@ -849,7 +852,7 @@ void printPoly(int[] a)
 }
 printPoly(coeficients);
 */
-/* starry night
+/* // starry night
 int rows, columns;
 
 int getPosInt()
@@ -908,7 +911,7 @@ for (; ; )
     }
     Console.ForegroundColor = ConsoleColor.Gray;
 } */
-/* calculate basic shape outline lengths and areas
+/* // calculate basic shape outline lengths and areas
 Console.Title = "pocita tvary :))";
 
 float a, b, c, r, pi = 22 / 7;
@@ -1013,7 +1016,7 @@ for (; ; )
             break;
     }
 } */
-/* find max (brocken :(( )
+/* // find max (brocken :(( )
 int[] array1 = { 432, 5, 3, 46, 43, 6, 4474, 743, 5322, 34, 5322, 4325, 532, 3, 2, 2, 5322 };
 
 int findMax(int[] ar)
@@ -1073,3 +1076,75 @@ col2();
 col1();
 findMaxIndex(array1);
 col2(); */
+/* // multiply and add vectors idkk
+static void printV(float[] vector)
+{
+    foreach (float f in vector)
+    {
+        Console.Write($"{f}, ");
+    }
+    Console.WriteLine();
+}
+
+
+// multiply vector
+static float[] scaleVector(float[] vector, float scalar)
+{
+    float[] vectorNew = new float[vector.Length]; // make a new array with the same length as the input one
+    for (int i = 0; i < vector.Length; i++)
+    {
+        vectorNew[i] = vector[i] * scalar; // should multiply all the numbers (only multiplies one??)
+    }
+    Console.WriteLine($"> scalar = {scalar}");
+    return vectorNew;
+}
+// vectors
+float[] vector11 = { 2f, 3f };
+float[] vector12 = scaleVector(vector11, 3);
+// print
+Console.Write("vector 1: ");
+printV(vector11);
+Console.Write("vector 2: ");
+printV(vector12);
+
+
+Console.WriteLine();
+// add 2 vectors
+static float[] addVectors(float[] vector1, float[] vector2)
+{
+    float[] vectorNew = new float[vector1.Length]; // make a new array with the same length as the input one
+    for (int i = 0; i < vector1.Length; i++)
+    {
+        vectorNew[i] = vector1[i] + vector2[i]; // should multiply all the numbers (only multiplies one??)
+    }
+    return vectorNew;
+}
+// vectors
+float[] vector21 = { 3.5f, 4.7f };
+float[] vector22 = { 5f, 6f };
+float[] vector23 = addVectors(vector21, vector22);
+// print
+Console.Write("vector 3: ");
+printV(vector23); */
+/* // replace any letter with '*' or sth (brocken :(()
+// find most frequent letter?? <bonus
+// string is "", char is ''
+
+string replaceLetters(string oldString, char letter, char replacement)
+{
+    char[] newCharArray = new char[oldString.Length]; // create char array with the same length as input
+    for (int i = 0; i < oldString.Length; i++)
+    {
+        if (newCharArray[i] == letter)
+        {
+            newCharArray[i] = replacement;
+        } // this bitch empty (i think i almost see why. but fuck this)
+    }
+    string newString = new string(newCharArray);
+    return newString;
+}
+
+string string1 = "noo please dont replace me im just a string :((";
+Console.WriteLine(string1);
+string string2 = string1.Replace('e', '*');
+Console.WriteLine(string2); */
