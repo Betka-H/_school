@@ -2,7 +2,6 @@ const float pi = 22f / 7f;
 const string unit = "cm";
 // a,b,c should be short lived
 
-// visage
 Console.Title = "shape calculator :)";
 static void setColor(string a, string color)
 {
@@ -17,18 +16,13 @@ static void setColor(string a, string color)
         case "wrong":
             Console.ForegroundColor = ConsoleColor.Red; // wrong color
             break;
-        case "default":
-            Console.ForegroundColor = ConsoleColor.Gray; // default color
-            break;
         default:
-            Console.WriteLine("error.. invalid color requested");
-            Environment.Exit(0);
+            Console.ForegroundColor = ConsoleColor.Gray; // default color
             break;
     }
     Console.Write(a);
     Console.ForegroundColor = ConsoleColor.Gray; // default color
 }
-
 static float getPosFloat(string s) // input prompt + positive float from user
 {
     Console.Write("please input ");
@@ -46,7 +40,6 @@ static float getPosFloat(string s) // input prompt + positive float from user
         setColor("please enter a number (> 0): ", "wrong");
     }
 }
-
 void printResult(string dimension, float value) // print result
 {
     string s = "";
@@ -150,7 +143,6 @@ void cone()
     printResult("volume", pi * r * r * (h / 3));
 }
 
-// main
 void printShapeSelection() // prints the selection of available shapes
 {
     Console.Write("choose a shape or e");
@@ -248,9 +240,10 @@ void shapeSwitch(ConsoleKey k) // main switch
     }
 }
 
+// main
 for (; ; )
 {
-    setColor("", "default"); // just to make sure... or if previous run was cancelled with a color
+    setColor("", ""); // just to make sure... or if previous run was cancelled with a color
     printShapeSelection();
     shapeSwitch(Console.ReadKey().Key);
 }
