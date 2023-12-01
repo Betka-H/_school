@@ -183,9 +183,9 @@ static void shapeSwitch(ConsoleKey k) // main switch
     {
         Console.WriteLine();
     }
-    static void printChoice(string c)
+    static void printChoice(string s)
     {
-        Console.WriteLine($"you chose {c}");
+        Console.WriteLine($"you chose {s}");
     }
     switch (k)
     {
