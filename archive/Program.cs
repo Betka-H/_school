@@ -797,13 +797,28 @@ draw(); */
 // useful
 // static function does not acess any outisde variable. global x local. static is recommended
 // a,b,c should be short lived
+Random rnd = new Random();
+int loadMs = rnd.Next(100, 500);
 Console.WriteLine(DateTime.Now); // time
 Console.ForegroundColor = ConsoleColor.Gray; // color
 Console.Title = "the what now"; // external terminal (ET) window title
 Console.WindowHeight = 42; Console.WindowWidth = 64;
 string string1 = "noo please dont replace me im just a string :((";
 string string2 = string1.Replace('e', '*'); // replace letters
-int getInt()
+int[] intArray = { 2, 4, 34, 35, 325, 2353, 2532, 5325, 35, 32, 23, 2, 21, 1 };
+Array.Sort(intArray);
+static void printArray(int[] a)
+{
+    for (int i = 0; i < a.Length; i++)
+    {
+        Console.Write(a[i]);
+        if (i < a.Length - 1)
+        {
+            Console.Write(", ");
+        }
+    }
+}
+static int getInt()
 {
     for (; ; )
     {
@@ -1126,7 +1141,7 @@ float[] vector23 = addVectors(vector21, vector22);
 // print
 Console.Write("vector 3: ");
 printV(vector23); */
-/* // replace any letter with '*' or sth (brocken :(()
+/* // replace any letter with '*' or sth (brocken :(( )
 // find most frequent letter?? <bonus
 // string is "", char is ''
 

@@ -258,7 +258,7 @@ static void shapeSwitch(ConsoleKey k) // main switch
 // main
 for (; ; )
 {
-    setColor("", ""); // just to make sure... or if previous run was cancelled with a color (< sets color to default)
+    setColor("", ""); // (< sets color to default) just to make sure... or if previous run was cancelled with a color
     printShapeSelection();
     shapeSwitch(Console.ReadKey().Key);
 }
