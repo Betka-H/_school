@@ -1,0 +1,14 @@
+C:\Users\eliza\.vscode\_school\classW\bin\Debug\net7.0\classW.exe
+C:\Users\eliza\.vscode\_school\classW\bin\Debug\net7.0\classW.deps.json
+C:\Users\eliza\.vscode\_school\classW\bin\Debug\net7.0\classW.runtimeconfig.json
+C:\Users\eliza\.vscode\_school\classW\bin\Debug\net7.0\classW.dll
+C:\Users\eliza\.vscode\_school\classW\bin\Debug\net7.0\classW.pdb
+C:\Users\eliza\.vscode\_school\classW\obj\Debug\net7.0\classW.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliza\.vscode\_school\classW\obj\Debug\net7.0\classW.AssemblyInfoInputs.cache
+C:\Users\eliza\.vscode\_school\classW\obj\Debug\net7.0\classW.AssemblyInfo.cs
+C:\Users\eliza\.vscode\_school\classW\obj\Debug\net7.0\classW.csproj.CoreCompileInputs.cache
+C:\Users\eliza\.vscode\_school\classW\obj\Debug\net7.0\classW.dll
+C:\Users\eliza\.vscode\_school\classW\obj\Debug\net7.0\refint\classW.dll
+C:\Users\eliza\.vscode\_school\classW\obj\Debug\net7.0\classW.pdb
+C:\Users\eliza\.vscode\_school\classW\obj\Debug\net7.0\classW.genruntimeconfig.cache
+C:\Users\eliza\.vscode\_school\classW\obj\Debug\net7.0\ref\classW.dll

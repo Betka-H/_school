@@ -1,0 +1,14 @@
+C:\Users\eliza\.vscode\_school\adventOfCode\bin\Debug\net7.0\adventOfCode.exe
+C:\Users\eliza\.vscode\_school\adventOfCode\bin\Debug\net7.0\adventOfCode.deps.json
+C:\Users\eliza\.vscode\_school\adventOfCode\bin\Debug\net7.0\adventOfCode.runtimeconfig.json
+C:\Users\eliza\.vscode\_school\adventOfCode\bin\Debug\net7.0\adventOfCode.dll
+C:\Users\eliza\.vscode\_school\adventOfCode\bin\Debug\net7.0\adventOfCode.pdb
+C:\Users\eliza\.vscode\_school\adventOfCode\obj\Debug\net7.0\adventOfCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliza\.vscode\_school\adventOfCode\obj\Debug\net7.0\adventOfCode.AssemblyInfoInputs.cache
+C:\Users\eliza\.vscode\_school\adventOfCode\obj\Debug\net7.0\adventOfCode.AssemblyInfo.cs
+C:\Users\eliza\.vscode\_school\adventOfCode\obj\Debug\net7.0\adventOfCode.csproj.CoreCompileInputs.cache
+C:\Users\eliza\.vscode\_school\adventOfCode\obj\Debug\net7.0\adventOfCode.dll
+C:\Users\eliza\.vscode\_school\adventOfCode\obj\Debug\net7.0\refint\adventOfCode.dll
+C:\Users\eliza\.vscode\_school\adventOfCode\obj\Debug\net7.0\adventOfCode.pdb
+C:\Users\eliza\.vscode\_school\adventOfCode\obj\Debug\net7.0\adventOfCode.genruntimeconfig.cache
+C:\Users\eliza\.vscode\_school\adventOfCode\obj\Debug\net7.0\ref\adventOfCode.dll
