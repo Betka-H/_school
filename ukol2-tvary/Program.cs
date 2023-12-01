@@ -3,7 +3,7 @@ const string unit = "cm";
 // a,b,c should be short lived
 
 Console.Title = "shape calculator :)";
-static void setColor(string a, string color)
+static void setColor(string s, string color) // change color
 {
     switch (color)
     {
@@ -20,7 +20,7 @@ static void setColor(string a, string color)
             Console.ForegroundColor = ConsoleColor.Gray; // default color
             break;
     }
-    Console.Write(a);
+    Console.Write(s);
     Console.ForegroundColor = ConsoleColor.Gray; // default color
 }
 static float getPosFloat(string s) // input prompt + positive float from user
@@ -40,7 +40,7 @@ static float getPosFloat(string s) // input prompt + positive float from user
         setColor("please enter a number (> 0): ", "wrong");
     }
 }
-void printResult(string dimension, float value) // print result
+static void printResult(string dimension, float value) // print result
 {
     string s = "";
     switch (dimension)
@@ -58,13 +58,13 @@ void printResult(string dimension, float value) // print result
     Console.WriteLine();
 }
 
-void circle()
+static void circle()
 {
     float r = getPosFloat("circle radius");
     printResult("perimeter", 2 * pi * r);
     printResult("area", pi * r * r);
 }
-void triangle()
+static void triangle()
 {
     float a = getPosFloat("triangle side a");
     float b = getPosFloat("triangle side b");
@@ -81,39 +81,39 @@ void triangle()
         Console.WriteLine();
     }
 }
-void square()
+static void square()
 {
     float a = getPosFloat("square side a");
     printResult("perimeter", 4 * a);
     printResult("area", a * a);
 }
-void rectangle()
+static void rectangle()
 {
     float a = getPosFloat("rectangle side a");
     float b = getPosFloat("rectangle side b");
     printResult("perimeter", 2 * a * b);
     printResult("area", a * b);
 }
-void pentagon()
+static void pentagon()
 {
     float a = getPosFloat("pentagon side a");
     printResult("perimeter", 5 * a);
     printResult("area", MathF.Sqrt(5 * (5 + 2 * MathF.Sqrt(5))) * a * a / 4);
 }
-void hexagon()
+static void hexagon()
 {
     float a = getPosFloat("hexagon side a");
     printResult("perimeter", 6 * a);
     printResult("area", 3 * MathF.Sqrt(3) / 2 * a * a);
 }
-void cube()
+static void cube()
 {
     float a = getPosFloat("cube side a");
     printResult("perimeter", 12 * a);
     printResult("area", 6 * a * a);
     printResult("volume", a * a * a);
 }
-void rBox()
+static void rBox()
 {
     float a = getPosFloat("rectangular box side a");
     float b = getPosFloat("rectangular box side b");
@@ -122,20 +122,20 @@ void rBox()
     printResult("area", 2 * (a * b + a * c + b * c));
     printResult("volume", a * b * c);
 }
-void cylinder()
+static void cylinder()
 {
     float r = getPosFloat("cylinder radius r");
     float h = getPosFloat("cylinder height h");
     printResult("area", 2 * (pi * r * r) + h * (2 * pi * r));
     printResult("volume", pi * r * r * h);
 }
-void sphere()
+static void sphere()
 {
     float r = getPosFloat("sphere radius r");
     printResult("area", 4 * pi * r * r);
     printResult("volume", pi * r * r * r * (4 / 3));
 }
-void cone()
+static void cone()
 {
     float r = getPosFloat("cone radius r");
     float h = getPosFloat("cone height h");
@@ -143,7 +143,7 @@ void cone()
     printResult("volume", pi * r * r * (h / 3));
 }
 
-void printShapeSelection() // prints the selection of available shapes
+static void printShapeSelection() // prints the selection of available shapes
 {
     Console.Write("choose a shape or e");
     setColor("[x]", "highlight");
@@ -160,7 +160,7 @@ void printShapeSelection() // prints the selection of available shapes
         }
         else if (s == "rectangular box")  // box letter
         {
-            Console.Write("rectangular");
+            Console.Write("rectangular ");
             setColor("[b]", "highlight");
             Console.Write("ox");
         }
@@ -177,56 +177,71 @@ void printShapeSelection() // prints the selection of available shapes
     }
     Console.Write(": ");
 }
-void shapeSwitch(ConsoleKey k) // main switch
+static void shapeSwitch(ConsoleKey k) // main switch
 {
     if (k != ConsoleKey.X) // since readkey doesnt make a new line, but only unless exiting (for some reason only displays in ET but not IT)
     {
         Console.WriteLine();
     }
+    static void printChoice(string c)
+    {
+        Console.WriteLine($"you chose {c}");
+    }
     switch (k)
     {
         // circle
         case ConsoleKey.C:
+            printChoice("circle");
             circle();
             break;
         // triangle
         case ConsoleKey.T:
+            printChoice("triangle");
             triangle();
             break;
         // square
         case ConsoleKey.Q:
+            printChoice("square");
             square();
             break;
         // rectangle
         case ConsoleKey.R:
+            printChoice("rectangle");
             rectangle();
             break;
         // pentagon
         case ConsoleKey.P:
+            printChoice("pentagon");
             pentagon();
             break;
         // hexagon
         case ConsoleKey.H:
+            printChoice("hexagon");
             hexagon();
             break;
         // cube
         case ConsoleKey.U:
+            printChoice("cube");
             cube();
             break;
         // rectangular box
         case ConsoleKey.B:
+            printChoice("rectangular box");
             rBox();
             break;
         // cylinder
         case ConsoleKey.Y:
+            printChoice("cylinder");
             cylinder();
             break;
         // sphere
         case ConsoleKey.S:
+            printChoice("sphere");
             sphere();
             break;
         // cone
         case ConsoleKey.O:
+            printChoice("cone");
             cone();
             break;
         // exit
@@ -243,7 +258,7 @@ void shapeSwitch(ConsoleKey k) // main switch
 // main
 for (; ; )
 {
-    setColor("", ""); // just to make sure... or if previous run was cancelled with a color
+    setColor("", ""); // just to make sure... or if previous run was cancelled with a color (< sets color to default)
     printShapeSelection();
     shapeSwitch(Console.ReadKey().Key);
 }
