@@ -1,6 +1,7 @@
-﻿static void u1kvadrR(int run)
+﻿// 0 to not run, 1 to run
+static void u1quadEq(int run)
 {
-    if (run == 1)
+    if (run !=0)
     {
         // variables
         float a, b, c, D, userNumber;
@@ -115,10 +116,10 @@
         }
     }
 }
-u1kvadrR(0);
-static void u2tvary(int run)
+u1quadEq(0);
+static void u2shapes(int run)
 {
-    if (run == 1)
+    if (run !=0)
     {
         const float pi = 22f / 7f;
         const string unit = "cm";
@@ -386,4 +387,4 @@ static void u2tvary(int run)
         }
     }
 }
-u2tvary(0);
+u2shapes(0);

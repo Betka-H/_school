@@ -1,4 +1,4 @@
-﻿// 1 to run (getting annoying warnings otherwise)
+﻿// 0 to not run, 1 to run
 static void _starryNight(int run) // star field
 {
     if (run == 1)
