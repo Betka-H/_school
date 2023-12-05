@@ -1,7 +1,7 @@
 ﻿// 0 to not run, 1 to run
 static void u1quadEq(int run)
 {
-    if (run !=0)
+    if (run != 0)
     {
         // variables
         float a, b, c, D, userNumber;
@@ -119,7 +119,7 @@ static void u1quadEq(int run)
 u1quadEq(0);
 static void u2shapes(int run)
 {
-    if (run !=0)
+    if (run != 0)
     {
         const float pi = 22f / 7f;
         const string unit = "cm";
@@ -194,7 +194,7 @@ static void u2shapes(int run)
             float c = getPosFloat("triangle side c");
             if (a < (b + c) && b < (a + c) && c < (a + b))
             {
-                float s = (a + b + c) / 2;
+                float s = (a + b + c) / 2f;
                 printResult("perimeter", a + b + c);
                 printResult("area", MathF.Sqrt(s * (s - a) * (s - b) * (s - c)));
             }
@@ -214,20 +214,20 @@ static void u2shapes(int run)
         {
             float a = getPosFloat("rectangle side a");
             float b = getPosFloat("rectangle side b");
-            printResult("perimeter", 2 * a * b);
+            printResult("perimeter", 2 * a + 2 * b);
             printResult("area", a * b);
         }
         static void pentagon()
         {
             float a = getPosFloat("pentagon side a");
             printResult("perimeter", 5 * a);
-            printResult("area", MathF.Sqrt(5 * (5 + 2 * MathF.Sqrt(5))) * a * a / 4);
+            printResult("area", MathF.Sqrt(5 * (5 + 2 * MathF.Sqrt(5))) * a * a / 4f);
         }
         static void hexagon()
         {
             float a = getPosFloat("hexagon side a");
             printResult("perimeter", 6 * a);
-            printResult("area", 3 * MathF.Sqrt(3) / 2 * a * a);
+            printResult("area", 3 * MathF.Sqrt(3) / 2f * a * a);
         }
         static void cube()
         {
@@ -256,14 +256,14 @@ static void u2shapes(int run)
         {
             float r = getPosFloat("sphere radius r");
             printResult("area", 4 * pi * r * r);
-            printResult("volume", pi * r * r * r * (4 / 3));
+            printResult("volume", pi * r * r * r * (4f / 3f));
         }
         static void cone()
         {
             float r = getPosFloat("cone radius r");
             float h = getPosFloat("cone height h");
             printResult("area", pi * r * (r + MathF.Sqrt(h * h + r * r)));
-            printResult("volume", pi * r * r * (h / 3));
+            printResult("volume", pi * r * r * (h / 3f));
         }
 
         static void printShapeSelection() // prints the selection of available shapes
@@ -387,4 +387,4 @@ static void u2shapes(int run)
         }
     }
 }
-u2shapes(0);
+u2shapes(1);

@@ -253,3 +253,29 @@ static void _hadanka(int run) // guess a random number (limited attempts)
     }
 }
 _hadanka(0);
+
+static void _traits(int run)
+{
+    if (run != 0)
+    {
+        string[] traits = { "perseverance", "kindness", "bravery", "loyalty", "love", "patience", "togetherness", "truthfulness", "wisdom", "Resilient", "Empathetic", "Composed", "Creative", "Open-minded", "Positive", "Humorous", "Ambitious", "Kind-hearted", "Communicative", "Loyal", "Analytical", "Adventurous", "Patient", "Empowering", "Authentic", "Collaborative", "Adaptable", "Passionate", "Mindful", "Genuine", "Attentive", "Honest", "Assertive", "Diligent", "Non-judgmental", "Optimistic", "Grateful", "Self-aware", "Meticulous", "Generous", "Multitasker", "Innovative", "Balanced", "Consistent", "Respectful", "Fearless", "Tech-savvy", "Humble", "Reliable", "Easygoing", "Compassionate" };
+
+        static string getString()
+        {
+            for (; ; )
+            {
+                string s = Console.ReadLine();
+                if (!string.IsNullOrEmpty(s))
+                {
+                    return s;
+                }
+            }
+        }
+        for (int i = 0; i < 21; i++)
+        {
+            Console.Write("state your name: ");
+            Console.WriteLine($"{getString()} gets {traits[new Random().Next(0, traits.Length)]}\n");
+        }
+    }
+}
+_traits(0);
