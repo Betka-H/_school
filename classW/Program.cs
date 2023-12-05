@@ -253,7 +253,6 @@ static void _hadanka(int run) // guess a random number (limited attempts)
     }
 }
 _hadanka(0);
-
 static void _traits(int run)
 {
     if (run != 0)
@@ -279,3 +278,4 @@ static void _traits(int run)
     }
 }
 _traits(0);
+

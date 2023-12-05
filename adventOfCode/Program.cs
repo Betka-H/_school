@@ -1,4 +1,7 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
+color("running!\n", "blue");
 
 // 0 to not run, 1 to run part 1, 2 to run part 2
 static void color(string s, string c)
@@ -35,10 +38,10 @@ static void printIntArray(int[] a)
     for (int i = 0; i < a.Length; i++)
     {
         Console.Write(a[i]);
-        if (i < a.Length - 1)
+        // if (i < a.Length - 1)
         {
-            Console.Write(", ");
         }
+        Console.Write(" ");
     }
 }
 
@@ -106,7 +109,6 @@ static void trebuchet(int run) // day 1
             r += i;
         }
         Console.WriteLine($"the part 1 result is: {r}");
-        Console.WriteLine("\a");
     }
 }
 trebuchet(0); // 55712 - 55413
@@ -260,11 +262,11 @@ static void liftEngine(int run)
                             if (lines[i - 1][y - 1].ToString() != " " && !char.IsDigit(lines[i - 1][y - 1]) || lines[i - 1][y].ToString() != " " && !char.IsDigit(lines[i - 1][y]) || lines[i - 1][y + 1].ToString() != " " && !char.IsDigit(lines[i - 1][y + 1]) || lines[i - 1][y + 2].ToString() != " " && !char.IsDigit(lines[i - 1][y + 2]) || lines[i - 1][y + 3].ToString() != " " && !char.IsDigit(lines[i - 1][y + 3]) || lines[i][y - 1].ToString() != " " && !char.IsDigit(lines[i][y - 1]) || lines[i][y + 3].ToString() != " " && !char.IsDigit(lines[i][y + 3]) || lines[i + 1][y - 1].ToString() != " " && !char.IsDigit(lines[i + 1][y - 1]) || lines[i + 1][y].ToString() != " " && !char.IsDigit(lines[i + 1][y]) || lines[i + 1][y + 1].ToString() != " " && !char.IsDigit(lines[i + 1][y + 1]) || lines[i + 1][y + 2].ToString() != " " && !char.IsDigit(lines[i + 1][y + 2]) || lines[i + 1][y + 3].ToString() != " " && !char.IsDigit(lines[i + 1][y + 3]))
                             {
 
-                               
-                                    digit = int.Parse($"{lines[i][y]}" + $"{lines[i][y + 1]}" + $"{lines[i][y + 2]}");
-                                    color(digit.ToString(), "green");
-                                    result += digit;
-                                
+
+                                digit = int.Parse($"{lines[i][y]}" + $"{lines[i][y + 1]}" + $"{lines[i][y + 2]}");
+                                color(digit.ToString(), "green");
+                                result += digit;
+
 
                                 /* if (run == 2)
                                 {
@@ -433,13 +435,113 @@ static void liftEngine(int run)
 
     }
 }
-liftEngine(1); // 522726 - 
+liftEngine(0); // 522726 - 
+
+static void scratchCards(int run) // day 4
+{
+    if (run != 0)
+    {
+        string[] lines = File.ReadAllLines("inputs\\D4.txt");
+        int totalWorth = 0;
+        for (int i = 0; i < lines.Length; i++) // for each line
+        {
+            int cWorth = 0;
+            int[] winN = { };
+            for (int y = lines[i].IndexOf(":") + 2; y < lines[i].IndexOf("|"); y += 3) // find winning numbers
+            {
+                Array.Resize(ref winN, winN.Length + 1);
+                winN[winN.Length - 1] = int.Parse($"{lines[i][y]}" + $"{lines[i][y + 1]}");
+            }
+            printIntArray(winN);
+
+            color("| ", "yellow");
+
+            int[] haveN = { };
+            for (int y = lines[i].IndexOf("|") + 2; y < lines[i].Length; y += 3) // find have numbers
+            {
+                Array.Resize(ref haveN, haveN.Length + 1);
+                haveN[haveN.Length - 1] = int.Parse($"{lines[i][y]}" + $"{lines[i][y + 1]}");
+            }
+            printIntArray(haveN);
+
+            foreach (int j in haveN) // for every have number
+            {
+                foreach (int k in winN) // for every winning number
+                {
+                    if (j == k)
+                    {
+                        if (cWorth == 0)
+                        {
+                            cWorth = 1;
+                        }
+                        else
+                        {
+                            cWorth *= 2;
+                        }
+                    }
+
+                }
+            }
+            totalWorth += cWorth;
+            color("X", "magenta");
+            color($" card worth: {cWorth}, total worth: {totalWorth}\n", "green");
+        }
+    }
+    if (run == 2)
+    {
+        string[] lines = File.ReadAllLines("inputs\\D4.txt");
+        int totalWorth = 0;
+        for (int i = 0; i < lines.Length; i++) // for each line
+        {
+            Console.Write(i + 1 + ": ");
+            int cWorth = 0;
+
+            int[] winN = { };
+            int[] haveN = { };
+            void findWin()
+            {
+                for (int y = lines[i].IndexOf(":") + 2; y < lines[i].IndexOf("|"); y += 3) // find winning numbers
+                {
+                    Array.Resize(ref winN, winN.Length + 1);
+                    winN[winN.Length - 1] = int.Parse($"{lines[i][y]}" + $"{lines[i][y + 1]}");
+                }
+            }
+            void findHave()
+            {
+                for (int y = lines[i].IndexOf("|") + 2; y < lines[i].Length; y += 3) // find have numbers
+                {
+                    Array.Resize(ref haveN, haveN.Length + 1);
+                    haveN[haveN.Length - 1] = int.Parse($"{lines[i][y]}" + $"{lines[i][y + 1]}");
+                }
+            }
+
+            findWin();
+            printIntArray(winN);
+            color("| ", "yellow");
+            findHave();
+            printIntArray(haveN);
+
+            int matchingN = 0;
+            foreach (int j in haveN) // for every have number
+            {
+                foreach (int k in winN) // for every winning number
+                {
+                    if (j == k)
+                    {
+                        matchingN++;
+                    }
+                }
+            }
+            totalWorth += cWorth;
+            color("X", "magenta");
+            color($" matching: {matchingN}\n", "green");
+        }
+    }
+}
+scratchCards(0); // 25651 -
 
 
-
-
-
-
+string[] lines = File.ReadAllLines("inputs\\D5.txt");
 
 
 
