@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 color("running!\n", "blue");
 
 // 0 to not run, 1 to run part 1, 2 to run part 2
@@ -113,7 +111,7 @@ static void trebuchet(int run) // day 1
 }
 trebuchet(0); // 55712 - 55413
 
-static void cubes1(int run) // day 2
+static void cubes(int run) // day 2
 {
     if (run != 0)
     {
@@ -222,9 +220,9 @@ static void cubes1(int run) // day 2
         Console.WriteLine("\a");
     }
 }
-cubes1(0); // 2283 - 78669
+cubes(0); // 2283 - 78669
 
-static void liftEngine(int run)
+static void cogs(int run)
 {
     if (run != 0)
     {
@@ -328,7 +326,7 @@ static void liftEngine(int run)
             {
                 lines[i] = "  " + lines[i].Replace(".", " ").Replace("#", key).Replace("&", key).Replace("$", key).Replace("%", key).Replace("-", key).Replace("/", key).Replace("+", key).Replace("=", key).Replace("@", key) + "     "; // adds padding on both sides and replaces "." with whitespace
             }
-            int result = 0;
+            // int result = 0;
             for (int i = 0; i < lines.Length; i++) // for every line
             {
 
@@ -435,7 +433,7 @@ static void liftEngine(int run)
 
     }
 }
-liftEngine(0); // 522726 - 
+cogs(0); // 522726 - 
 
 static void scratchCards(int run) // day 4
 {
@@ -540,11 +538,28 @@ static void scratchCards(int run) // day 4
 }
 scratchCards(0); // 25651 -
 
+static void seedmap(int run)
+{
+    if (run != 0)
+    {
+        string[] lines = File.ReadAllLines("inputs\\D5.txt");
 
-string[] lines = File.ReadAllLines("inputs\\D5.txt");
+        int[] seeds = { };
+        foreach (string s in Regex.Split(lines[0], @"\D+"))
+        {
+            if (int.TryParse(s, out int x))
+            {
+                Array.Resize(ref seeds, seeds.Length + 1);
+                seeds[seeds.Length - 1] = x;
+            }
+        }
+        Console.Write("seeds: ");
+        printIntArray(seeds);
 
-
-
+        color(" X", "magenta");
+    }
+}
+seedmap(0); // oof
 
 Console.WriteLine("\a");
 
