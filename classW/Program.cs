@@ -1,5 +1,7 @@
 ﻿// 0 to not run, 1 to run
-static void _starryNight(int run) // star field
+Random rnd = new Random(); // rnd.Next(min, max);
+
+static void starryNight(int run) // star field
 {
     if (run == 1)
     {
@@ -63,8 +65,8 @@ static void _starryNight(int run) // star field
         }
     }
 }
-_starryNight(0);
-static void _printCards(int run) // print card deck (inscryption-like in shape)
+starryNight(0);
+static void printCards(int run) // print card deck (inscryption-like in shape)
 {
     if (run == 1)
     {
@@ -114,8 +116,8 @@ static void _printCards(int run) // print card deck (inscryption-like in shape)
         }
     }
 }
-_printCards(0);
-static void _vectors1(int run) // multiply and add vectors idkk
+printCards(0);
+static void vectors1(int run) // multiply and add vectors idkk
 {
     if (run == 1)
     {
@@ -170,8 +172,8 @@ static void _vectors1(int run) // multiply and add vectors idkk
         printV(vector23);
     }
 }
-_vectors1(0);
-static void _fucktorial(int run) // input and factor a number
+vectors1(0);
+static void fucktorial(int run) // input and factor a number
 {
     if (run == 1)
     {
@@ -203,8 +205,8 @@ static void _fucktorial(int run) // input and factor a number
         }
     }
 }
-_fucktorial(0);
-static void _hadanka(int run) // guess a random number (limited attempts)
+fucktorial(0);
+static void hadanka(int run) // guess a random number (limited attempts)
 {
     if (run == 1)
     {
@@ -252,8 +254,8 @@ static void _hadanka(int run) // guess a random number (limited attempts)
         }
     }
 }
-_hadanka(0);
-static void _traits(int run)
+hadanka(0);
+static void traits(int run)
 {
     if (run != 0)
     {
@@ -277,5 +279,68 @@ static void _traits(int run)
         }
     }
 }
-_traits(0);
+traits(0);
+static void fibonacci(int run)
+{
+    if (run != 0)
+    {
+        static int thing(int i)
+        {
+            if (i == 1)
+            {
+                return 1;
+            }
+            if (i == 0)
+            {
+                return 0;
+            }
 
+            int x = thing(i - 1);
+            int y = thing(i - 2);
+
+            return x + y;
+        }
+        Console.WriteLine(thing(17));
+    }
+}
+fibonacci(0);
+static void fucktorial2electricboogaloo(int run)
+{
+    if (run != 0)
+    {
+        static double factorize(double n)
+        {
+            double previous = factorize(n - 1);
+            if (n == 1)
+            {
+                return 1;
+            }
+            return n * previous;
+        }
+        Console.WriteLine(factorize(21));
+    }
+}
+fucktorial2electricboogaloo(0);
+
+static void printIntArray(int[] a)
+{
+    for (int i = 0; i < a.Length; i++)
+    {
+        Console.Write(a[i]);
+        // if (i < a.Length - 1)
+        {
+        }
+        Console.Write(" ");
+    }
+}
+
+// sorting algorithms my beloved
+int[] rndArray = { };
+for (int i = 0; i < 12; i++)
+{
+    Array.Resize(ref rndArray, rndArray.Length + 1);
+    rndArray[rndArray.Length - 1] = rnd.Next(420);
+}
+printIntArray(rndArray);
+
+int[] sortedArray = { };

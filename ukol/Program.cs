@@ -1,5 +1,5 @@
 ﻿// 0 to not run, 1 to run
-static void u1quadEq(int run)
+static void u1quadraticEquation(int run)
 {
     if (run != 0)
     {
@@ -116,8 +116,8 @@ static void u1quadEq(int run)
         }
     }
 }
-u1quadEq(0);
-static void u2shapes(int run)
+u1quadraticEquation(0);
+static void u2shapesCalculator(int run)
 {
     if (run != 0)
     {
@@ -387,4 +387,4 @@ static void u2shapes(int run)
         }
     }
 }
-u2shapes(1);
+u2shapesCalculator(1);

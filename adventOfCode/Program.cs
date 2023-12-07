@@ -47,69 +47,86 @@ static void trebuchet(int run) // day 1
 {
     if (run != 0)
     {
-        string[] lines = File.ReadAllLines("inputs\\D1.txt");
-
-        int[] addedInts = { };
-        for (int i = 0; i < lines.Length; i++) // for each line (string)
+        if (run == 3)
         {
-            color($"1: {lines[i]}", "yellow");
-            if (run == 2)
+            int result = 0;
+            foreach (string line in File.ReadAllLines("inputs\\D1.txt"))
             {
-                lines[i] = lines[i].Replace("one", "onee");
-                lines[i] = lines[i].Replace("two", "twoo");
-                lines[i] = lines[i].Replace("three", "threee");
-                lines[i] = lines[i].Replace("four", "fourr");
-                lines[i] = lines[i].Replace("five", "fivee");
-                lines[i] = lines[i].Replace("six", "sixx");
-                lines[i] = lines[i].Replace("seven", "sevenn");
-                lines[i] = lines[i].Replace("eight", "eightt");
-                lines[i] = lines[i].Replace("nine", "ninee");
-
-                color($"2: {lines[i]}", "yellow");
-
-                lines[i] = lines[i].Replace("one", "1");
-                lines[i] = lines[i].Replace("two", "2");
-                lines[i] = lines[i].Replace("three", "3");
-                lines[i] = lines[i].Replace("four", "4");
-                lines[i] = lines[i].Replace("five", "5");
-                lines[i] = lines[i].Replace("six", "6");
-                lines[i] = lines[i].Replace("seven", "7");
-                lines[i] = lines[i].Replace("eight", "8");
-                lines[i] = lines[i].Replace("nine", "9");
-
-                color($"3: {lines[i]}", "yellow");
+                char[] lineReverse = line.ToCharArray();
+                Array.Reverse(lineReverse);
+                string lies = new string(lineReverse);
+                int addedN = int.Parse($"{Regex.Match(line, @"\d")}{Regex.Match(lies, @"\d")}");
+                result += addedN;
+                Console.WriteLine($"{addedN}, {result}");
             }
-            int[] foundInts = { };
-            char[] chars = lines[i].ToCharArray(); // separates the string into a char array
+        }
+        else
+        {
+            string[] lines = File.ReadAllLines("inputs\\D1.txt");
 
-            for (int y = 0; y < chars.Length; y++) // for each char in the array
+            int[] addedInts = { };
+            for (int i = 0; i < lines.Length; i++) // for each line (string)
             {
-                // Console.WriteLine($"loop: {y}, char: {chars[y]}");
-
-                if (int.TryParse(chars[y].ToString(), out int x)) // check if it is a number
+                color($"1: {lines[i]}", "yellow");
+                if (run == 2)
                 {
-                    Array.Resize(ref foundInts, foundInts.Length + 1); // resize "numbers found in string" array
-                    color($"int found!: {x}", "green");
-                    foundInts[foundInts.Length - 1] = x; // write number into the resized array
+                    lines[i] = lines[i].Replace("one", "onee");
+                    lines[i] = lines[i].Replace("two", "twoo");
+                    lines[i] = lines[i].Replace("three", "threee");
+                    lines[i] = lines[i].Replace("four", "fourr");
+                    lines[i] = lines[i].Replace("five", "fivee");
+                    lines[i] = lines[i].Replace("six", "sixx");
+                    lines[i] = lines[i].Replace("seven", "sevenn");
+                    lines[i] = lines[i].Replace("eight", "eightt");
+                    lines[i] = lines[i].Replace("nine", "ninee");
+
+                    color($"2: {lines[i]}", "yellow");
+
+                    lines[i] = lines[i].Replace("one", "1");
+                    lines[i] = lines[i].Replace("two", "2");
+                    lines[i] = lines[i].Replace("three", "3");
+                    lines[i] = lines[i].Replace("four", "4");
+                    lines[i] = lines[i].Replace("five", "5");
+                    lines[i] = lines[i].Replace("six", "6");
+                    lines[i] = lines[i].Replace("seven", "7");
+                    lines[i] = lines[i].Replace("eight", "8");
+                    lines[i] = lines[i].Replace("nine", "9");
+
+                    color($"3: {lines[i]}", "yellow");
                 }
+                int[] foundInts = { };
+                char[] chars = lines[i].ToCharArray(); // separates the string into a char array
+
+                for (int y = 0; y < chars.Length; y++) // for each char in the array
+                {
+                    // Console.WriteLine($"loop: {y}, char: {chars[y]}");
+
+                    if (int.TryParse(chars[y].ToString(), out int x)) // check if it is a number
+                    {
+                        Array.Resize(ref foundInts, foundInts.Length + 1); // resize "numbers found in string" array
+                        color($"int found!: {x}", "green");
+                        foundInts[foundInts.Length - 1] = x; // write number into the resized array
+                    }
+                }
+                printIntArray(foundInts);
+                Array.Resize(ref addedInts, addedInts.Length + 1);
+                addedInts[addedInts.Length - 1] = int.Parse(foundInts[0].ToString() + foundInts[foundInts.Length - 1].ToString());
+
+                Console.WriteLine($" > {foundInts[0]}{foundInts[foundInts.Length - 1]}\n"); // 2 digit number
+
+                // color($"string {i + 1} done!\n", "yellow");
             }
-            printIntArray(foundInts);
-            Array.Resize(ref addedInts, addedInts.Length + 1);
-            addedInts[addedInts.Length - 1] = int.Parse(foundInts[0].ToString() + foundInts[foundInts.Length - 1].ToString());
-
-            Console.WriteLine($" > {foundInts[0]}{foundInts[foundInts.Length - 1]}\n"); // 2 digit number
-
-            // color($"string {i + 1} done!\n", "yellow");
+            int r = 0;
+            foreach (int i in addedInts)
+            {
+                r += i;
+            }
+            Console.WriteLine($"the part 1 result is: {r}");
         }
-        int r = 0;
-        foreach (int i in addedInts)
-        {
-            r += i;
-        }
-        Console.WriteLine($"the part 1 result is: {r}");
     }
 }
 trebuchet(0); // 55712 - 55413
+// 3 for new
 
 static void cubes(int run) // day 2
 {
@@ -560,6 +577,13 @@ static void seedmap(int run)
     }
 }
 seedmap(0); // oof
+
+
+// trebuchet 2 electric boogaloo
+
+
+
+
 
 Console.WriteLine("\a");
 
