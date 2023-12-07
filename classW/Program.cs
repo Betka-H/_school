@@ -1,5 +1,16 @@
 ﻿// 0 to not run, 1 to run
 Random rnd = new Random(); // rnd.Next(min, max);
+static void printIntArray(int[] a)
+{
+    for (int i = 0; i < a.Length; i++)
+    {
+        Console.Write(a[i]);
+        // if (i < a.Length - 1)
+        {
+        }
+        Console.Write(" ");
+    }
+}
 
 static void starryNight(int run) // star field
 {
@@ -265,7 +276,7 @@ static void traits(int run)
         {
             for (; ; )
             {
-                string s = Console.ReadLine();
+                string? s = Console.ReadLine();
                 if (!string.IsNullOrEmpty(s))
                 {
                     return s;
@@ -322,25 +333,47 @@ static void fucktorial2electricboogaloo(int run)
 }
 fucktorial2electricboogaloo(0);
 
-static void printIntArray(int[] a)
+void sort(int run) // sorting algorithms my beloved
 {
-    for (int i = 0; i < a.Length; i++)
+    if (run != 0)
     {
-        Console.Write(a[i]);
-        // if (i < a.Length - 1)
+        int[] rndArray = { };
+        int rndArraySize = 42;
+        for (int i = 0; i < rndArraySize; i++)
         {
+            Array.Resize(ref rndArray, rndArray.Length + 1);
+            rndArray[rndArray.Length - 1] = rnd.Next(420);
         }
-        Console.Write(" ");
+        printIntArray(rndArray);
+        Console.WriteLine();
+        static int[] sortIntArray(int[] a)
+        {
+            static bool isSorted(int[] a)
+            {
+                for (int i = 0; i < a.Length - 1; i++)
+                {
+                    if (a[i] > a[i + 1])
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            while (!isSorted(a))
+            {
+                for (int i = 0; i < a.Length - 1; i++)
+                {
+                    if (a[i] > a[i + 1])
+                    {
+                        int tmp = a[i + 1];
+                        a[i + 1] = a[i];
+                        a[i] = tmp;
+                    }
+                }
+            }
+            return a;
+        }
+        printIntArray(sortIntArray(rndArray));
     }
 }
-
-// sorting algorithms my beloved
-int[] rndArray = { };
-for (int i = 0; i < 12; i++)
-{
-    Array.Resize(ref rndArray, rndArray.Length + 1);
-    rndArray[rndArray.Length - 1] = rnd.Next(420);
-}
-printIntArray(rndArray);
-
-int[] sortedArray = { };
+sort(0);
