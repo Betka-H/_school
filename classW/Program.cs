@@ -1,22 +1,113 @@
 ﻿// 0 to not run, 1 to run
+
+using System.Runtime.CompilerServices;
+
 Random rnd = new Random(); // rnd.Next(min, max);
+static double getDouble() // get [double] from user
+{
+    for (; ; )
+    {
+        if (double.TryParse(Console.ReadLine(), out double x))
+        {
+            return x;
+        }
+        Console.Write("not a number! please enter a number: ");
+    }
+}
+static int getInt() // get [integer] from user
+{
+    for (; ; )
+    {
+        if (int.TryParse(Console.ReadLine(), out int x))
+        {
+            return x;
+        }
+        Console.Write("not an integer! please enter a number: ");
+    }
+}
 static void printIntArray(int[] a)
 {
     for (int i = 0; i < a.Length; i++)
     {
         Console.Write(a[i]);
         // if (i < a.Length - 1)
-        {
-        }
+        { }
         Console.Write(" ");
     }
 }
+static int getPosInt() // positive int from user
+{
+    for (; ; )
+    {
+        if (int.TryParse(Console.ReadLine(), out int x))
+        {
+            if (x > 0)
+            {
+                return x;
+            }
+        }
+        Console.Write("please enter an integer (> 0): ");
+    }
+}
+
+/* static void color(string t, string c)
+{
+    switch (c)
+    {
+        case "red":
+            Console.ForegroundColor = ConsoleColor.Red;
+            break;
+        case "darkred":
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            break;
+        case "orange":
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            break;
+        case "yellow":
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            break;
+        case "gold":
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            break;
+        case "green":
+            Console.ForegroundColor = ConsoleColor.Green;
+            break;
+        case "darkgreen":
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            break;
+        case "cyan":
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            break;
+        case "darkcyan":
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            break;
+        case "blue":
+            Console.ForegroundColor = ConsoleColor.Blue;
+            break;
+        case "darkblue":
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            break;
+        case "pink":
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            break;
+        case "purple":
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            break;
+        case "black":
+            Console.ForegroundColor = ConsoleColor.Black;
+            break;
+    }
+    Console.Write(t);
+    Console.ForegroundColor = ConsoleColor.Gray;
+}
+ */
 
 static void starryNight(int run) // star field
 {
     if (run == 1)
     {
-        int rows, columns;
+        int rows,
+            columns;
 
         int getPosInt()
         {
@@ -67,7 +158,8 @@ static void starryNight(int run) // star field
                     }
                     else
                     {
-                        Console.ForegroundColor = col2(); ;
+                        Console.ForegroundColor = col2();
+                        ;
                     }
                 }
                 Console.WriteLine();
@@ -141,7 +233,6 @@ static void vectors1(int run) // multiply and add vectors idkk
             Console.WriteLine();
         }
 
-
         // multiply vector
         static float[] scaleVector(float[] vector, float scalar)
         {
@@ -161,7 +252,6 @@ static void vectors1(int run) // multiply and add vectors idkk
         printV(vector11);
         Console.Write("vector 2: ");
         printV(vector12);
-
 
         Console.WriteLine();
         // add 2 vectors
@@ -221,7 +311,8 @@ static void hadanka(int run) // guess a random number (limited attempts)
 {
     if (run == 1)
     {
-        int nMin = 1, nMax = 100;
+        int nMin = 1,
+            nMax = 100;
         Random rnd = new Random();
         static int getInt()
         {
@@ -237,7 +328,8 @@ static void hadanka(int run) // guess a random number (limited attempts)
 
         for (; ; )
         {
-            int n = rnd.Next(nMin, nMax), attN = 5;
+            int n = rnd.Next(nMin, nMax),
+                attN = 5;
             Console.WriteLine($"(debug) the number is {n}");
             Console.Write($"guess a number from {nMin} to {nMax}: ");
             for (int a = 1; a <= attN; a++)
@@ -270,7 +362,60 @@ static void traits(int run)
 {
     if (run != 0)
     {
-        string[] traits = { "perseverance", "kindness", "bravery", "loyalty", "love", "patience", "togetherness", "truthfulness", "wisdom", "Resilient", "Empathetic", "Composed", "Creative", "Open-minded", "Positive", "Humorous", "Ambitious", "Kind-hearted", "Communicative", "Loyal", "Analytical", "Adventurous", "Patient", "Empowering", "Authentic", "Collaborative", "Adaptable", "Passionate", "Mindful", "Genuine", "Attentive", "Honest", "Assertive", "Diligent", "Non-judgmental", "Optimistic", "Grateful", "Self-aware", "Meticulous", "Generous", "Multitasker", "Innovative", "Balanced", "Consistent", "Respectful", "Fearless", "Tech-savvy", "Humble", "Reliable", "Easygoing", "Compassionate" };
+        string[] traits =
+        {
+            "perseverance",
+            "kindness",
+            "bravery",
+            "loyalty",
+            "love",
+            "patience",
+            "togetherness",
+            "truthfulness",
+            "wisdom",
+            "Resilient",
+            "Empathetic",
+            "Composed",
+            "Creative",
+            "Open-minded",
+            "Positive",
+            "Humorous",
+            "Ambitious",
+            "Kind-hearted",
+            "Communicative",
+            "Loyal",
+            "Analytical",
+            "Adventurous",
+            "Patient",
+            "Empowering",
+            "Authentic",
+            "Collaborative",
+            "Adaptable",
+            "Passionate",
+            "Mindful",
+            "Genuine",
+            "Attentive",
+            "Honest",
+            "Assertive",
+            "Diligent",
+            "Non-judgmental",
+            "Optimistic",
+            "Grateful",
+            "Self-aware",
+            "Meticulous",
+            "Generous",
+            "Multitasker",
+            "Innovative",
+            "Balanced",
+            "Consistent",
+            "Respectful",
+            "Fearless",
+            "Tech-savvy",
+            "Humble",
+            "Reliable",
+            "Easygoing",
+            "Compassionate"
+        };
 
         static string getString()
         {
@@ -286,7 +431,9 @@ static void traits(int run)
         for (int i = 0; i < 21; i++)
         {
             Console.Write("state your name: ");
-            Console.WriteLine($"{getString()} gets {traits[new Random().Next(0, traits.Length)]}\n");
+            Console.WriteLine(
+                $"{getString()} gets {traits[new Random().Next(0, traits.Length)]}\n"
+            );
         }
     }
 }
@@ -332,11 +479,11 @@ static void fucktorial2electricboogaloo(int run)
     }
 }
 fucktorial2electricboogaloo(0);
-
 void sort(int run) // sorting algorithms my beloved
 {
     if (run != 0)
     {
+        // random array creation
         int[] rndArray = { };
         int rndArraySize = 42;
         for (int i = 0; i < rndArraySize; i++)
@@ -346,9 +493,10 @@ void sort(int run) // sorting algorithms my beloved
         }
         printIntArray(rndArray);
         Console.WriteLine();
+
         static int[] sortIntArray(int[] a)
         {
-            static bool isSorted(int[] a)
+            /* static bool isSorted(int[] a) // check if every number in the array is larger than the one before
             {
                 for (int i = 0; i < a.Length - 1; i++)
                 {
@@ -358,10 +506,11 @@ void sort(int run) // sorting algorithms my beloved
                     }
                 }
                 return true;
-            }
-            while (!isSorted(a))
+            } */
+            // while (!isSorted(a))
+            for (int j = 0; j < a.Length - 1; j++)
             {
-                for (int i = 0; i < a.Length - 1; i++)
+                for (int i = 0; i < a.Length - j - 1; i++)
                 {
                     if (a[i] > a[i + 1])
                     {
@@ -377,3 +526,177 @@ void sort(int run) // sorting algorithms my beloved
     }
 }
 sort(0);
+void power1(int run)
+{
+    if (run != 0)
+    {
+        for (; ; )
+        {
+            Console.Write("input number a (base): ");
+            double a = getDouble();
+            Console.Write("input number b (power): ");
+            double b = getInt();
+            Console.WriteLine($"{a}^({b}) = " + Math.Round(Math.Pow(a, b), 2));
+        }
+        /* for (; ; )
+        {
+            Console.Write("input number a: ");
+            double a = getDouble();
+            for (int i = 0; i <= 10; i++)
+            {
+                Console.Write(a + "^" + i + " === " + Math.Pow(a, i) + "\n");
+            }
+        } */
+    }
+}
+power1(0);
+void applez(int run) // reseni ulohy ("bossfight")
+{
+    if (run != 0)
+    {
+        Console.Write("how many apples do you have in stock? > ");
+        int stock = getPosInt();
+        int purchases = 0;
+        for (int i = 1; ; i++)
+        {
+            Console.Write($"customer {i} wants to buy how many apples? > ");
+            int purchase = getPosInt();
+            if (purchase <= stock)
+            {
+                purchases++;
+                stock -= purchase;
+                Console.WriteLine($"you now have {stock} apples remaining in stock.");
+                if (stock == 0)
+                {
+                    break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("you dont have enough apples in stock!");
+            }
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+        }
+        Console.WriteLine($"you cant sell any more apples! you made {purchases} sales in total.");
+    }
+}
+applez(0);
+void logik(int run) // logik
+{
+    if (run != 0)
+    {
+        static void color(string t, string c)
+        {
+            switch (c)
+            {
+                case "red":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case "yellow":
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+                case "green":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                case "blue":
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                case "purple":
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    break;
+                case "cyan":
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    break;
+                case "black":
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    break;
+                case "white":
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+            }
+            Console.Write(t);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+        static void printStringArray(string[] a)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                color("@", a[i]);
+                if (i < a.Length - 1)
+                {
+                    Console.Write(" ");
+                }
+            }
+        }
+
+        string[] colors =  { "red", "yellow", "green", "blue", "purple", "cyan", "black", "white" },
+            code1 =  { };
+        int columns = 6,
+            rows = 12;
+
+        // array creation
+        for (int i = 0; i < columns; i++)
+        {
+            Array.Resize(ref code1, code1.Length + 1);
+            code1[code1.Length - 1] = colors[rnd.Next(colors.Length)];
+        }
+
+        // debug print solution
+        Console.Write("solution (debug): ");
+        printStringArray(code1);
+        Console.WriteLine();
+
+        void printColNumber()
+        {
+            for (int h = 0; h <= $"row {rows}:".Length; h++)
+            {
+                Console.Write(" ");
+            }
+            for (int i = 1; i <= columns; i++)
+            {
+                Console.Write(i + " ");
+            }
+        }
+        printColNumber();
+        Console.WriteLine();
+
+        for (int y = 1; y <= rows; y++) // for each row
+        {
+            Console.Write($"row {y}:");
+            for (int h = $"row {y}:".Length; h <= $"row {rows}:".Length; h++)
+            {
+                Console.Write(" ");
+            }
+            for (int i = 0; i < columns; i++)
+            {
+                Console.Write("@ ");
+            }
+            Console.WriteLine();
+        }
+
+        printColNumber();
+
+        Console.WriteLine();
+        for (int r = 1; r <= rows; r++)
+        {
+            string[] guess = { };
+            for (int c = 1; c <= columns; c++)
+            {
+                Console.Write($"guess color {r};{c}: ");
+                string g = Console.ReadLine();
+                if (colors.Contains(g))
+                {
+                    Array.Resize(ref guess, guess.Length + 1);
+                    guess[guess.Length - 1] = g;
+                }
+                else
+                {
+                    Console.WriteLine("invalid guess!");
+                    c--;
+                }
+            }
+            Console.WriteLine($"row {r} done");
+        }
+    }
+}
+logik(0);
