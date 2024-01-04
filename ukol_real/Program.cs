@@ -5,41 +5,14 @@
         case "red":
             Console.ForegroundColor = ConsoleColor.Red;
             break;
-        case "darkred":
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            break;
-        case "orange":
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            break;
-        case "yellow":
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            break;
-        case "gold":
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            break;
         case "green":
             Console.ForegroundColor = ConsoleColor.Green;
-            break;
-        case "darkgreen":
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
             break;
         case "cyan":
             Console.ForegroundColor = ConsoleColor.Cyan;
             break;
-        case "darkcyan":
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            break;
-        case "blue":
-            Console.ForegroundColor = ConsoleColor.Blue;
-            break;
-        case "darkblue":
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            break;
         case "magenta":
             Console.ForegroundColor = ConsoleColor.Magenta;
-            break;
-        case "purple":
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             break;
         case "black":
             Console.ForegroundColor = ConsoleColor.Black;
