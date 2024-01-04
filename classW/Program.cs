@@ -1,6 +1,4 @@
-﻿// 0 to not run, 1 to run
-
-using System.Runtime.CompilerServices;
+﻿// 1 to run
 
 Random rnd = new Random(); // rnd.Next(min, max);
 static double getDouble() // get [double] from user
@@ -35,7 +33,7 @@ static void printIntArray(int[] a)
         Console.Write(" ");
     }
 }
-static int getPosInt() // positive int from user
+static int getPosInt() // get [positive int] from user
 {
     for (; ; )
     {
@@ -50,7 +48,7 @@ static int getPosInt() // positive int from user
     }
 }
 
-/* static void color(string t, string c)
+static void color(string t, string c)
 {
     switch (c)
     {
@@ -100,7 +98,6 @@ static int getPosInt() // positive int from user
     Console.Write(t);
     Console.ForegroundColor = ConsoleColor.Gray;
 }
- */
 
 static void starryNight(int run) // star field
 {
@@ -526,7 +523,7 @@ void sort(int run) // sorting algorithms my beloved
     }
 }
 sort(0);
-void power1(int run)
+void power1(int run) // powers
 {
     if (run != 0)
     {
@@ -700,3 +697,28 @@ void logik(int run) // logik
     }
 }
 logik(0);
+
+/* for (; ; )
+{
+    Console.WriteLine("enter file name: ");
+    try
+    {
+        Console.WriteLine(File.ReadAllText(Console.ReadLine()));
+    }
+    catch (FileNotFoundException)
+    {
+        color("error: file not found!\n", "red");
+    }
+    catch (DirectoryNotFoundException)
+    {
+        color("error: file directory not found!\n", "red");
+    }
+}
+ */
+
+
+string[] agfasgf = "nasjgbjs".Split("j");
+foreach (string s in agfasgf)
+{
+    Console.WriteLine(s);
+}

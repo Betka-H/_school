@@ -1,0 +1,14 @@
+C:\Users\eliza\.vscode\_school\ukol_real\bin\Debug\net7.0\ukol_real.exe
+C:\Users\eliza\.vscode\_school\ukol_real\bin\Debug\net7.0\ukol_real.deps.json
+C:\Users\eliza\.vscode\_school\ukol_real\bin\Debug\net7.0\ukol_real.runtimeconfig.json
+C:\Users\eliza\.vscode\_school\ukol_real\bin\Debug\net7.0\ukol_real.dll
+C:\Users\eliza\.vscode\_school\ukol_real\bin\Debug\net7.0\ukol_real.pdb
+C:\Users\eliza\.vscode\_school\ukol_real\obj\Debug\net7.0\ukol_real.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliza\.vscode\_school\ukol_real\obj\Debug\net7.0\ukol_real.AssemblyInfoInputs.cache
+C:\Users\eliza\.vscode\_school\ukol_real\obj\Debug\net7.0\ukol_real.AssemblyInfo.cs
+C:\Users\eliza\.vscode\_school\ukol_real\obj\Debug\net7.0\ukol_real.csproj.CoreCompileInputs.cache
+C:\Users\eliza\.vscode\_school\ukol_real\obj\Debug\net7.0\ukol_real.dll
+C:\Users\eliza\.vscode\_school\ukol_real\obj\Debug\net7.0\refint\ukol_real.dll
+C:\Users\eliza\.vscode\_school\ukol_real\obj\Debug\net7.0\ukol_real.pdb
+C:\Users\eliza\.vscode\_school\ukol_real\obj\Debug\net7.0\ukol_real.genruntimeconfig.cache
+C:\Users\eliza\.vscode\_school\ukol_real\obj\Debug\net7.0\ref\ukol_real.dll
