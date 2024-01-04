@@ -698,7 +698,7 @@ void logik(int run) // logik
 }
 logik(0);
 
-/* for (; ; )
+for (; ; )
 {
     Console.WriteLine("enter file name: ");
     try
@@ -713,12 +713,4 @@ logik(0);
     {
         color("error: file directory not found!\n", "red");
     }
-}
- */
-
-
-string[] agfasgf = "nasjgbjs".Split("j");
-foreach (string s in agfasgf)
-{
-    Console.WriteLine(s);
 }
