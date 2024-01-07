@@ -675,6 +675,7 @@ color("test autoskoly. zadedj \"ex\" kdykoliv k ukonceni a vyhodnoceni testu ", 
 // create and shuffle q array
 string[] allQ = File.ReadAllLines("questions.data"); // read the file
 allQ = shuffle(allQ); // shuffle all questions
+allQ.shuffle();
 
 // zmena poctu otazek
 int QAmount = 12; // default value
