@@ -1,10 +1,14 @@
 ﻿// 0 to not run, 1 to run
-static void u1quadraticEquation(int run)
+static void quadraticEquation(int run)
 {
     if (run != 0)
     {
         // variables
-        float a, b, c, D, userNumber;
+        float a,
+            b,
+            c,
+            D,
+            userNumber;
         string userString;
 
         // functions
@@ -42,7 +46,9 @@ static void u1quadraticEquation(int run)
         for (; ; ) // more readable than while(true)??
         {
             // number input
-            Console.WriteLine("this program will solve ax^2 + bx + c = 0. input \"e\" at any time to exit");
+            Console.WriteLine(
+                "this program will solve ax^2 + bx + c = 0. input \"e\" at any time to exit"
+            );
             Console.Write("enter number a: ");
             a = getNumber();
             Console.Write("enter number b: ");
@@ -54,7 +60,9 @@ static void u1quadraticEquation(int run)
             // results
             if (a == 0 && b == 0 && c == 0)
             {
-                Console.WriteLine($"there is an infinite amount of x values for {a} * x^2 + {b} * x + {c} = 0");
+                Console.WriteLine(
+                    $"there is an infinite amount of x values for {a} * x^2 + {b} * x + {c} = 0"
+                );
             }
             else
             {
@@ -68,14 +76,20 @@ static void u1quadraticEquation(int run)
                 switch (D)
                 {
                     case < 0:
-                        Console.WriteLine($"there is no answer for x in {a} * x^2 + {b} * x + {c} = 0");
+                        Console.WriteLine(
+                            $"there is no answer for x in {a} * x^2 + {b} * x + {c} = 0"
+                        );
                         break;
                     case 0:
-                        Console.WriteLine($"there is one answer for x in {a} * x^2 + {b} * x + {c} = 0: ");
+                        Console.WriteLine(
+                            $"there is one answer for x in {a} * x^2 + {b} * x + {c} = 0: "
+                        );
                         Console.WriteLine($"x = {x1()}");
                         break;
                     case > 0:
-                        Console.WriteLine($"there are two answers for x in {a} * x^2 + {b} * x + {c} = 0: ");
+                        Console.WriteLine(
+                            $"there are two answers for x in {a} * x^2 + {b} * x + {c} = 0: "
+                        );
                         Console.WriteLine($"x1 = {x1()}, x2 = {x2()}");
                         break;
                 }
@@ -83,7 +97,9 @@ static void u1quadraticEquation(int run)
                 // x evaluation
                 for (; ; )
                 {
-                    Console.Write("enter parameter x for evaluation (or enter \"s\" to stop evaluating): ");
+                    Console.Write(
+                        "enter parameter x for evaluation (or enter \"s\" to stop evaluating): "
+                    );
                     userString = Console.ReadLine().ToLower();
                     detectAndTerminate(); // detects "e" keyword
                     if (userString == "s")
@@ -92,7 +108,9 @@ static void u1quadraticEquation(int run)
                     }
                     if (float.TryParse(userString, out userNumber))
                     {
-                        Console.WriteLine($"the equation is {a} * {userNumber}^2 + {b} * {userNumber} + {c} = {MathF.Round(a * MathF.Pow(userNumber, 2) + b * userNumber + c, 2)}");
+                        Console.WriteLine(
+                            $"the equation is {a} * {userNumber}^2 + {b} * {userNumber} + {c} = {MathF.Round(a * MathF.Pow(userNumber, 2) + b * userNumber + c, 2)}"
+                        );
                     }
                     else
                     {
@@ -104,7 +122,9 @@ static void u1quadraticEquation(int run)
             // end
             for (; ; )
             {
-                Console.Write("do you want to repeat the program? \"r\" to repeat, \"e\" to exit: ");
+                Console.Write(
+                    "do you want to repeat the program? \"r\" to repeat, \"e\" to exit: "
+                );
                 userString = Console.ReadLine().ToLower();
                 detectAndTerminate();
                 if (userString == "r")
@@ -116,8 +136,8 @@ static void u1quadraticEquation(int run)
         }
     }
 }
-u1quadraticEquation(0);
-static void u2shapesCalculator(int run)
+quadraticEquation(0);
+static void shapesCalculator(int run)
 {
     if (run != 0)
     {
@@ -200,7 +220,10 @@ static void u2shapesCalculator(int run)
             }
             else
             {
-                setColor("the triangle inequality (the sum of any two sides of a triangle must be greater than or equal to the third side) does not hold!", "wrong");
+                setColor(
+                    "the triangle inequality (the sum of any two sides of a triangle must be greater than or equal to the third side) does not hold!",
+                    "wrong"
+                );
                 Console.WriteLine();
             }
         }
@@ -272,7 +295,20 @@ static void u2shapesCalculator(int run)
             setColor("[x]", "highlight");
             Console.Write("it:");
             Console.WriteLine();
-            string[] shapes = { "circle", "triangle", "square", "rectangle", "pentagon", "hexagon", "cube", "rectangular box", "cylinder", "sphere", "cone" };
+            string[] shapes =
+            {
+                "circle",
+                "triangle",
+                "square",
+                "rectangle",
+                "pentagon",
+                "hexagon",
+                "cube",
+                "rectangular box",
+                "cylinder",
+                "sphere",
+                "cone"
+            };
             foreach (string s in shapes)
             {
                 if (s == "cube" || s == "square" || s == "cone" || s == "cylinder") // 2nd letter
@@ -281,7 +317,7 @@ static void u2shapesCalculator(int run)
                     setColor($"[{s[1]}]", "highlight");
                     Console.Write(s.Remove(0, 2));
                 }
-                else if (s == "rectangular box")  // box letter
+                else if (s == "rectangular box") // box letter
                 {
                     Console.Write("rectangular ");
                     setColor("[b]", "highlight");
@@ -387,4 +423,4 @@ static void u2shapesCalculator(int run)
         }
     }
 }
-u2shapesCalculator(1);
+shapesCalculator(1);
