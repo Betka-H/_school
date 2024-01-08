@@ -1,4 +1,6 @@
 ﻿// 0 to not run, 1 to run
+using System.Diagnostics;
+
 static void quadraticEquation(int run)
 {
     if (run != 0)
@@ -423,4 +425,218 @@ static void shapesCalculator(int run)
         }
     }
 }
-shapesCalculator(1);
+shapesCalculator(0);
+
+/*
+zadani: (veci oznacene XXX tu nejsou, prisly mi vic komplikovane)
+1) Program načte přiložený soubor se všemi otázkami a odpověďmi.
+(!) Pracujte se souborem "questions.data" (tento název neměňte). Nepoužívejte absolutní cestu (např. ne: "C:\Users..."), správně je pouze "questions.data".
+(!) program musí umět zamíchat pořadí otázek (aby nebyly pokaždé ve stejném pořadí).
+
+bonus 1) Možnost zadání počtu otázek, na které se má program uživatele zeptat.
+(!) Program by neměl spadnout při zadání neočekávaného vstupu.
+
+2) Postupně se ptá uživatele na otázky ze souboru
+
+XXX bonus 1.2) Zamíchání pořadí možností u otázky.
+
+3) dává uživateli na výběr z možností (A, B, C)
+
+4) kontroluje správnost odpovědi (vypíše, jestli uživatel odpověděl správně, v opačném případně vypíše správnou odpověď)
+
+5) Po ukončení kvízu program vypíše uživatelovu úspěšnost v % (počet správných odpovědí / počet všech odpovědí).
+
+XXX bonus 2) Po zodpovězení zvoleného počtu otázek se program znova zeptá na otázky, na které uživatel odpověděl špatně. (Takto se může ptát dokud uživatel nezodpoví vše správně)
+
+(!) Program běží ve smyčce, dokud si uživatel nepřeje skončit nebo dokud nedojdou otázky.
+*/
+
+Console.OutputEncoding = System.Text.Encoding.UTF8; // umoznuje ceske znaky v konzoli
+Console.Title = "autoskolni test"; // zmeni nazev okna :) jenom mala esteticka zmena
+Console.Clear(); // "vycisti" konzoli, smaze radky co tam byly predtim. podle me to vypada hezcejs, ale vubec to neni nutnost
+Console.WriteLine("vitej v testu autoskoly. zadej \"q\" kdykoliv k ukonceni a vyhodnoceni testu");
+
+// 1) Program načte přiložený soubor se všemi otázkami a odpověďmi.
+string[] vsechnyOtazky = File.ReadAllLines("questions.data"); // kazda hodnota v arrayi je jedna radka ze souboru (tedy "otazka|spravna odpoved|odpoved 1|odpoved 2|odpoved 3")
+
+// (!) program musí umět zamíchat pořadí otázek (aby nebyly pokaždé ve stejném pořadí).
+// neni to nutne, ale michaci algoritmus je dobre dat do funkce (muze se pak kdyztak vyuzit na bonus 1) Zamíchání pořadí možností u otázky.)
+static string[] zamichat(string[] a)
+{
+    // slovo "static" znamena, ze funkce nemuze cist zadne promenne ktere nema v sobe (v tomto pripade treba promennou allQuestions)
+    // ted to nic moc nemeni, ale je to uzitecne v jinych pripadech a take proste jako ukazatel toho, ze "aha, tady ta funkce nepotrebuje nic zvenci, jestli to hazi chybu, mam hledat jenom v ni"
+
+    // vytvori novy prazdny array
+    string[] b = { };
+    while (b.Length < a.Length) // dokud neni novy array stejne dlouhy jako ten stary, opakuje tento kod:
+    {
+        int r = new Random().Next(a.Length); // vygeneruje nahodne cislo mezi 0 a poctem hodnot ve starem arrayi - v tomto pripade stary array bude obsahovat radky ze souboru (otazka|spravna odpoved|...) popripade jednotlive odpovedi
+        if (!b.Contains(a[r])) // kdyz v novem array NEnajde nahodnou hodnota ze stareho arraye, zapise ji tam
+        {
+            Array.Resize(ref b, b.Length + 1); // zvetsi velikost noveho arraye o 1 (jinak by tam neslo nic zapsat)
+            b[b.Length - 1] = a[r]; // do vytvoreneho mista zapise nahodnou hodnotu
+        }
+    }
+    return b; // kdyz se funkce zavola, vrati zamichany array
+}
+vsechnyOtazky = zamichat(vsechnyOtazky);
+
+// bonus 1) Možnost zadání počtu otázek, na které se má program uživatele zeptat.
+Console.Write(
+    $"ze souboru je nacteno {vsechnyOtazky.Length} otazek. jestli chces zmenit pocet otazek, zadej \"z\": "
+);
+
+// znak "$" pred stringem znamena, ze do {} se v nem da jednoduse vypsat jakakoliv promenna/matematicky vypocet
+// znak \ pred " (v zadej \"z\") znamena, ze program znak " normalne vytiskne, jinak by ho spatne pochopil jako konec stringu, co chce tisknout a hodilo by to chybu
+// vsechnyOtazky.Length je cele cislo odpovidajici poctu radku v prectenem souboru
+
+// slo by udelat: string zmenaPoctu = Console.ReadLine(); ale! precist vstup od uzivatele bude potreba jeste pri zadavani samotneho cisla a pri zadavani odpovedi, takze je lepsi udelat funkci:
+static string vstupOdUzivatele()
+{
+    string coNapiseUzivatel = Console.ReadLine().Trim().ToUpper();
+    // Trim() udela to, ze kdyby ve stringu od uzivatele byl na zacatku nebo na konci whitespace (= mezernik, tab), tak to z tama odenda (trim)
+    // ToLower() string od uzivatele prevede do malych pismen (kdyby uzivatel napsal "Z" misto "z")
+    return coNapiseUzivatel; // kdyz se funkce zavola, vrati upraveny string od uzivatele
+    // jde take udelat jednoduse return Console.ReadLine().Trim().ToLower();, coz eliminuje celou promennou coNapiseUzivatel (cim mene promennych, tim lepe). ale neni to nutnost
+}
+
+// zmena poctu otazek bude umoznena jen kdyz uzivatel zada "z", jinak program pokracuje se stejnym poctem jako predtim (tedy vsechny otazky co jsou v souboru)
+if (vstupOdUzivatele() == "Z")
+{
+    Console.Write("zadej kolik chces otazek: ");
+    // ted musi precist vstup od uzivatele, ale vezme ho, jenom pokud je to cislo nad 0 (zaporny nebo nulovy pocet otazek samozrejme nejde). program bude cislo cist jenom tady, ale stejne je dobre si to zase dat do funkce
+
+    static int pozitivniCisloOdUzivatele()
+    {
+        // prazdna podminka u for loopu znamena, ze bezi nekonecne, protoze neni specifikovany zadny pripad, kdy ma skoncit (treba i<x nebo podobne). v tomto pripade tedy opakuje ziskavani cisla, dokud se nedostane k "return x;"
+        for (; ; )
+        {
+            // (!) Program by neměl spadnout při zadání neočekávaného vstupu.
+            // TryParse je bool (hodnota true/false), ktery zavisi na tom, jestli je to co do nej dam cislo, nebo ne. takze kdyz uzivatel zada neco jineho nez cislo vetsi nez 0 (pridana podminka x > 0, && znamena, ze musi platit zaroven s tou predchozi), tento blok kodu neprobehne a funkce nevrati hodnotu, a protoze je v nekonecnem for loopu, bude se opakovat
+            if (int.TryParse(vstupOdUzivatele(), out int x) && x > 0)
+            {
+                return x;
+            }
+            Console.Write("neplatny vstup! zadej cislo: "); // tato zprava se zobrazi jenom kdyz predchozi blok neda return, a smycka se bude opakovat
+        }
+    }
+    int zmenaPoctu = pozitivniCisloOdUzivatele();
+    // zmeni velikost arraye jenom kdyz je pozadovana hodnota mensi nez jeho soucasna delka, jinak se nic nestane a array zustane stejne velky (tedy vsechny otazky co nacetl ze souboru tam zustaly)
+    if (zmenaPoctu < vsechnyOtazky.Length)
+    {
+        Array.Resize(ref vsechnyOtazky, zmenaPoctu); // zmeni velikost arraye na pozadovanou hodnotu
+    }
+}
+
+// na tomhle miste se deklaruje protoze nesmi byt v hlavni smycce, kde by skore po kazde otazce zase slo na 0. proc je to float (desetinne cislo) vysvetlim az se bude pouzivat pozdeji
+float score = 0;
+
+// toto je na tom uplne stejne
+float celkemZodpovezeno = 0;
+
+Console.Clear(); // "vycisti" konzoli, smaze radky co tam byly predtim. podle me to vypada hezcejs, ale vubec to neni nutnost
+
+// 2) Postupně se ptá uživatele na otázky ze souboru
+for (int i = 0; i < vsechnyOtazky.Length; i++)
+{
+    // rozdeli radku v poradi [i] z arraye s otazkama ze souboru na casti podle rozdelovace |
+    string[] otazkaAOdpovedi = vsechnyOtazky[i].Split("|");
+    // otazkaAOdpovedi tedy obsahuje hodnoty: otazka, pismeno spravne odpovedi, odpoved a, odpoved b a popripade odpoved c (nektere otazky maji jen 2 odpovedi!!)
+
+    // 3) dává uživateli na výběr z možností (A, B, C)
+    Console.WriteLine($"otazka {i + 1}/{vsechnyOtazky.Length}: {otazkaAOdpovedi[0]}"); // vypise otazku - vzdycky je na nultem indexu ve stringu[] otazkyAOdpovedi
+
+    string povoleneOdpovedi = "Q"; // pozdeji se musi poznat, jestli uzivatel zadava spravnou vec. protoze muzou byt 3 ale i 2 odpovedi, nemuze to vzdycky kontrolovat pro a,b i c, protoze jinak by to u 2 odpovedovych otazek bralo i c, coz nema. q je tam vzdycky, to je pro quit
+
+    // nastavi (do stringu povoleneOdpovedi) a vypise mozne odpovedi
+    for (int y = 2; y < otazkaAOdpovedi.Length; y++)
+    {
+        // bezi od 2. do posledniho mista arraye s otazkou a odpovedma, tzn. preskoci 0. a 1. misto a bere v potaz jenom to za tim, coz jsou vsechny moznosti odpovedi
+
+        // switch vypise a, b nebo c podle toho, kolikatou odpoved prave vypisuje
+        switch (y)
+        {
+            case 2:
+                povoleneOdpovedi += "A";
+                // prida pismeno do seznamu povolencyh odpovedi oz uzivatele
+                Console.Write("A");
+                // (!) jen console.write, console.writeline by udelal novy radek a samotna otazka by uz byla napsana pod tim, coz se pravdepodobne stat nema
+                break;
+            case 3:
+                povoleneOdpovedi += "B";
+                Console.Write("B");
+                break;
+            case 4:
+                povoleneOdpovedi += "C";
+                Console.Write("C");
+                break;
+        }
+        // tady uz k pismenu prida jen ") odpoved" pro finalni formu "pismeno odpovedi) odpoved
+        Console.WriteLine($") " + otazkaAOdpovedi[y]); // vypise co je prave na indexu y, tedy moznost odpovedi
+    }
+
+    // vypise uzivateli prompt aby zadal svou odpoved. asi nemusi, ale vypise mu i ocekavane odpovedi
+    Console.Write("vyber odpoved (");
+    for (int y = 1; y < povoleneOdpovedi.Length; y++)
+    {
+        Console.Write(povoleneOdpovedi[y]);
+        if (y < povoleneOdpovedi.Length - 1)
+        {
+            Console.Write("/");
+        }
+    }
+    Console.Write("): ");
+
+    // 4) kontroluje správnost odpovědi (vypíše, jestli uživatel odpověděl správně, v opačném případně vypíše správnou odpověď)
+    string pismenoSpravneOdpovedi = otazkaAOdpovedi[1]; // precte z 2. mista pismeno spravne odpovedi
+    string odpoved;
+    for (; ; )
+    {
+        odpoved = vstupOdUzivatele();
+        // spravna odpoved je vzdycky zadana velkym pismenem, proto to .ToUpper(), aby i vstup od uzivatele byl preveden na velke pismeno a nemusel to tak psat vzdycky sam uzivatel. program si tedy ted poradi stejne s "a" i s "A" (a diky .Trim() v samotne funkci vstupOdUzivatele() tomu nevadi ani napriklad "     a   " nebo "       A" )
+        if (!povoleneOdpovedi.Contains(odpoved) || string.IsNullOrEmpty(odpoved)) // kdyz uzivatel napise neco jineho nez a,b,(c) nebo q, znovu se to zepta na vstup nebo kdyz zada enter (z nejakeho me zahadneho duvodu to bralo enter i kdyz povoleneOdpovedi v sobe melo jenom QABC)
+        {
+            Console.WriteLine("neplatny vstup!");
+        }
+        else // kdyz neplati podminka predtim, tedy vstup je v poradku (a/b/(c), q)
+            break;
+    }
+    if (odpoved == "Q")
+        break; // kdyz uzivatel zada q k ukonceni testu, program vyskoci ze smycky a jde na vyhodnoceni
+    Console.Clear(); // vycisti konzoli pred dalsi otazkou. je to na tomhle miste, aby i pred dalsi otazkou byl videt feedback na tu co uzivatel prave odpovedel
+    if (odpoved == pismenoSpravneOdpovedi) // kdyz se to, co uzivatel napise rovna spravne odpovedi
+    {
+        score++; // zvysi skore o 1
+        Console.WriteLine("spravna odpoved!");
+    }
+    else // jedina zbyvajici moznost je spatna odpoved, neni tedy treba znovu upresnovat podminky
+    {
+        Console.WriteLine("spatna odpoved!");
+        Console.Write($"spravna odpoved byla: {pismenoSpravneOdpovedi}) "); // vypise pismeno)
+        switch (pismenoSpravneOdpovedi) // vypise odpoved podle toho jake je pismeno spravne odpovedi
+        {
+            case "A":
+                Console.WriteLine(otazkaAOdpovedi[2]);
+                break;
+            case "B":
+                Console.WriteLine(otazkaAOdpovedi[3]);
+                break;
+            case "C":
+                Console.WriteLine(otazkaAOdpovedi[4]);
+                break;
+        }
+    }
+
+    // kviz jde ukoncit i pred zodpovezenim vsech otazek! potrebujeme tedy v prubehu testu zaznamenavat nejen skore (pocet spravnych odpovedi), ale i celkovy pocet zodpovezenych otazek. je az tady dole, protoze ho chceme zvetsit jenom pote, co uzivatel realne odpovi na otazku (kdyz misto odpovedi napise q, tak ta otazka se nebude pocitat do celkoveho poctu)
+    celkemZodpovezeno++;
+    Console.WriteLine(); // prida prazdny radek pro lepsi citelnost
+}
+
+// 5) Po ukončení kvízu program vypíše uživatelovu úspěšnost v % (počet správných odpovědí / počet všech odpovědí).
+Console.Clear();
+if (celkemZodpovezeno != 0)
+    Console.WriteLine(
+        $"skore: {MathF.Round(score / celkemZodpovezeno * 100)}% ({score}/{celkemZodpovezeno})"
+    );
+else
+    Console.WriteLine("zadna otazka nebyla zodpovezena...");

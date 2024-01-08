@@ -868,14 +868,10 @@ static void userPosInt(ref int i) // positive int from user
     for (; ; )
     {
         Console.Write($"prosim zadej cislo: ");
-        if (int.TryParse(userInput(), out int x))
+        if (int.TryParse(userInput(), out int x) && x > 0)
         {
-            if (x > 0)
-            {
-                i = x;
-                break;
-            }
-            color("cislo musi byt vetsi nez 0!", "red");
+            i = x;
+            break;
         }
     }
 }
