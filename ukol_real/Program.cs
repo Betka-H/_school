@@ -574,8 +574,7 @@ for (; ; ) // main loop - for every test iteration
     Console.ReadKey();
     Console.WriteLine();
 } */
-
-
+/* fourth...
 // final hopefully
 // test postupne dava otazky v zamichanem poradi
 // odpovedi jsou take v zamichanem poradi
@@ -798,4 +797,278 @@ for (; ; ) // main loop - for every test iteration. breaks on "ex" input or when
     }
 
     Console.WriteLine();
+} */
+
+
+
+// s console.clear()
+// final final hopefully
+// test postupne dava otazky v zamichanem poradi
+// odpovedi jsou take v zamichanem poradi
+// test je schopen brat ze souboru otazky s odpovedmi od a-z (tento test je jenom a-c, ale umi to:))
+// uzivatel na zacatku testu muze zmenit pocet otazek, jinak v testu je zakladni pocet 12 (da se jednoduse zmenit v promenne QAmount)
+// rekne uzivateli jestli odpovedel spravne nebo spatne, popr. jaka byla spravna odpoved
+// pred ukoncenim testu vyhodnoceni kolik otazek z kolika uzivatel zodpovedel spravne (i v %)
+
+Console.OutputEncoding = System.Text.Encoding.UTF8; // cz encoding
+Console.Title = "autoskolni test";
+
+static void color(string t, string c) // for colored text
+{
+    switch (c)
+    {
+        case "red":
+            Console.ForegroundColor = ConsoleColor.Red;
+            break;
+        case "yellow":
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            break;
+        case "green":
+            Console.ForegroundColor = ConsoleColor.Green;
+            break;
+        case "cyan":
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            break;
+        case "magenta":
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            break;
+        case "black":
+            Console.ForegroundColor = ConsoleColor.Black;
+            break;
+    }
+    Console.WriteLine(t);
+    Console.ForegroundColor = ConsoleColor.Gray;
+}
+static void hr()
+{
+    for (int y = 0; y < Console.WindowWidth; y++)
+        Console.Write("-");
+    Console.WriteLine();
+}
+static void shuffle(ref string[] a) // to shuffle questions and answers
+{
+    string[] b = { };
+    while (b.Length < a.Length)
+    {
+        int r = new Random().Next(a.Length);
+        if (!b.Contains(a[r]))
+        {
+            Array.Resize(ref b, b.Length + 1);
+            b[b.Length - 1] = a[r];
+        }
+    }
+    a = b;
+}
+static string userInput() // string from user
+{
+    return Console.ReadLine().ToLower().Trim();
+}
+static int userPosInt() // positive int from user
+{
+    for (; ; )
+    {
+        Console.Write($"prosim zadej cele cislo vetsi nez nula: ");
+        if (int.TryParse(userInput(), out int x))
+        {
+            if (x > 0)
+            {
+                return x;
+            }
+        }
+    }
+}
+static void evaluation(float sco, int tot)
+{
+    Console.WriteLine();
+    if (tot == 0)
+    {
+        color("nezodpovedel jsi zadne otazky...", "red");
+    }
+    else
+    {
+        Console.WriteLine("tvuj vysledek:");
+        if (sco == 0) // 0/10
+        {
+            color($"prosim, nikdy nesedej za volant...", "red");
+        }
+        else if (sco == tot - 1) // 9/10
+        {
+            color($"jen o kousek!", "magenta");
+        }
+        else if (sco >= tot / 2) // over half
+        {
+            color($"slo by to lepe...", "magenta");
+        }
+        else // else - under half
+        {
+            color($"nic moc :(", "magenta");
+        }
+
+        color($"skore: {sco}/{tot} ({MathF.Round(sco / tot * 100)}%)", "magenta");
+        Console.WriteLine();
+    }
+}
+
+const string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+Console.Clear();
+color("test autoskoly. zadedj \"ex\" kdykoliv k ukonceni/vyhodnoceni testu ", "magenta");
+
+// create and shuffle q array
+string[] allQ = File.ReadAllLines("questions.data"); // read the file
+shuffle(ref allQ); // shuffle all questions
+
+// zmena poctu otazek
+int QAmount = 12; // default value
+Console.Write(
+    $"pocet otazek: {QAmount}/{allQ.Length} (zadej \"zm\" pro zadani vlastniho poctu otazek, jinak pokracuj): "
+);
+string QAmountRequest = userInput();
+if (QAmountRequest == "ex")
+{
+    Environment.Exit(0);
+}
+if (QAmountRequest == "zm")
+{
+    QAmount = userPosInt();
+}
+
+if (QAmount < allQ.Length)
+    Array.Resize(ref allQ, QAmount); // resize q array to the desired question amount (but only if it is less than the total q amount)
+string[] qTemp = allQ;
+
+Console.Clear();
+
+for (; ; ) // main loop - for every test iteration. breaks on "ex" input or when all questions were answered right
+{
+    float score = 0;
+
+    // set questiosn
+    allQ = qTemp;
+    Array.Resize(ref qTemp, 0);
+    shuffle(ref allQ); // shuffle all questions
+
+    for (int i = 0; i < allQ.Length; i++) // for every question
+    {
+        string[] line = allQ[i].Split("|"); // splits the line
+
+        string[] options = line.Skip(2).ToArray(); // defines the options
+        string correctAns = options[alphabet.IndexOf(line[1][0])]; // specifies which option is correct
+        shuffle(ref options); // shuffles the options
+        string correctAnsLetter = alphabet[Array.IndexOf(options, correctAns)].ToString(); // determines the correct ans letter
+
+        // question frame
+        Console.WriteLine();
+        //
+        color($"otazka {i + 1}/{allQ.Length}:", "cyan"); // prints the question
+        color($"{line[0]}", "cyan"); // prints the question
+        // color($"ans: {correctAnsLetter}) {correctAns}", "black"); // prints the correct answer (for testing)
+        //
+        Console.WriteLine();
+
+        // print the options
+        for (int y = 0; y < options.Length; y++)
+        {
+            Console.WriteLine($"{alphabet[y]}) {options[y]}");
+        }
+        Console.WriteLine();
+        hr();
+
+        // get user answer and give feedback on it
+        string guess;
+        for (; ; )
+        {
+            // print vyber odpovedi
+            Console.Write("vyber odpoved (");
+            for (int y = 0; y < options.Length; y++) // "a/b/c"
+            {
+                Console.Write(alphabet[y].ToString().ToLower());
+                if (y < options.Length - 1)
+                {
+                    Console.Write("/");
+                }
+            }
+            Console.Write(") nebo \"nevim\": ");
+
+            // the guess
+            guess = userInput().ToUpper();
+            if (guess.ToLower() == "ex") // evaluates and exits
+            {
+                Console.Clear();
+                Console.WriteLine("ukoncuji test a zobrazuji vysledky...");
+                hr();
+                evaluation(score, i);
+                hr();
+                Environment.Exit(0);
+            }
+            bool checkGuess()
+            {
+                for (int y = 0; y < options.Length; y++) // goes through all the questions
+                {
+                    if (alphabet[y].ToString() == guess) // if the guess is in the first options.length part of alphabet, continue (or if it is nevm)
+                        return true;
+                }
+                return false; // otherwise repeat, the guess is not in the valid part of the alphabet
+            }
+            if (checkGuess() || guess.ToLower() == "nevim")
+                break;
+
+            // otherwise repeat, the guess is not valid
+            color("neplatný vstup!", "red");
+        }
+
+        Console.Clear();
+        Console.WriteLine();
+        Console.WriteLine($"otazka {i + 1}/{allQ.Length}: {line[0]}"); // prints the question
+        if (guess.ToLower() != "nevim")
+            Console.WriteLine(
+                $"vase odpoved byla: {guess}) {options[alphabet.IndexOf(guess.ToUpper())]}"
+            );
+
+        if (guess == correctAnsLetter) // correct
+        {
+            color("spravne!", "green");
+            score++;
+        }
+        else // wrong
+        {
+            if (guess.ToLower() == "nevim")
+                color("tak nevis...", "yellow");
+            else
+            {
+                color("spatne :((", "red");
+            }
+
+            color($"spravna odpoved byla: {correctAnsLetter}) {correctAns}", "yellow");
+
+            // add the failed q to the temp array
+            Array.Resize(ref qTemp, qTemp.Length + 1);
+            qTemp[qTemp.Length - 1] = allQ[i];
+        }
+
+        hr();
+    }
+
+    // scores
+    // if all the questions were right, end the test
+    if (score == allQ.Length)
+    {
+        color($"skvele! vsechno mas spravne :)", "magenta");
+        break;
+    }
+
+    // if there are still questions left, show the scores and prompt test repeat
+    evaluation(score, allQ.Length);
+    hr();
+    color(
+        "tento test bude pokracovat dokud nebudes mit vse spravne! (zadej cokoliv k pokracovani nebo \"ex\" k ukonceni programu)",
+        "yellow"
+    );
+    if (userInput() == "ex") // exit
+    {
+        Console.WriteLine("ukoncuji test...");
+        break;
+    }
+
+    Console.Clear();
 }
