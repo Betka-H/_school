@@ -863,17 +863,19 @@ static string userInput() // string from user
 {
     return Console.ReadLine().ToLower().Trim();
 }
-static int userPosInt() // positive int from user
+static void userPosInt(ref int i) // positive int from user
 {
     for (; ; )
     {
-        Console.Write($"prosim zadej cele cislo vetsi nez nula: ");
+        Console.Write($"prosim zadej cislo: ");
         if (int.TryParse(userInput(), out int x))
         {
             if (x > 0)
             {
-                return x;
+                i = x;
+                break;
             }
+            color("cislo musi byt vetsi nez 0!", "red");
         }
     }
 }
@@ -930,7 +932,7 @@ if (QAmountRequest == "ex")
 }
 if (QAmountRequest == "zm")
 {
-    QAmount = userPosInt();
+    userPosInt(ref QAmount);
 }
 
 if (QAmount < allQ.Length)
