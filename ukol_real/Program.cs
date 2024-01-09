@@ -921,14 +921,14 @@ int QAmount = 12; // default value
 Console.Write(
     $"pocet otazek: {QAmount}/{allQ.Length} (zadej \"zm\" pro zadani vlastniho poctu otazek, jinak pokracuj): "
 );
-string QAmountRequest = userInput();
-if (QAmountRequest == "ex")
+switch (userInput())
 {
-    Environment.Exit(0);
-}
-if (QAmountRequest == "zm")
-{
-    userPosInt(ref QAmount);
+    case "ex":
+        Environment.Exit(0);
+        break;
+    case "zm":
+        userPosInt(ref QAmount);
+        break;
 }
 
 if (QAmount < allQ.Length)
@@ -990,6 +990,7 @@ for (; ; ) // main loop - for every test iteration. breaks on "ex" input or when
 
             // the guess
             guess = userInput().ToUpper();
+
             if (guess.ToLower() == "ex") // evaluates and exits
             {
                 Console.Clear();

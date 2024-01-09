@@ -1,5 +1,4 @@
 ﻿// 0 to not run, 1 to run
-using System.Diagnostics;
 
 static void quadraticEquation(int run)
 {
