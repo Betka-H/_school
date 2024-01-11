@@ -1,4 +1,5 @@
 ﻿// 0 to not run, 1 to run
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
 
 static void quadraticEquation(int run)
 {

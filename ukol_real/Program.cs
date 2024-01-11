@@ -868,39 +868,27 @@ static void userPosInt(ref int i) // positive int from user
     for (; ; )
     {
         Console.Write($"prosim zadej cislo: ");
-        if (int.TryParse(userInput(), out int x) && x > 0)
-        {
-            i = x;
+        if (int.TryParse(userInput(), out i) && i > 0)
             break;
-        }
     }
 }
 static void evaluation(float sco, int tot)
 {
     Console.WriteLine();
     if (tot == 0)
-    {
         color("nezodpovedel jsi zadne otazky...", "red");
-    }
     else
     {
         Console.WriteLine("tvuj vysledek:");
+
         if (sco == 0) // 0/10
-        {
             color($"prosim, nikdy nesedej za volant...", "red");
-        }
         else if (sco == tot - 1) // 9/10
-        {
             color($"jen o kousek!", "magenta");
-        }
         else if (sco >= tot / 2) // over half
-        {
             color($"slo by to lepe...", "magenta");
-        }
         else // else - under half
-        {
             color($"nic moc :(", "magenta");
-        }
 
         color($"skore: {sco}/{tot} ({MathF.Round(sco / tot * 100)}%)", "magenta");
         Console.WriteLine();
@@ -966,9 +954,8 @@ for (; ; ) // main loop - for every test iteration. breaks on "ex" input or when
 
         // print the options
         for (int y = 0; y < options.Length; y++)
-        {
             Console.WriteLine($"{alphabet[y]}) {options[y]}");
-        }
+
         Console.WriteLine();
         hr();
 
@@ -982,9 +969,7 @@ for (; ; ) // main loop - for every test iteration. breaks on "ex" input or when
             {
                 Console.Write(alphabet[y].ToString().ToLower());
                 if (y < options.Length - 1)
-                {
                     Console.Write("/");
-                }
             }
             Console.Write(") nebo \"nevim\": ");
 
@@ -1003,10 +988,9 @@ for (; ; ) // main loop - for every test iteration. breaks on "ex" input or when
             bool checkGuess()
             {
                 for (int y = 0; y < options.Length; y++) // goes through all the questions
-                {
                     if (alphabet[y].ToString() == guess) // if the guess is in the first options.length part of alphabet, continue (or if it is nevm)
                         return true;
-                }
+
                 return false; // otherwise repeat, the guess is not in the valid part of the alphabet
             }
             if (checkGuess() || guess.ToLower() == "nevim")
@@ -1034,9 +1018,7 @@ for (; ; ) // main loop - for every test iteration. breaks on "ex" input or when
             if (guess.ToLower() == "nevim")
                 color("tak nevis...", "yellow");
             else
-            {
                 color("spatne :((", "red");
-            }
 
             color($"spravna odpoved byla: {correctAnsLetter}) {correctAns}", "yellow");
 

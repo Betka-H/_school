@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ukol", "ukol\ukol.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ukol_real", "ukol_real\ukol_real.csproj", "{9D479CC8-0E10-4ADA-81BE-11D5B2200898}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game", "game\game.csproj", "{3A71B906-7DF5-4D5B-BDD8-E9D089F35C58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9D479CC8-0E10-4ADA-81BE-11D5B2200898}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D479CC8-0E10-4ADA-81BE-11D5B2200898}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D479CC8-0E10-4ADA-81BE-11D5B2200898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A71B906-7DF5-4D5B-BDD8-E9D089F35C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A71B906-7DF5-4D5B-BDD8-E9D089F35C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A71B906-7DF5-4D5B-BDD8-E9D089F35C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A71B906-7DF5-4D5B-BDD8-E9D089F35C58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,8 @@
+main menu
+title: a game (yes, really!)
+options: start game, stats, credits, quit game
+letters: s, st, c, q
+
+credits
+title: credits
+content: made by: dex:), coded in: c#, made for: fun
