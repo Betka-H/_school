@@ -460,7 +460,7 @@ static void applez() // reseni ulohy ("bossfight")
     Console.Write("how many apples do you have in stock? > ");
     int stock = getPosInt();
     int purchases = 0;
-    for (int i = 1; ; i++)
+    for (int i = 1; stock > 0; i++)
     {
         Console.Write($"customer {i} wants to buy how many apples? > ");
         int purchase = getPosInt();
@@ -469,8 +469,6 @@ static void applez() // reseni ulohy ("bossfight")
             purchases++;
             stock -= purchase;
             Console.WriteLine($"you now have {stock} apples remaining in stock.");
-            if (stock == 0)
-                break;
         }
         else
             Console.WriteLine("you dont have enough apples in stock!");
