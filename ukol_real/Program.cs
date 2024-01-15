@@ -905,7 +905,9 @@ string[] allQ = File.ReadAllLines("questions.data"); // read the file
 shuffle(ref allQ); // shuffle all questions
 
 // zmena poctu otazek
-int QAmount = 12; // default value
+int QAmount; // default value
+if (!int.TryParse(File.ReadAllLines("question_amount.txt")[0], out QAmount))
+    throw new Exception("file does not contain a number");
 Console.Write(
     $"pocet otazek: {QAmount}/{allQ.Length} (zadej \"zm\" pro zadani vlastniho poctu otazek, jinak pokracuj): "
 );
@@ -916,11 +918,13 @@ switch (userInput())
         break;
     case "zm":
         userPosInt(ref QAmount);
+        if (QAmount > allQ.Length)
+            QAmount = allQ.Length;
+        File.WriteAllText("question_amount.txt", QAmount.ToString());
         break;
 }
 
-if (QAmount < allQ.Length)
-    Array.Resize(ref allQ, QAmount); // resize q array to the desired question amount (but only if it is less than the total q amount)
+Array.Resize(ref allQ, QAmount); // resize q array to the desired question amount
 
 string[] qTemp = allQ;
 
