@@ -921,6 +921,7 @@ switch (userInput())
 
 if (QAmount < allQ.Length)
     Array.Resize(ref allQ, QAmount); // resize q array to the desired question amount (but only if it is less than the total q amount)
+
 string[] qTemp = allQ;
 
 Console.Clear();

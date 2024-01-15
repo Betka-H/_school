@@ -1,7 +1,6 @@
 ﻿// ok how about i try to remake that old twine thing with the alarm clock
 // yeah i could do that
-
-// line 102 last edited come back later
+// nvm not doing it
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 
@@ -30,7 +29,7 @@ static void hr()
     Console.WriteLine();
 }
 
-static void inputPrompt()
+static void inputPrompt() // "<" with delay
 {
     delay("> ", 100);
 }
@@ -84,28 +83,31 @@ static void checkOptions(string[] a, string[] b)
         throw new Exception("there are more options than option letters!");
 }
 
+//
+//
+//
+//
+//
+game();
+
+//
+//
+//
+//
+//
 // pages
 static void loadPage(string page)
 {
     Console.Clear();
-    // read menu info file
-    string[] menuInfos = File.ReadAllLines("menuInfos.txt");
-    string pageName,
-        pageTitle;
+
     switch (page)
     {
         case "main menu":
-            //
-            pageName = "main menu";
-            pageTitle = menuInfos[Array.IndexOf(menuInfos, pageName) + 1];
-
-            static void split(string s) { }
-
             string[] options = { "start game", "stats", "credits", "quit game" };
             string[] optionLetters = { "s", "st", "c", "q" };
             checkOptions(options, optionLetters);
 
-            title(pageTitle);
+            title("A GAME (YES, REALLY!)");
             printOptions(options, optionLetters);
             hr();
 
@@ -134,7 +136,7 @@ static void loadPage(string page)
         // end case main menu
 
         case "game":
-            Console.WriteLine("game here");
+            game();
             break;
 
         case "stats":
@@ -159,3 +161,18 @@ static void loadPage(string page)
 }
 
 loadPage("main menu");
+
+static void game()
+{
+    // 32-wide total
+    // road 12 wide
+
+    int speed = 500;
+    for (int i = 0; i < 999; i++)
+    {
+        if (speed > 250)
+            speed -= 10;
+        Thread.Sleep(speed);
+        Console.WriteLine(speed + " " + i + " " + "game here");
+    }
+}
