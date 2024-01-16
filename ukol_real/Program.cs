@@ -905,8 +905,17 @@ string[] allQ = File.ReadAllLines("questions.data"); // read the file
 shuffle(ref allQ); // shuffle all questions
 
 // zmena poctu otazek
-int QAmount; // default value
-if (!int.TryParse(File.ReadAllLines("question_amount.txt")[0], out QAmount))
+try
+{
+    File.ReadAllLines("question_amount.txt");
+}
+catch (FileNotFoundException)
+{
+    throw new Exception(
+        "file \"question_amount.txt\" not found! it should be somewhere in the same folder as the program.cs file"
+    );
+}
+if (!int.TryParse(File.ReadAllLines("question_amount.txt")[0], out int QAmount))
     throw new Exception("file does not contain a number");
 Console.Write(
     $"pocet otazek: {QAmount}/{allQ.Length} (zadej \"zm\" pro zadani vlastniho poctu otazek, jinak pokracuj): "

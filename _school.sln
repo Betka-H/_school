@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ukol_real", "ukol_real\ukol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game", "game\game.csproj", "{3A71B906-7DF5-4D5B-BDD8-E9D089F35C58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{477CFE54-D22A-4B92-B96F-A3B9813F1A9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3A71B906-7DF5-4D5B-BDD8-E9D089F35C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A71B906-7DF5-4D5B-BDD8-E9D089F35C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A71B906-7DF5-4D5B-BDD8-E9D089F35C58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477CFE54-D22A-4B92-B96F-A3B9813F1A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477CFE54-D22A-4B92-B96F-A3B9813F1A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477CFE54-D22A-4B92-B96F-A3B9813F1A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477CFE54-D22A-4B92-B96F-A3B9813F1A9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
