@@ -1,0 +1,14 @@
+C:\Users\eliza\_vscode\_school\game2\obj\Debug\net7.0\game2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliza\_vscode\_school\game2\obj\Debug\net7.0\game2.AssemblyInfoInputs.cache
+C:\Users\eliza\_vscode\_school\game2\obj\Debug\net7.0\game2.AssemblyInfo.cs
+C:\Users\eliza\_vscode\_school\game2\obj\Debug\net7.0\game2.csproj.CoreCompileInputs.cache
+C:\Users\eliza\_vscode\_school\game2\bin\Debug\net7.0\game2.exe
+C:\Users\eliza\_vscode\_school\game2\bin\Debug\net7.0\game2.deps.json
+C:\Users\eliza\_vscode\_school\game2\bin\Debug\net7.0\game2.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\game2\bin\Debug\net7.0\game2.dll
+C:\Users\eliza\_vscode\_school\game2\bin\Debug\net7.0\game2.pdb
+C:\Users\eliza\_vscode\_school\game2\obj\Debug\net7.0\game2.dll
+C:\Users\eliza\_vscode\_school\game2\obj\Debug\net7.0\refint\game2.dll
+C:\Users\eliza\_vscode\_school\game2\obj\Debug\net7.0\game2.pdb
+C:\Users\eliza\_vscode\_school\game2\obj\Debug\net7.0\game2.genruntimeconfig.cache
+C:\Users\eliza\_vscode\_school\game2\obj\Debug\net7.0\ref\game2.dll

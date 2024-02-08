@@ -63,7 +63,6 @@ static void starryNight() // star field
         Console.ForegroundColor = ConsoleColor.Gray;
     }
 }
-
 static void printCards() // print card deck (inscryption-like in shape)
 {
     static int getPosInt() // positive int from user
@@ -621,9 +620,10 @@ static void fileException()
         }
     }
 }
+
 #pragma warning restore CS8321 // Local function is declared but never used
-
-
 
 Cat cat1 = new Cat { name = "spoon", age = 3.24f, };
 cat1.list();
+
+// public, private, protected <- available in subclasses

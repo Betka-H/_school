@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eliza\\.vscode\\_school\\ukol\\ukol.csproj",
+      "projectUniqueName": "C:\\Users\\eliza\\_vscode\\_school\\ukol\\ukol.csproj",
       "projectName": "ukol",
-      "projectPath": "C:\\Users\\eliza\\.vscode\\_school\\ukol\\ukol.csproj",
+      "projectPath": "C:\\Users\\eliza\\_vscode\\_school\\ukol\\ukol.csproj",
       "packagesPath": "C:\\Users\\eliza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eliza\\.vscode\\_school\\ukol\\obj\\",
+      "outputPath": "C:\\Users\\eliza\\_vscode\\_school\\ukol\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\eliza\\AppData\\Roaming\\NuGet\\NuGet.Config"

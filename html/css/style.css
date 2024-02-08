@@ -1,0 +1,59 @@
+:root {
+    --special: brown;
+}
+
+body {
+    color: darkslategray;
+    background-color: beige;
+    font-size: 18px;
+    padding: 3vw;
+}
+
+a {
+    color: var(--special);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--special);
+}
+
+a:hover {
+    color: darkmagenta;
+}
+
+a:active {
+    color: darkcyan;
+}
+
+
+.special {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--special);
+}
+
+header {
+    text-align: center;
+    background-color: burlywood;
+    padding: 32px;
+    margin-bottom: 64px;
+    border-style: solid;
+}
+
+header .tabs {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 32px;
+}
+
+header .title {
+    font-size: 42px;
+    padding: 1.5vw;
+}
+
+footer {
+    border-style: solid;
+    background-color: burlywood;
+    padding: 32px;
+    margin-top: 64px;
+}

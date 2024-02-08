@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eliza\\.vscode\\_school\\testpage\\_school.csproj",
+      "projectUniqueName": "C:\\Users\\eliza\\_vscode\\_school\\testpage\\_school.csproj",
       "projectName": "_school",
-      "projectPath": "C:\\Users\\eliza\\.vscode\\_school\\testpage\\_school.csproj",
+      "projectPath": "C:\\Users\\eliza\\_vscode\\_school\\testpage\\_school.csproj",
       "packagesPath": "C:\\Users\\eliza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eliza\\.vscode\\_school\\testpage\\obj\\",
+      "outputPath": "C:\\Users\\eliza\\_vscode\\_school\\testpage\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\eliza\\AppData\\Roaming\\NuGet\\NuGet.Config"

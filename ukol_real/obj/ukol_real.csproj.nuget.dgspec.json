@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eliza\\.vscode\\_school\\ukol_real\\ukol_real.csproj": {}
+    "C:\\Users\\eliza\\_vscode\\_school\\ukol_real\\ukol_real.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eliza\\.vscode\\_school\\ukol_real\\ukol_real.csproj": {
+    "C:\\Users\\eliza\\_vscode\\_school\\ukol_real\\ukol_real.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eliza\\.vscode\\_school\\ukol_real\\ukol_real.csproj",
+        "projectUniqueName": "C:\\Users\\eliza\\_vscode\\_school\\ukol_real\\ukol_real.csproj",
         "projectName": "ukol_real",
-        "projectPath": "C:\\Users\\eliza\\.vscode\\_school\\ukol_real\\ukol_real.csproj",
+        "projectPath": "C:\\Users\\eliza\\_vscode\\_school\\ukol_real\\ukol_real.csproj",
         "packagesPath": "C:\\Users\\eliza\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eliza\\.vscode\\_school\\ukol_real\\obj\\",
+        "outputPath": "C:\\Users\\eliza\\_vscode\\_school\\ukol_real\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\eliza\\AppData\\Roaming\\NuGet\\NuGet.Config"
