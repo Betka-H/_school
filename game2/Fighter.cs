@@ -1,5 +1,3 @@
-using System.Runtime.Serialization;
-
 namespace game2
 {
     public class Fighter
@@ -54,9 +52,10 @@ namespace game2
                     // cause actual damage
                     if (rage)
                     {
+                        utilities.queueDmg = dmg * 2;
                         rage = false;
-                        goto case "a";
                     }
+                    utilities.queueDmg = dmg;
                     break;
                 case "d":
                     dodge = true;
@@ -77,7 +76,7 @@ namespace game2
                     break;
                 case "s":
                     Console.WriteLine("casts a spell for half damage, ignoring any dodges!");
-                    // cause actual damage
+                    utilities.queueDmg = dmg / 2;
                     break;
             }
         }

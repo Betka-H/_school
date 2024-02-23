@@ -88,7 +88,7 @@ static void checkOptions(string[] a, string[] b)
 //
 //
 //
-game();
+/* game(); */ // early start for testing
 
 //
 //

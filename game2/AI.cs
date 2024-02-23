@@ -19,6 +19,7 @@ namespace game2
         public override string action()
         {
             Console.WriteLine($"it is {name}'s turn!");
+            Thread.Sleep(500);
             return utilities.options[utilities.rnd.Next(utilities.options.Length)].ToString();
         }
     }

@@ -4,6 +4,8 @@ namespace game2
     {
         public static Random rnd = new Random();
         public static string options = "adhrs";
+        public static int activePlayer;
+        public static int queueDmg;
 
         public static string userInput()
         {

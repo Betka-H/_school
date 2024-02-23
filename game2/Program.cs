@@ -52,7 +52,18 @@ void game()
         p2.printStats();
         // [a]ttack/[d]odge/[h]eal/[r]age/[s]pell
 
+        utilities.activePlayer = 1;
         p1.TakeTurn(p1.action());
+        utilities.activePlayer = 2;
         p2.TakeTurn(p2.action());
+
+        switch (utilities.activePlayer)
+        {
+            case 1:
+                break;
+            case 2:
+                break;
+        }
     }
 }
+

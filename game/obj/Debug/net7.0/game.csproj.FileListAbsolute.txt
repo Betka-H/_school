@@ -12,3 +12,17 @@ C:\Users\eliza\.vscode\_school\game\obj\Debug\net7.0\refint\game.dll
 C:\Users\eliza\.vscode\_school\game\obj\Debug\net7.0\game.pdb
 C:\Users\eliza\.vscode\_school\game\obj\Debug\net7.0\game.genruntimeconfig.cache
 C:\Users\eliza\.vscode\_school\game\obj\Debug\net7.0\ref\game.dll
+C:\Users\eliza\_vscode\_school\game\bin\Debug\net7.0\game.exe
+C:\Users\eliza\_vscode\_school\game\bin\Debug\net7.0\game.deps.json
+C:\Users\eliza\_vscode\_school\game\bin\Debug\net7.0\game.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\game\bin\Debug\net7.0\game.dll
+C:\Users\eliza\_vscode\_school\game\bin\Debug\net7.0\game.pdb
+C:\Users\eliza\_vscode\_school\game\obj\Debug\net7.0\game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliza\_vscode\_school\game\obj\Debug\net7.0\game.AssemblyInfoInputs.cache
+C:\Users\eliza\_vscode\_school\game\obj\Debug\net7.0\game.AssemblyInfo.cs
+C:\Users\eliza\_vscode\_school\game\obj\Debug\net7.0\game.csproj.CoreCompileInputs.cache
+C:\Users\eliza\_vscode\_school\game\obj\Debug\net7.0\game.dll
+C:\Users\eliza\_vscode\_school\game\obj\Debug\net7.0\refint\game.dll
+C:\Users\eliza\_vscode\_school\game\obj\Debug\net7.0\game.pdb
+C:\Users\eliza\_vscode\_school\game\obj\Debug\net7.0\game.genruntimeconfig.cache
+C:\Users\eliza\_vscode\_school\game\obj\Debug\net7.0\ref\game.dll
