@@ -1,0 +1,14 @@
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\charsheet.exe
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\charsheet.deps.json
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\charsheet.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\charsheet.dll
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\charsheet.pdb
+C:\Users\eliza\_vscode\_school\charsheet\obj\Release\net7.0\charsheet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliza\_vscode\_school\charsheet\obj\Release\net7.0\charsheet.AssemblyInfoInputs.cache
+C:\Users\eliza\_vscode\_school\charsheet\obj\Release\net7.0\charsheet.AssemblyInfo.cs
+C:\Users\eliza\_vscode\_school\charsheet\obj\Release\net7.0\charsheet.csproj.CoreCompileInputs.cache
+C:\Users\eliza\_vscode\_school\charsheet\obj\Release\net7.0\charsheet.dll
+C:\Users\eliza\_vscode\_school\charsheet\obj\Release\net7.0\refint\charsheet.dll
+C:\Users\eliza\_vscode\_school\charsheet\obj\Release\net7.0\charsheet.pdb
+C:\Users\eliza\_vscode\_school\charsheet\obj\Release\net7.0\charsheet.genruntimeconfig.cache
+C:\Users\eliza\_vscode\_school\charsheet\obj\Release\net7.0\ref\charsheet.dll

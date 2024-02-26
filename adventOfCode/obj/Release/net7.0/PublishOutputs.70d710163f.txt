@@ -1,0 +1,5 @@
+C:\Users\eliza\_vscode\_school\adventOfCode\bin\Release\net7.0\publish\adventOfCode.exe
+C:\Users\eliza\_vscode\_school\adventOfCode\bin\Release\net7.0\publish\adventOfCode.dll
+C:\Users\eliza\_vscode\_school\adventOfCode\bin\Release\net7.0\publish\adventOfCode.deps.json
+C:\Users\eliza\_vscode\_school\adventOfCode\bin\Release\net7.0\publish\adventOfCode.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\adventOfCode\bin\Release\net7.0\publish\adventOfCode.pdb

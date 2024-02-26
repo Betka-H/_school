@@ -1,0 +1,5 @@
+C:\Users\eliza\_vscode\_school\ukol_real\bin\Release\net7.0\publish\ukol_real.exe
+C:\Users\eliza\_vscode\_school\ukol_real\bin\Release\net7.0\publish\ukol_real.dll
+C:\Users\eliza\_vscode\_school\ukol_real\bin\Release\net7.0\publish\ukol_real.deps.json
+C:\Users\eliza\_vscode\_school\ukol_real\bin\Release\net7.0\publish\ukol_real.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\ukol_real\bin\Release\net7.0\publish\ukol_real.pdb

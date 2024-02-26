@@ -1,0 +1,5 @@
+C:\Users\eliza\_vscode\_school\classW\bin\Release\net7.0\publish\classW.exe
+C:\Users\eliza\_vscode\_school\classW\bin\Release\net7.0\publish\classW.dll
+C:\Users\eliza\_vscode\_school\classW\bin\Release\net7.0\publish\classW.deps.json
+C:\Users\eliza\_vscode\_school\classW\bin\Release\net7.0\publish\classW.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\classW\bin\Release\net7.0\publish\classW.pdb

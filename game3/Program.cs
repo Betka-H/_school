@@ -90,9 +90,6 @@ void game()
             remberDodge(p);
             remberDodge(target);
 
-            Console.WriteLine("p1 " + p1.dodge);
-            Console.WriteLine("p2 " + p2.dodge);
-
             Console.Write(p.getName() + " ");
             switch (p.getAction())
             {

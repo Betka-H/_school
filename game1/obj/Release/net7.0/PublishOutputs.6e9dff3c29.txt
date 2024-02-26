@@ -1,0 +1,5 @@
+C:\Users\eliza\_vscode\_school\game1\bin\Release\net7.0\publish\game1.exe
+C:\Users\eliza\_vscode\_school\game1\bin\Release\net7.0\publish\game1.dll
+C:\Users\eliza\_vscode\_school\game1\bin\Release\net7.0\publish\game1.deps.json
+C:\Users\eliza\_vscode\_school\game1\bin\Release\net7.0\publish\game1.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\game1\bin\Release\net7.0\publish\game1.pdb

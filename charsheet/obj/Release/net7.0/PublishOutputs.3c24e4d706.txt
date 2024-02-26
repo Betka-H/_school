@@ -1,0 +1,5 @@
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\publish\charsheet.exe
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\publish\charsheet.dll
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\publish\charsheet.deps.json
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\publish\charsheet.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\charsheet\bin\Release\net7.0\publish\charsheet.pdb

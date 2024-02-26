@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "s/rblmJU8Pp/nS5Z1miGe2xeEpJA5WLPJN+O2tnN/19kDtMOYhjPDN6fazyqc8PnJ11Td6XniR4IQ4CcM73RDg==",
+  "dgSpecHash": "exv+WBUXPvys1sGMUANbDcyZIDcw1o32qKNvKxBiXzp0afaCGPzqa05p9jWthEwnVdVqRo9ZtHwMdtmqlf7FgQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\eliza\\_vscode\\_school\\adventOfCode\\adventOfCode.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\eliza\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-bionic-arm64\\7.0.11\\microsoft.netcore.app.runtime.linux-bionic-arm64.7.0.11.nupkg.sha512"
+  ],
   "logs": []
 }

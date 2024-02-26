@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zCEP3xsRfWW7tE2eOhmAnjo/vYxnHGg+pL25Z9rtPpXHPJvBq93ewXUj7jK8cdOoubxWSi5W2hdb9TXXc2ej/w==",
+  "dgSpecHash": "1Y5hwYEKVYVXQ0tBkKCCiP5HxA8BuR/ABbevrMb7qzMdOBO2B5NR+nY7/Pou1wH0xvBgjjAMp/yINooeR5Q4Kg==",
   "success": true,
   "projectFilePath": "C:\\Users\\eliza\\_vscode\\_school\\charsheet\\charsheet.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\eliza\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-bionic-arm64\\7.0.11\\microsoft.netcore.app.runtime.linux-bionic-arm64.7.0.11.nupkg.sha512"
+  ],
   "logs": []
 }

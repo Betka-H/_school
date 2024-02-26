@@ -10,7 +10,7 @@ namespace game3
 
         public override void takeAction()
         {
-            Console.WriteLine("[a]ttack/[d]odge/[h]eal/[r]age/[s]pell");
+            Console.WriteLine("[a]ttack/[d]odge/[h]eal/[s]pell");
             for (; ; )
             {
                 string s = Utilities.userInput();

@@ -1,0 +1,7 @@
+C:\Users\eliza\_vscode\_school\testpage\bin\Release\net7.0\publish\_school.exe
+C:\Users\eliza\_vscode\_school\testpage\bin\Release\net7.0\publish\appsettings.Development.json
+C:\Users\eliza\_vscode\_school\testpage\bin\Release\net7.0\publish\appsettings.json
+C:\Users\eliza\_vscode\_school\testpage\bin\Release\net7.0\publish\_school.dll
+C:\Users\eliza\_vscode\_school\testpage\bin\Release\net7.0\publish\_school.deps.json
+C:\Users\eliza\_vscode\_school\testpage\bin\Release\net7.0\publish\_school.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\testpage\bin\Release\net7.0\publish\_school.pdb

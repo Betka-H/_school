@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+GAfJX2JKg+46cB/cSonCyntunSyB1XIb1tGRGTk2e2GwafJa9/MBGX6XYK3LwPLfkab7Tna+29nL1w8E6Hm5w==",
+  "dgSpecHash": "S0tf91BG2uRjsa5/ZRZAyLngTF0Ta+LjiZHgyyg2wRs1Qtvm1O6GVIy65H2azdXMboLJpIB3xubljl6yih3rvg==",
   "success": true,
   "projectFilePath": "C:\\Users\\eliza\\_vscode\\_school\\game1\\game1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\eliza\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-bionic-arm64\\7.0.11\\microsoft.netcore.app.runtime.linux-bionic-arm64.7.0.11.nupkg.sha512"
+  ],
   "logs": []
 }
