@@ -50,6 +50,7 @@ thing6.assignName("a bowl of mac and cheese - an epic story");
 thing6.assignPrice(0.69);
 thing6.assignAuthor("john doe");
 
+// Product[] products = new Product[5];
 Product[] products = { thing1, thing2, thing3, thing4, thing5, thing6 };
 
 Console.Clear();
