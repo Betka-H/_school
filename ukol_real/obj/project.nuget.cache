@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CXD8FKvSclPmsJcMVge7BGTdXU0rU8EPe5VdoZwYlULRhgm+WOZYEVvVxDT53f+/QlSqtaVfIHdfMzg2ZgoVYw==",
+  "dgSpecHash": "QdLW9DQTpIC6GiDW6OExQ2ahzJm1ajao7NFSSm5s0GfQmzQtHsOhr+UP/GOCRDh0MJOUg8LquY1Oh0SV0QMoZA==",
   "success": true,
   "projectFilePath": "C:\\Users\\eliza\\_vscode\\_school\\ukol_real\\ukol_real.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\eliza\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-bionic-arm64\\7.0.11\\microsoft.netcore.app.runtime.linux-bionic-arm64.7.0.11.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

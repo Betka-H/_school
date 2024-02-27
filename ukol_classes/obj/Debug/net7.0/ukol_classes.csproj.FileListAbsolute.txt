@@ -1,0 +1,14 @@
+C:\Users\eliza\_vscode\_school\ukol_classes\bin\Debug\net7.0\ukol_classes.exe
+C:\Users\eliza\_vscode\_school\ukol_classes\bin\Debug\net7.0\ukol_classes.deps.json
+C:\Users\eliza\_vscode\_school\ukol_classes\bin\Debug\net7.0\ukol_classes.runtimeconfig.json
+C:\Users\eliza\_vscode\_school\ukol_classes\bin\Debug\net7.0\ukol_classes.dll
+C:\Users\eliza\_vscode\_school\ukol_classes\bin\Debug\net7.0\ukol_classes.pdb
+C:\Users\eliza\_vscode\_school\ukol_classes\obj\Debug\net7.0\ukol_classes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliza\_vscode\_school\ukol_classes\obj\Debug\net7.0\ukol_classes.AssemblyInfoInputs.cache
+C:\Users\eliza\_vscode\_school\ukol_classes\obj\Debug\net7.0\ukol_classes.AssemblyInfo.cs
+C:\Users\eliza\_vscode\_school\ukol_classes\obj\Debug\net7.0\ukol_classes.csproj.CoreCompileInputs.cache
+C:\Users\eliza\_vscode\_school\ukol_classes\obj\Debug\net7.0\ukol_classes.dll
+C:\Users\eliza\_vscode\_school\ukol_classes\obj\Debug\net7.0\refint\ukol_classes.dll
+C:\Users\eliza\_vscode\_school\ukol_classes\obj\Debug\net7.0\ukol_classes.pdb
+C:\Users\eliza\_vscode\_school\ukol_classes\obj\Debug\net7.0\ukol_classes.genruntimeconfig.cache
+C:\Users\eliza\_vscode\_school\ukol_classes\obj\Debug\net7.0\ref\ukol_classes.dll
